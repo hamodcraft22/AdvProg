@@ -1,0 +1,18 @@
+correct: 
+Scaffold-DbContext "Server=momacompany.asuscomm.com,62145;Database=AdvProg_Database;User Id=zift;Password=zift" Microsoft.EntityFrameworkCore.SqlServer -DataAnnotations -Tables advProj_Audit, advProj_Comment, advProj_ComResponse, advProj_Document, advProj_Log, advProj_Notification, advProj_nStatus, advProj_Project, advProj_pStatus, advProj_Task, advProj_UserTask, advProj_User -f
+
+correct with tables: 
+Scaffold-DbContext "Server=momacompany.asuscomm.com,62145;Database=AdvProg_Database;User Id=zift;Password=zift" Microsoft.EntityFrameworkCore.SqlServer -DataAnnotations
+
+others: 
+Scaffold-DbContext "Server=momacompany.asuscomm.com,62145;Database=DBFirstCoursesDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Model -Context "CourseDBContext" - DataAnnotations
+
+
+Data Source=momacompany.asuscomm.com,62145;Initial Catalog=AdvProg_Database;User ID=zift;Password=********;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False
+
+
+Scaffold-DbContext "Server=momacompany.asuscomm.com,62145;Database=AdvProg_Database;User Id=zift;Password=zift" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Model -Context "CourseDBContext" -DataAnnotations
+
+
+
+Scaffold-DbContext "Server=.\SQLEXPRESS;Database=DBFirstCoursesDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Model -Context "CourseDBContext" - DataAnnotations
