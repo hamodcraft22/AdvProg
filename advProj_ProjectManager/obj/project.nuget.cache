@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VuqMWjm8RnRd3pUilEX59ijfPqPGmIVfTok+WDw1t7VOB7PbMBDCLM+NbtepND6lsPoyclfmqKfEzEK//Dp9Jg==",
+  "dgSpecHash": "SARn+Wedr9//UdP73o/CXFnDIkK0ScuR1WTMGM/DBxQ4hMvCXa59rqytsyyJ1LfbW6fpZBvPOQ4Kqshw5Pylcg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\advProj_ProjectManager\\advProj_ProjectManager.csproj",
+  "projectFilePath": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_ProjectManager\\advProj_ProjectManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\moham\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\moham\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

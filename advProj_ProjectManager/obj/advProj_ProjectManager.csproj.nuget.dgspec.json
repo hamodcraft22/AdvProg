@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\advProj_ProjectManager\\advProj_ProjectManager.csproj": {}
+    "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_ProjectManager\\advProj_ProjectManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj": {
+    "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj",
+        "projectUniqueName": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj",
         "projectName": "advProj_BusinessObjects",
-        "projectPath": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj",
+        "projectPath": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj",
         "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\advProj_BusinessObjects\\obj\\",
+        "outputPath": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_BusinessObjects\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\moham\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -91,14 +91,14 @@
         }
       }
     },
-    "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\advProj_ProjectManager\\advProj_ProjectManager.csproj": {
+    "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_ProjectManager\\advProj_ProjectManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\advProj_ProjectManager\\advProj_ProjectManager.csproj",
+        "projectUniqueName": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_ProjectManager\\advProj_ProjectManager.csproj",
         "projectName": "advProj_ProjectManager",
-        "projectPath": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\advProj_ProjectManager\\advProj_ProjectManager.csproj",
+        "projectPath": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_ProjectManager\\advProj_ProjectManager.csproj",
         "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\advProj_ProjectManager\\obj\\",
+        "outputPath": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_ProjectManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\moham\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -115,8 +115,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj": {
-                "projectPath": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj"
+              "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj": {
+                "projectPath": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj"
               }
             }
           }
