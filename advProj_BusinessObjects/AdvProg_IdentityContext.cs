@@ -8,7 +8,7 @@ namespace advProj_BusinessObjects
 
 public class AdvProg_IdentityContext : IdentityDbContext<AdvProg_ApplicationUser>
 {
-        DbSet<AdvProg_ApplicationUser> ApplicationUsers { get; set; }
+        DbSet<AdvProg_ApplicationUser>? ApplicationUsers { get; set; }
 
         public AdvProg_IdentityContext()
         {
