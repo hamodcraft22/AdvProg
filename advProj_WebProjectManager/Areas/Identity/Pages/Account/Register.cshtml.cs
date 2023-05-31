@@ -20,6 +20,8 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using advProj_BusinessObjects;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
 {
@@ -31,13 +33,16 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<AdvProg_ApplicationUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        // adding the role manager for the users
+        private readonly RoleManager<IdentityRole> _RoleManager;
 
         public RegisterModel(
             UserManager<AdvProg_ApplicationUser> userManager,
             IUserStore<AdvProg_ApplicationUser> userStore,
             SignInManager<AdvProg_ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -45,6 +50,7 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _RoleManager = roleManager;
         }
 
         /// <summary>
@@ -102,14 +108,30 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
 
             [Required]
             public string Name { get; set; }
+
+            public string Role { get; set; }
+            [ValidateNever]
+            public IEnumerable<SelectListItem> RoleList { get; set; }
         }
 
         
 
         public async Task OnGetAsync(string returnUrl = null)
         {
+            if (!_RoleManager.RoleExistsAsync("Admin").GetAwaiter().GetResult())
+            {
+                _RoleManager.CreateAsync(new IdentityRole("Admin")).GetAwaiter().GetResult();
+                _RoleManager.CreateAsync(new IdentityRole("User")).GetAwaiter().GetResult();
+            }
+
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
+            // populating role input with roles
+            Input = new InputModel()
+            {
+                RoleList = _RoleManager.Roles.Select(x => x.Name).Select(i => new SelectListItem { Text = i, Value = i })
+            };
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
@@ -130,6 +152,17 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
+                    //CHNAGEFIX to check box check
+                    if (Input.Role == null || Input.Role == "0")
+                    {
+                        await _userManager.AddToRoleAsync(user, "User"); // if the admin button is not selected, register as a normal user
+                    }
+                    else 
+                    {
+                        //CHNAGEFIX
+                        await _userManager.AddToRoleAsync(user, Input.Role); // if the admin button is selected, its an admin
+                    }
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

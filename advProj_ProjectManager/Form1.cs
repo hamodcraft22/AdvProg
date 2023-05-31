@@ -47,14 +47,15 @@ namespace advProj_ProjectManager
             var userManager = serviceProvider.GetRequiredService<UserManager<AdvProg_ApplicationUser>>();
 
             var founduser = await userManager.FindByEmailAsync(username.Text);
-
+            
             if (founduser != null)
             {
                 var passCheck = await userManager.CheckPasswordAsync(founduser, password) == true;
 
                 if (passCheck)
                 {
-                    MessageBox.Show(founduser.Id);
+                    var userRole = await userManager.GetRolesAsync(founduser);
+                    MessageBox.Show(userRole.FirstOrDefault());
                 }
                 return passCheck;
             }

@@ -11,7 +11,7 @@ builder.Services.AddDbContext<AdvProg_DatabaseContext>(options => options.UseSql
 
 builder.Services.AddDbContext<AdvProg_IdentityContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Defultconnection")));
 
-builder.Services.AddDefaultIdentity<AdvProg_ApplicationUser>().AddEntityFrameworkStores<AdvProg_IdentityContext>();
+builder.Services.AddDefaultIdentity<AdvProg_ApplicationUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<AdvProg_IdentityContext>();
 
 var app = builder.Build();
 
