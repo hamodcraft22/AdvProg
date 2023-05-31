@@ -109,16 +109,25 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
 
             //add comments and extra annotations
             [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Username")]
             public string Username { get; set; }
 
             [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "First Name")]
             public string fName { get; set; }
             [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Last Name")]
             public string lName { get; set; }
 
-            public string Role { get; set; }
-            [ValidateNever]
-            public IEnumerable<SelectListItem> RoleList { get; set; }
+            [Required]
+            [DataType(DataType.PhoneNumber)]
+            [Display(Name = "Phone Number")]
+            public int Phone { get; set; }
+            [Display(Name = "Do you want to request an Admin role?")]
+            public bool wantsAdmin { get; set; }
         }
 
         
@@ -134,12 +143,6 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
 
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-
-            // populating role input with roles
-            Input = new InputModel()
-            {
-                RoleList = _RoleManager.Roles.Select(x => x.Name).Select(i => new SelectListItem { Text = i, Value = i })
-            };
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
@@ -152,7 +155,8 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
 
                 await _userStore.SetUserNameAsync(user, Input.Username, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-
+                await _userManager.SetPhoneNumberAsync(user, Input.Phone.ToString());
+                
                 // custome fileds for users
                 user.fName = Input.fName;
                 user.lName = Input.lName;
@@ -163,16 +167,7 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User created a new account with password.");
 
-                    //CHNAGEFIX to check box check
-                    if (Input.Role == null || Input.Role == "0")
-                    {
-                        await _userManager.AddToRoleAsync(user, "User"); // if the admin button is not selected, register as a normal user
-                    }
-                    else 
-                    {
-                        //CHNAGEFIX
-                        await _userManager.AddToRoleAsync(user, Input.Role); // if the admin button is selected, its an admin
-                    }
+                    await _userManager.AddToRoleAsync(user, "User"); // by defult, any new user is a normal user
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

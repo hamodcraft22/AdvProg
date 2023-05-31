@@ -57,12 +57,17 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account.Manage
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Phone]
+            [DataType(DataType.PhoneNumber)]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
 
             [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "First Name")]
             public string fName { get; set; }
             [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Last Name")]
             public string lName { get; set; }
         }
 
