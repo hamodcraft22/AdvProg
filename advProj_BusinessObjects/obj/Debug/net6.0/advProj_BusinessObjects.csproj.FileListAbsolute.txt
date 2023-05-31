@@ -26,3 +26,17 @@ C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObject
 C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.pdb
 C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.genruntimeconfig.cache
 C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\ref\advProj_BusinessObjects.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_BusinessObjects\bin\Debug\net6.0\advProj_BusinessObjects.deps.json
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_BusinessObjects\bin\Debug\net6.0\advProj_BusinessObjects.runtimeconfig.json
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_BusinessObjects\bin\Debug\net6.0\advProj_BusinessObjects.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_BusinessObjects\bin\Debug\net6.0\advProj_BusinessObjects.pdb
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.csproj.AssemblyReference.cache
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.GeneratedMSBuildEditorConfig.editorconfig
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.AssemblyInfoInputs.cache
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.AssemblyInfo.cs
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.csproj.CoreCompileInputs.cache
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\refint\advProj_BusinessObjects.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.pdb
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.genruntimeconfig.cache
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\ref\advProj_BusinessObjects.dll

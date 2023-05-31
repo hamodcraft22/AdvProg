@@ -1,8 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <ItemGroup>
-        <Compile Update="Form1.cs">
-            <SubType>Form</SubType>
-        </Compile>
-    </ItemGroup>
+  <ItemGroup>
+    <Compile Update="AdminPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Assigned Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Create Project.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Create Task.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Project Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Projects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Tasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Update Projects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Update Task.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
 </Project>
