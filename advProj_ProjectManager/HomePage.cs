@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace advProj_ProjectManager
 {
-    public partial class Tasks : Form
+    public partial class HomePage : Form
     {
-        public Tasks()
+        public HomePage()
         {
             InitializeComponent();
         }

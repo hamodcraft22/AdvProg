@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace advProj_ProjectManager
 {
-    public partial class Profile : Form
+    public partial class AddComment : Form
     {
-        public Profile()
+        public AddComment()
         {
             InitializeComponent();
         }

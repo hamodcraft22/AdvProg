@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace advProj_ProjectManager
 {
-    public partial class Assigned_Users : Form
+    public partial class ViewTask : Form
     {
-        public Assigned_Users()
+        public ViewTask()
         {
             InitializeComponent();
         }

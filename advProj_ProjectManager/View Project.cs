@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace advProj_ProjectManager
 {
-    public partial class Update_Task : Form
+    public partial class ProjectView : Form
     {
-        public Update_Task()
+        public ProjectView()
         {
             InitializeComponent();
         }

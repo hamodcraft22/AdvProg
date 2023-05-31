@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace advProj_ProjectManager
 {
-    public partial class View_Logs : Form
+    public partial class ShowInfo : Form
     {
-        public View_Logs()
+        public ShowInfo()
         {
             InitializeComponent();
         }
