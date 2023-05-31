@@ -22,6 +22,7 @@ using advProj_BusinessObjects;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using advProj_WebProjectManager.Models;
 
 namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
 {
@@ -35,6 +36,8 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
         private readonly IEmailSender _emailSender;
         // adding the role manager for the users
         private readonly RoleManager<IdentityRole> _RoleManager;
+
+        AdvProg_DatabaseContext databaseContext;
 
         public RegisterModel(
             UserManager<AdvProg_ApplicationUser> userManager,
@@ -51,6 +54,8 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
             _logger = logger;
             _emailSender = emailSender;
             _RoleManager = roleManager;
+
+            databaseContext = new AdvProg_DatabaseContext();
         }
 
         /// <summary>
@@ -169,6 +174,12 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
 
                     await _userManager.AddToRoleAsync(user, "User"); // by defult, any new user is a normal user
 
+                    //creating a new user object for the normal database
+                    AdvProjUser newUser = new AdvProjUser();
+                    newUser.AspUserId = user.Id;
+                    databaseContext.Add(newUser);
+                    databaseContext.SaveChanges();
+
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
@@ -188,6 +199,7 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
                     else
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
+                        Global.userID = newUser.UserId;
                         return LocalRedirect(returnUrl);
                     }
                 }

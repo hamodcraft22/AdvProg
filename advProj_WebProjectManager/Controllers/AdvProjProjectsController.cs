@@ -49,7 +49,7 @@ namespace advProj_WebProjectManager.Controllers
         public IActionResult Create()
         {
             ViewData["ManagerId"] = new SelectList(_context.AdvProjUsers, "UserId", "UserId");
-            ViewData["StatusId"] = new SelectList(_context.AdvProjPStatuses, "StatusId", "StatusDescription");
+            ViewData["StatusId"] = new SelectList(_context.AdvProjPStatuses, "StatusId", "StatusName");
             return View();
         }
 
@@ -67,7 +67,7 @@ namespace advProj_WebProjectManager.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ManagerId"] = new SelectList(_context.AdvProjUsers, "UserId", "UserId", advProjProject.ManagerId);
-            ViewData["StatusId"] = new SelectList(_context.AdvProjPStatuses, "StatusId", "StatusDescription", advProjProject.StatusId);
+            ViewData["StatusId"] = new SelectList(_context.AdvProjPStatuses, "StatusId", "StatusName", advProjProject.StatusId);
             return View(advProjProject);
         }
 

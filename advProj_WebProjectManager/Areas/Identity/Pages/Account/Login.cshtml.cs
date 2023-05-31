@@ -15,6 +15,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using advProj_BusinessObjects;
+using System.Security.Claims;
+using advProj_WebProjectManager.Models;
 
 namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
 {
@@ -22,11 +24,12 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<AdvProg_ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
-
+        AdvProg_DatabaseContext dbContext;
         public LoginModel(SignInManager<AdvProg_ApplicationUser> signInManager, ILogger<LoginModel> logger)
         {
             _signInManager = signInManager;
             _logger = logger;
+            dbContext = new AdvProg_DatabaseContext();
         }
 
         /// <summary>
@@ -118,6 +121,11 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+
+                    // retrive currant logged in user and save his it to the global user id
+                    var userAspID = _signInManager.UserManager.Users.FirstOrDefault(x => x.UserName == Input.Username).Id;
+                    Global.userID = dbContext.AdvProjUsers.SingleOrDefault(x => x.AspUserId == userAspID).UserId;
+
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
