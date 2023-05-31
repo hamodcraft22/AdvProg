@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using advProj_BusinessObjects;
 
@@ -11,9 +12,10 @@ using advProj_BusinessObjects;
 namespace advProj_BusinessObjects.Migrations
 {
     [DbContext(typeof(AdvProg_IdentityContext))]
-    partial class AdvProg_IdentityContextModelSnapshot : ModelSnapshot
+    [Migration("20230531074450_UpdateIdentityToDB4")]
+    partial class UpdateIdentityToDB4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

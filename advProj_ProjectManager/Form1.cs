@@ -46,7 +46,7 @@ namespace advProj_ProjectManager
 
             var userManager = serviceProvider.GetRequiredService<UserManager<AdvProg_ApplicationUser>>();
 
-            var founduser = await userManager.FindByEmailAsync(username.Text);
+            var founduser = await userManager.FindByNameAsync(username.Text);
             
             if (founduser != null)
             {

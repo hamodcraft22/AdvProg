@@ -106,8 +106,15 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
 
+
+            //add comments and extra annotations
             [Required]
-            public string Name { get; set; }
+            public string Username { get; set; }
+
+            [Required]
+            public string fName { get; set; }
+            [Required]
+            public string lName { get; set; }
 
             public string Role { get; set; }
             [ValidateNever]
@@ -118,6 +125,7 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
+            // custome roles creation 
             if (!_RoleManager.RoleExistsAsync("Admin").GetAwaiter().GetResult())
             {
                 _RoleManager.CreateAsync(new IdentityRole("Admin")).GetAwaiter().GetResult();
@@ -142,10 +150,12 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+                await _userStore.SetUserNameAsync(user, Input.Username, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
 
-                user.Name = Input.Name;
+                // custome fileds for users
+                user.fName = Input.fName;
+                user.lName = Input.lName;
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
 

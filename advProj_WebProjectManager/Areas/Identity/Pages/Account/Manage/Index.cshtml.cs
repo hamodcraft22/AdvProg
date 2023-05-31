@@ -59,6 +59,11 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
+            [Required]
+            public string fName { get; set; }
+            [Required]
+            public string lName { get; set; }
         }
 
         private async Task LoadAsync(AdvProg_ApplicationUser user)
@@ -70,7 +75,9 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                fName = user.fName, 
+                lName = user.lName
             };
         }
 
@@ -107,6 +114,30 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account.Manage
                 if (!setPhoneResult.Succeeded)
                 {
                     StatusMessage = "Unexpected error when trying to set phone number.";
+                    return RedirectToPage();
+                }
+            }
+
+            var firstName = user.fName;
+            if (Input.fName != firstName)
+            {
+                user.fName = Input.fName;
+                var setPhoneResult = await _userManager.UpdateAsync(user);
+                if (!setPhoneResult.Succeeded)
+                {
+                    StatusMessage = "Unexpected error when trying to set First Name";
+                    return RedirectToPage();
+                }
+            }
+
+            var lastName = user.lName;
+            if (Input.lName != lastName)
+            {
+                user.lName = Input.lName;
+                var setPhoneResult = await _userManager.UpdateAsync(user);
+                if (!setPhoneResult.Succeeded)
+                {
+                    StatusMessage = "Unexpected error when trying to set Last Name.";
                     return RedirectToPage();
                 }
             }
