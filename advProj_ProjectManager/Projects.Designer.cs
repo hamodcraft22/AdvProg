@@ -49,6 +49,12 @@
             groupBox1 = new GroupBox();
             lbl_CompletedProjects = new Label();
             lbl_AssignedProjects = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgv_ProjectsView).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -264,12 +270,80 @@
             lbl_AssignedProjects.Size = new Size(0, 20);
             lbl_AssignedProjects.TabIndex = 58;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(105, 451);
+            label5.Name = "label5";
+            label5.Size = new Size(27, 31);
+            label5.TabIndex = 91;
+            label5.Text = "0";
+            label5.Click += label5_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(105, 349);
+            label4.Name = "label4";
+            label4.Size = new Size(27, 31);
+            label4.TabIndex = 90;
+            label4.Text = "0";
+            label4.Click += label4_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(43, 421);
+            label3.Name = "label3";
+            label3.Size = new Size(159, 23);
+            label3.TabIndex = 89;
+            label3.Text = "Completed Projects";
+            label3.Click += label3_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(51, 326);
+            label2.Name = "label2";
+            label2.Size = new Size(140, 23);
+            label2.TabIndex = 88;
+            label2.Text = "Overdue Projects";
+            label2.Click += label2_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(40, 496);
+            label1.Name = "label1";
+            label1.Size = new Size(0, 20);
+            label1.TabIndex = 87;
+            label1.Click += label1_Click;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(40, 459);
+            label6.Name = "label6";
+            label6.Size = new Size(0, 20);
+            label6.TabIndex = 86;
+            label6.Click += label6_Click;
+            // 
             // ProjectsView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(1151, 653);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(label6);
             Controls.Add(groupBox1);
             Controls.Add(lbl_AssignedProjects);
             Controls.Add(lbl_CompletedProjects);
@@ -317,5 +391,11 @@
         private GroupBox groupBox1;
         private Label lbl_CompletedProjects;
         private Label lbl_AssignedProjects;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private Label label1;
+        private Label label6;
     }
 }

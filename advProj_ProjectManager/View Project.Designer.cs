@@ -49,6 +49,10 @@
             btn_CreateProject = new Button();
             lbl_AssignedProjects = new Label();
             lbl_CompletedProjects = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgv_Tasks).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -262,12 +266,56 @@
             lbl_CompletedProjects.Size = new Size(0, 20);
             lbl_CompletedProjects.TabIndex = 80;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(55, 305);
+            label2.Name = "label2";
+            label2.Size = new Size(118, 23);
+            label2.TabIndex = 82;
+            label2.Text = "Overdue Tasks";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(45, 400);
+            label3.Name = "label3";
+            label3.Size = new Size(137, 23);
+            label3.TabIndex = 83;
+            label3.Text = "Completed Tasks";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(93, 328);
+            label4.Name = "label4";
+            label4.Size = new Size(27, 31);
+            label4.TabIndex = 84;
+            label4.Text = "0";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(93, 434);
+            label5.Name = "label5";
+            label5.Size = new Size(27, 31);
+            label5.TabIndex = 85;
+            label5.Text = "0";
+            // 
             // ProjectView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(1151, 637);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(lbl_AssignedProjects);
             Controls.Add(lbl_CompletedProjects);
             Controls.Add(btn_ViewProject);
@@ -314,5 +362,9 @@
         private Button btn_CreateProject;
         private Label lbl_AssignedProjects;
         private Label lbl_CompletedProjects;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
     }
 }

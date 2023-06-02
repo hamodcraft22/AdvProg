@@ -25,7 +25,7 @@
     <Compile Update="View Project.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ViewTask.cs">
+    <Compile Update="View Task.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
