@@ -16,5 +16,20 @@ namespace advProj_ProjectManager
         {
             InitializeComponent();
         }
+
+        private void lbl_NumberOfManagedProjects_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ddl_Users_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ProjectsView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

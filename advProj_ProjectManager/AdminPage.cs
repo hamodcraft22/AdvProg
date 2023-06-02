@@ -16,5 +16,10 @@ namespace advProj_ProjectManager
         {
             InitializeComponent();
         }
+
+        private void ddl_LogSource_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

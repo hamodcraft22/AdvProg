@@ -16,5 +16,10 @@ namespace advProj_ProjectManager
         {
             InitializeComponent();
         }
+
+        private void ProjectView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

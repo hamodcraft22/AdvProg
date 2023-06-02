@@ -3160,23 +3160,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ADMIN\\.nuget\\packages\\": {},
-    "D:\\Program FIles (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\DELL\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Uni Projects\\Advance\\AdvProg\\AdvProg\\advProj_ProjectManager\\advProj_ProjectManager.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_ProjectManager\\advProj_ProjectManager.csproj",
       "projectName": "advProj_ProjectManager",
-      "projectPath": "D:\\Uni Projects\\Advance\\AdvProg\\AdvProg\\advProj_ProjectManager\\advProj_ProjectManager.csproj",
-      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\Uni Projects\\Advance\\AdvProg\\AdvProg\\advProj_ProjectManager\\obj\\",
+      "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_ProjectManager\\advProj_ProjectManager.csproj",
+      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_ProjectManager\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Program FIles (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3191,8 +3191,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "D:\\Uni Projects\\Advance\\AdvProg\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj": {
-              "projectPath": "D:\\Uni Projects\\Advance\\AdvProg\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj"
+            "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj": {
+              "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj"
             }
           }
         }
@@ -3257,7 +3257,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -43,8 +43,8 @@
             btn_DeleteComment = new Button();
             btn_Return = new Button();
             bt_Refresh = new Button();
-            this.ddl_SelectUser = new ComboBox();
-            lbl_SelectUser = new Label();
+           =
+            
             btn_DeleteUser = new Button();
             btn_AddUser = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_Comments).BeginInit();

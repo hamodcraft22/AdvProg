@@ -16,5 +16,15 @@ namespace advProj_ProjectManager
         {
             InitializeComponent();
         }
+
+        private void lbl_Login_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CreateTask_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

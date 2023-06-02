@@ -166,3 +166,22 @@ D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.Tasks.resources
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.Update_Projects.resources
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.Update_Task.resources
+C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.csproj.AssemblyReference.cache
+C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.AddComment.resources
+C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.ShowInfo.resources
+C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.Create_Project.resources
+C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.CreateTask.resources
+C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.HomePage.resources
+C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.Login.resources
+C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.ProjectsView.resources
+C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.Properties.Resources.resources
+C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.ProjectView.resources
+C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.ViewTask.resources
+C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.csproj.GenerateResource.cache
+C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.AssemblyInfoInputs.cache
+C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.AssemblyInfo.cs
+C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.dll
+C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\refint\advProj_ProjectManager.dll
+C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.pdb

@@ -28,304 +28,291 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lbl_ProjectView = new Label();
             dgv_Tasks = new DataGridView();
-            btn_Filter = new Button();
-            bt_Refresh = new Button();
-            btn_CreateTask = new Button();
-            btn_UpdateTask = new Button();
-            btn_DeleteTask = new Button();
-            btn_ViewTask = new Button();
-            btn_Return = new Button();
             lbl_SearchTask = new Label();
             btn_SearchTask = new Button();
             txt_SearchTask = new TextBox();
-            ddl_TaskStartDate = new DateTimePicker();
-            ddl_TaskStatus = new ComboBox();
-            lbl_TaskStatus = new Label();
-            lbl_TaskStartDate = new Label();
-            lbl_CompletedTasks = new Label();
-            lbl_NumberOfCompletedTasks = new Label();
-            lbl_OverDueTasks = new Label();
-            lbl_NumberOfOverDueTasks = new Label();
-            lbl_Tasks = new Label();
-            lbl_NumberOfTasks = new Label();
-            ddl_Users = new ComboBox();
             lbl_User = new Label();
+            groupBox1 = new GroupBox();
+            label1 = new Label();
+            ddl_ProjectStartDate = new DateTimePicker();
+            comboBox1 = new ComboBox();
+            lbl_ProjectStartDate = new Label();
+            lbl_ProjectStatus = new Label();
+            ddl_ProjectStatus = new ComboBox();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            btn_ViewProject = new Button();
+            btn_DeleteProject = new Button();
+            btn_UpdateProject = new Button();
+            btn_CreateProject = new Button();
+            lbl_AssignedProjects = new Label();
+            lbl_CompletedProjects = new Label();
             ((System.ComponentModel.ISupportInitialize)dgv_Tasks).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
-            // 
-            // lbl_ProjectView
-            // 
-            lbl_ProjectView.AutoSize = true;
-            lbl_ProjectView.Location = new Point(409, 9);
-            lbl_ProjectView.Name = "lbl_ProjectView";
-            lbl_ProjectView.Size = new Size(72, 15);
-            lbl_ProjectView.TabIndex = 0;
-            lbl_ProjectView.Text = "Project View";
             // 
             // dgv_Tasks
             // 
             dgv_Tasks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Tasks.Location = new Point(225, 68);
+            dgv_Tasks.Location = new Point(234, 95);
+            dgv_Tasks.Margin = new Padding(3, 4, 3, 4);
             dgv_Tasks.Name = "dgv_Tasks";
+            dgv_Tasks.RowHeadersWidth = 51;
             dgv_Tasks.RowTemplate.Height = 25;
-            dgv_Tasks.Size = new Size(546, 296);
+            dgv_Tasks.Size = new Size(888, 452);
             dgv_Tasks.TabIndex = 14;
-            // 
-            // btn_Filter
-            // 
-            btn_Filter.Location = new Point(7, 341);
-            btn_Filter.Name = "btn_Filter";
-            btn_Filter.Size = new Size(75, 23);
-            btn_Filter.TabIndex = 19;
-            btn_Filter.Text = "Filter";
-            btn_Filter.UseVisualStyleBackColor = true;
-            // 
-            // bt_Refresh
-            // 
-            bt_Refresh.Location = new Point(111, 341);
-            bt_Refresh.Name = "bt_Refresh";
-            bt_Refresh.Size = new Size(75, 23);
-            bt_Refresh.TabIndex = 20;
-            bt_Refresh.Text = "Refresh";
-            bt_Refresh.UseVisualStyleBackColor = true;
-            // 
-            // btn_CreateTask
-            // 
-            btn_CreateTask.Location = new Point(660, 398);
-            btn_CreateTask.Name = "btn_CreateTask";
-            btn_CreateTask.Size = new Size(111, 23);
-            btn_CreateTask.TabIndex = 21;
-            btn_CreateTask.Text = "Create Task";
-            btn_CreateTask.UseVisualStyleBackColor = true;
-            // 
-            // btn_UpdateTask
-            // 
-            btn_UpdateTask.Location = new Point(561, 398);
-            btn_UpdateTask.Name = "btn_UpdateTask";
-            btn_UpdateTask.Size = new Size(93, 23);
-            btn_UpdateTask.TabIndex = 22;
-            btn_UpdateTask.Text = "Update Task";
-            btn_UpdateTask.UseVisualStyleBackColor = true;
-            // 
-            // btn_DeleteTask
-            // 
-            btn_DeleteTask.Location = new Point(451, 398);
-            btn_DeleteTask.Name = "btn_DeleteTask";
-            btn_DeleteTask.Size = new Size(97, 23);
-            btn_DeleteTask.TabIndex = 23;
-            btn_DeleteTask.Text = "Delete Task";
-            btn_DeleteTask.UseVisualStyleBackColor = true;
-            // 
-            // btn_ViewTask
-            // 
-            btn_ViewTask.Location = new Point(309, 398);
-            btn_ViewTask.Name = "btn_ViewTask";
-            btn_ViewTask.Size = new Size(124, 23);
-            btn_ViewTask.TabIndex = 24;
-            btn_ViewTask.Text = "View Task";
-            btn_ViewTask.UseVisualStyleBackColor = true;
-            // 
-            // btn_Return
-            // 
-            btn_Return.Location = new Point(55, 398);
-            btn_Return.Name = "btn_Return";
-            btn_Return.Size = new Size(90, 23);
-            btn_Return.TabIndex = 27;
-            btn_Return.Text = "Return";
-            btn_Return.UseVisualStyleBackColor = true;
             // 
             // lbl_SearchTask
             // 
             lbl_SearchTask.AutoSize = true;
-            lbl_SearchTask.Location = new Point(12, 68);
+            lbl_SearchTask.Location = new Point(25, 109);
             lbl_SearchTask.Name = "lbl_SearchTask";
-            lbl_SearchTask.Size = new Size(70, 15);
+            lbl_SearchTask.Size = new Size(84, 20);
             lbl_SearchTask.TabIndex = 28;
-            lbl_SearchTask.Text = "Search Task:";
+            lbl_SearchTask.Text = "Search Task";
             // 
             // btn_SearchTask
             // 
-            btn_SearchTask.Location = new Point(121, 99);
+            btn_SearchTask.Location = new Point(123, 180);
+            btn_SearchTask.Margin = new Padding(3, 4, 3, 4);
             btn_SearchTask.Name = "btn_SearchTask";
-            btn_SearchTask.Size = new Size(75, 23);
+            btn_SearchTask.Size = new Size(86, 31);
             btn_SearchTask.TabIndex = 29;
             btn_SearchTask.Text = "Search Task";
             btn_SearchTask.UseVisualStyleBackColor = true;
             // 
             // txt_SearchTask
             // 
-            txt_SearchTask.Location = new Point(15, 99);
+            txt_SearchTask.Location = new Point(25, 140);
+            txt_SearchTask.Margin = new Padding(3, 4, 3, 4);
             txt_SearchTask.Name = "txt_SearchTask";
-            txt_SearchTask.Size = new Size(100, 23);
+            txt_SearchTask.Size = new Size(184, 27);
             txt_SearchTask.TabIndex = 30;
-            // 
-            // ddl_TaskStartDate
-            // 
-            ddl_TaskStartDate.Location = new Point(15, 231);
-            ddl_TaskStartDate.Name = "ddl_TaskStartDate";
-            ddl_TaskStartDate.Size = new Size(186, 23);
-            ddl_TaskStartDate.TabIndex = 65;
-            // 
-            // ddl_TaskStatus
-            // 
-            ddl_TaskStatus.FormattingEnabled = true;
-            ddl_TaskStatus.Location = new Point(16, 301);
-            ddl_TaskStatus.Name = "ddl_TaskStatus";
-            ddl_TaskStatus.Size = new Size(185, 23);
-            ddl_TaskStatus.TabIndex = 64;
-            // 
-            // lbl_TaskStatus
-            // 
-            lbl_TaskStatus.AutoSize = true;
-            lbl_TaskStatus.Location = new Point(15, 270);
-            lbl_TaskStatus.Name = "lbl_TaskStatus";
-            lbl_TaskStatus.Size = new Size(87, 15);
-            lbl_TaskStatus.TabIndex = 63;
-            lbl_TaskStatus.Text = "Filter by Status:";
-            // 
-            // lbl_TaskStartDate
-            // 
-            lbl_TaskStartDate.AutoSize = true;
-            lbl_TaskStartDate.Location = new Point(12, 213);
-            lbl_TaskStartDate.Name = "lbl_TaskStartDate";
-            lbl_TaskStartDate.Size = new Size(103, 15);
-            lbl_TaskStartDate.TabIndex = 62;
-            lbl_TaskStartDate.Text = "Filter by StartDate:";
-            // 
-            // lbl_CompletedTasks
-            // 
-            lbl_CompletedTasks.AutoSize = true;
-            lbl_CompletedTasks.Location = new Point(543, 50);
-            lbl_CompletedTasks.Name = "lbl_CompletedTasks";
-            lbl_CompletedTasks.Size = new Size(99, 15);
-            lbl_CompletedTasks.TabIndex = 66;
-            lbl_CompletedTasks.Text = "Completed Tasks:";
-            // 
-            // lbl_NumberOfCompletedTasks
-            // 
-            lbl_NumberOfCompletedTasks.AutoSize = true;
-            lbl_NumberOfCompletedTasks.Location = new Point(648, 50);
-            lbl_NumberOfCompletedTasks.Name = "lbl_NumberOfCompletedTasks";
-            lbl_NumberOfCompletedTasks.Size = new Size(13, 15);
-            lbl_NumberOfCompletedTasks.TabIndex = 67;
-            lbl_NumberOfCompletedTasks.Text = "0";
-            // 
-            // lbl_OverDueTasks
-            // 
-            lbl_OverDueTasks.AutoSize = true;
-            lbl_OverDueTasks.Location = new Point(409, 50);
-            lbl_OverDueTasks.Name = "lbl_OverDueTasks";
-            lbl_OverDueTasks.Size = new Size(83, 15);
-            lbl_OverDueTasks.TabIndex = 68;
-            lbl_OverDueTasks.Text = "OverDueTasks:";
-            // 
-            // lbl_NumberOfOverDueTasks
-            // 
-            lbl_NumberOfOverDueTasks.AutoSize = true;
-            lbl_NumberOfOverDueTasks.Location = new Point(513, 50);
-            lbl_NumberOfOverDueTasks.Name = "lbl_NumberOfOverDueTasks";
-            lbl_NumberOfOverDueTasks.Size = new Size(13, 15);
-            lbl_NumberOfOverDueTasks.TabIndex = 69;
-            lbl_NumberOfOverDueTasks.Text = "0";
-            // 
-            // lbl_Tasks
-            // 
-            lbl_Tasks.AutoSize = true;
-            lbl_Tasks.Location = new Point(266, 50);
-            lbl_Tasks.Name = "lbl_Tasks";
-            lbl_Tasks.Size = new Size(98, 15);
-            lbl_Tasks.TabIndex = 70;
-            lbl_Tasks.Text = "Number of Tasks:";
-            // 
-            // lbl_NumberOfTasks
-            // 
-            lbl_NumberOfTasks.AutoSize = true;
-            lbl_NumberOfTasks.Location = new Point(370, 50);
-            lbl_NumberOfTasks.Name = "lbl_NumberOfTasks";
-            lbl_NumberOfTasks.Size = new Size(13, 15);
-            lbl_NumberOfTasks.TabIndex = 71;
-            lbl_NumberOfTasks.Text = "0";
-            // 
-            // ddl_Users
-            // 
-            ddl_Users.FormattingEnabled = true;
-            ddl_Users.Location = new Point(15, 174);
-            ddl_Users.Name = "ddl_Users";
-            ddl_Users.Size = new Size(186, 23);
-            ddl_Users.TabIndex = 73;
             // 
             // lbl_User
             // 
             lbl_User.AutoSize = true;
-            lbl_User.Location = new Point(16, 143);
+            lbl_User.Location = new Point(18, 191);
             lbl_User.Name = "lbl_User";
-            lbl_User.Size = new Size(86, 15);
+            lbl_User.Size = new Size(0, 20);
             lbl_User.TabIndex = 72;
-            lbl_User.Text = "Filter by Users :";
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(ddl_ProjectStartDate);
+            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(lbl_ProjectStartDate);
+            groupBox1.Controls.Add(lbl_ProjectStatus);
+            groupBox1.Controls.Add(ddl_ProjectStatus);
+            groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(button2);
+            groupBox1.Location = new Point(14, 12);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(1108, 67);
+            groupBox1.TabIndex = 74;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Filters";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(11, 30);
+            label1.Name = "label1";
+            label1.Size = new Size(108, 20);
+            label1.TabIndex = 2;
+            label1.Text = "Filter by Users :";
+            // 
+            // ddl_ProjectStartDate
+            // 
+            ddl_ProjectStartDate.Location = new Point(416, 26);
+            ddl_ProjectStartDate.Margin = new Padding(3, 4, 3, 4);
+            ddl_ProjectStartDate.Name = "ddl_ProjectStartDate";
+            ddl_ProjectStartDate.Size = new Size(212, 27);
+            ddl_ProjectStartDate.TabIndex = 61;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(125, 25);
+            comboBox1.Margin = new Padding(3, 4, 3, 4);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(138, 28);
+            comboBox1.TabIndex = 4;
+            // 
+            // lbl_ProjectStartDate
+            // 
+            lbl_ProjectStartDate.AutoSize = true;
+            lbl_ProjectStartDate.Location = new Point(280, 30);
+            lbl_ProjectStartDate.Name = "lbl_ProjectStartDate";
+            lbl_ProjectStartDate.Size = new Size(132, 20);
+            lbl_ProjectStartDate.TabIndex = 3;
+            lbl_ProjectStartDate.Text = "Filter by StartDate:";
+            // 
+            // lbl_ProjectStatus
+            // 
+            lbl_ProjectStatus.AutoSize = true;
+            lbl_ProjectStatus.Location = new Point(647, 30);
+            lbl_ProjectStatus.Name = "lbl_ProjectStatus";
+            lbl_ProjectStatus.Size = new Size(109, 20);
+            lbl_ProjectStatus.TabIndex = 17;
+            lbl_ProjectStatus.Text = "Filter by Status:";
+            // 
+            // ddl_ProjectStatus
+            // 
+            ddl_ProjectStatus.FormattingEnabled = true;
+            ddl_ProjectStatus.Location = new Point(762, 26);
+            ddl_ProjectStatus.Margin = new Padding(3, 4, 3, 4);
+            ddl_ProjectStatus.Name = "ddl_ProjectStatus";
+            ddl_ProjectStatus.Size = new Size(138, 28);
+            ddl_ProjectStatus.TabIndex = 18;
+            // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.GradientActiveCaption;
+            button1.Location = new Point(917, 18);
+            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Name = "button1";
+            button1.Size = new Size(86, 38);
+            button1.TabIndex = 6;
+            button1.Text = "Filter";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            button2.BackColor = SystemColors.GradientActiveCaption;
+            button2.Location = new Point(1012, 18);
+            button2.Margin = new Padding(3, 4, 3, 4);
+            button2.Name = "button2";
+            button2.Size = new Size(86, 38);
+            button2.TabIndex = 7;
+            button2.Text = "Refresh";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            button3.BackColor = SystemColors.GradientActiveCaption;
+            button3.Location = new Point(25, 568);
+            button3.Margin = new Padding(3, 4, 3, 4);
+            button3.Name = "button3";
+            button3.Size = new Size(108, 52);
+            button3.TabIndex = 75;
+            button3.Text = "Return";
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // btn_ViewProject
+            // 
+            btn_ViewProject.BackColor = SystemColors.GradientActiveCaption;
+            btn_ViewProject.Location = new Point(716, 568);
+            btn_ViewProject.Margin = new Padding(3, 4, 3, 4);
+            btn_ViewProject.Name = "btn_ViewProject";
+            btn_ViewProject.Size = new Size(114, 52);
+            btn_ViewProject.TabIndex = 79;
+            btn_ViewProject.Text = "View Task";
+            btn_ViewProject.UseVisualStyleBackColor = false;
+            // 
+            // btn_DeleteProject
+            // 
+            btn_DeleteProject.BackColor = Color.IndianRed;
+            btn_DeleteProject.Location = new Point(582, 568);
+            btn_DeleteProject.Margin = new Padding(3, 4, 3, 4);
+            btn_DeleteProject.Name = "btn_DeleteProject";
+            btn_DeleteProject.Size = new Size(116, 52);
+            btn_DeleteProject.TabIndex = 78;
+            btn_DeleteProject.Text = "Delete Task";
+            btn_DeleteProject.UseVisualStyleBackColor = false;
+            // 
+            // btn_UpdateProject
+            // 
+            btn_UpdateProject.BackColor = SystemColors.GradientActiveCaption;
+            btn_UpdateProject.Location = new Point(849, 568);
+            btn_UpdateProject.Margin = new Padding(3, 4, 3, 4);
+            btn_UpdateProject.Name = "btn_UpdateProject";
+            btn_UpdateProject.Size = new Size(130, 52);
+            btn_UpdateProject.TabIndex = 77;
+            btn_UpdateProject.Text = "Update Task";
+            btn_UpdateProject.UseVisualStyleBackColor = false;
+            // 
+            // btn_CreateProject
+            // 
+            btn_CreateProject.BackColor = SystemColors.GradientActiveCaption;
+            btn_CreateProject.Location = new Point(995, 568);
+            btn_CreateProject.Margin = new Padding(3, 4, 3, 4);
+            btn_CreateProject.Name = "btn_CreateProject";
+            btn_CreateProject.Size = new Size(127, 52);
+            btn_CreateProject.TabIndex = 76;
+            btn_CreateProject.Text = "Create Task";
+            btn_CreateProject.UseVisualStyleBackColor = false;
+            // 
+            // lbl_AssignedProjects
+            // 
+            lbl_AssignedProjects.AutoSize = true;
+            lbl_AssignedProjects.Location = new Point(34, 475);
+            lbl_AssignedProjects.Name = "lbl_AssignedProjects";
+            lbl_AssignedProjects.Size = new Size(0, 20);
+            lbl_AssignedProjects.TabIndex = 81;
+            // 
+            // lbl_CompletedProjects
+            // 
+            lbl_CompletedProjects.AutoSize = true;
+            lbl_CompletedProjects.Location = new Point(34, 438);
+            lbl_CompletedProjects.Name = "lbl_CompletedProjects";
+            lbl_CompletedProjects.Size = new Size(0, 20);
+            lbl_CompletedProjects.TabIndex = 80;
             // 
             // ProjectView
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(ddl_Users);
+            BackColor = SystemColors.ControlLightLight;
+            ClientSize = new Size(1151, 637);
+            Controls.Add(lbl_AssignedProjects);
+            Controls.Add(lbl_CompletedProjects);
+            Controls.Add(btn_ViewProject);
+            Controls.Add(btn_DeleteProject);
+            Controls.Add(btn_UpdateProject);
+            Controls.Add(btn_CreateProject);
+            Controls.Add(button3);
+            Controls.Add(groupBox1);
             Controls.Add(lbl_User);
-            Controls.Add(lbl_NumberOfTasks);
-            Controls.Add(lbl_Tasks);
-            Controls.Add(lbl_NumberOfOverDueTasks);
-            Controls.Add(lbl_OverDueTasks);
-            Controls.Add(lbl_NumberOfCompletedTasks);
-            Controls.Add(lbl_CompletedTasks);
-            Controls.Add(ddl_TaskStartDate);
-            Controls.Add(ddl_TaskStatus);
-            Controls.Add(lbl_TaskStatus);
-            Controls.Add(lbl_TaskStartDate);
             Controls.Add(txt_SearchTask);
             Controls.Add(btn_SearchTask);
             Controls.Add(lbl_SearchTask);
-            Controls.Add(btn_Return);
-            Controls.Add(btn_ViewTask);
-            Controls.Add(btn_DeleteTask);
-            Controls.Add(btn_UpdateTask);
-            Controls.Add(btn_CreateTask);
-            Controls.Add(bt_Refresh);
-            Controls.Add(btn_Filter);
             Controls.Add(dgv_Tasks);
-            Controls.Add(lbl_ProjectView);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "ProjectView";
-            Text = "ProjectView";
+            Text = "Task View";
+            Load += ProjectView_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_Tasks).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label lbl_ProjectView;
         private DataGridView dgv_Tasks;
-        private Button btn_Filter;
-        private Button bt_Refresh;
-        private Button btn_CreateTask;
-        private Button btn_UpdateTask;
-        private Button btn_DeleteTask;
-        private Button btn_ViewTask;
-        private Button btn_Return;
         private Label lbl_SearchTask;
         private Button btn_SearchTask;
         private TextBox txt_SearchTask;
-        private DateTimePicker ddl_TaskStartDate;
-        private ComboBox ddl_TaskStatus;
-        private Label lbl_TaskStatus;
-        private Label lbl_TaskStartDate;
-        private Label lbl_CompletedTasks;
-        private Label lbl_NumberOfCompletedTasks;
-        private Label lbl_OverDueTasks;
-        private Label lbl_NumberOfOverDueTasks;
-        private Label lbl_Tasks;
-        private Label lbl_NumberOfTasks;
-        private ComboBox ddl_Users;
         private Label lbl_User;
+        private GroupBox groupBox1;
+        private Label label1;
+        private DateTimePicker ddl_ProjectStartDate;
+        private ComboBox comboBox1;
+        private Label lbl_ProjectStartDate;
+        private Label lbl_ProjectStatus;
+        private ComboBox ddl_ProjectStatus;
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private Button btn_ViewProject;
+        private Button btn_DeleteProject;
+        private Button btn_UpdateProject;
+        private Button btn_CreateProject;
+        private Label lbl_AssignedProjects;
+        private Label lbl_CompletedProjects;
     }
 }

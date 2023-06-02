@@ -16,5 +16,50 @@ namespace advProj_ProjectManager
         {
             InitializeComponent();
         }
+
+        private void HomePage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_HomePage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_Project_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_NumberOfProjects_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox7_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

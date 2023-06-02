@@ -16,5 +16,35 @@ namespace advProj_ProjectManager
         {
             InitializeComponent();
         }
+
+        private void lbl_Email_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_Login_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Login_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

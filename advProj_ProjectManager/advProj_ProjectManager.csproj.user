@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="AdminPage.cs">
+    <Compile Update="AddComment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Assigned Users.cs">
+    <Compile Update="AdminPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Create Project.cs">
@@ -19,22 +19,13 @@
     <Compile Update="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Profile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Project Dashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Projects.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Tasks.cs">
+    <Compile Update="View Project.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Update Projects.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Update Task.cs">
+    <Compile Update="ViewTask.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
