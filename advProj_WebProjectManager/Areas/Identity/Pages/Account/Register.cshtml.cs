@@ -199,6 +199,7 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
                     else
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
+                        // set userid to global to use it when user is doing actions -- //FIX
                         Global.userID = newUser.UserId;
                         return LocalRedirect(returnUrl);
                     }

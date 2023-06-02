@@ -1,4 +1,6 @@
-﻿@model IEnumerable<advProj_BusinessObjects.AdvProjProject>
+﻿@using advProj_WebProjectManager.ViewModels;
+@model ProjectIndexViewModel
+@*@model IEnumerable<advProj_BusinessObjects.AdvProjProject>*@
 
 @{
     ViewData["Title"] = "Index";
@@ -7,72 +9,158 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+@{
+    if (TempData["ErrorMsg"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["ErrorMsg"].ToString()
+        </div>
+    }
+}
+
+@*search form*@
+<div class="d-flex align-items-center justify-content-center flex-column gap-4">
+    <form asp-controller="advProjProjects" asp-action="Index" method="get" class="d-flex">
+        @*search box for project name*@
+        <div class="input-group m-1">
+            
+            @*show clear button when there is a search input only*@
+            @{
+                if (!String.IsNullOrEmpty(Context.Request.Query["projectName"].ToString()))
+                {
+                    <a href="advProjProjects" class="input-group-text text-decoration-none">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </a>
+                }
+            }
+            <div class="form-floating">
+                <input type="text" name="ProjectName" class="form-control" id="ProjectName" placeholder="Project Name" value="@Context.Request.Query["projectName"]">
+                <label for="ProjectName">Project Name</label>
+            </div>
+            <button type="submit" value="Search" class="input-group-text">
+                <i class="fas fa-search"></i>
+            </button>
+
+        </div>
+        @*combo box for projects*@
+        <div class="input-group m-1">
+            @*show clear button when there is a search input only*@
+            @{
+                if (!String.IsNullOrEmpty(Context.Request.Query["StatusInput"].ToString()))
+                {
+                    <a href="advProjProjects" class="input-group-text text-decoration-none">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </a>
+                }
+            }
+            <div class="form-floating">
+                <select asp-for="StatusInput" asp-items="Model.Status.Select(i => new SelectListItem{Text = i.StatusName, Value = i.StatusId.ToString()})" class="form-control">
+                    <option value="">All</option>
+                </select>
+                <label for="ProjectName">Status</label>
+            </div>
+            <button type="submit" value="Search" class="input-group-text">
+                <i class="fa-solid fa-filter"></i>
+            </button>
+
+        </div>
+        @{
+            if (!String.IsNullOrEmpty(Context.Request.Query["member"].ToString()))
+            {
+                <input type="hidden" name="member" value="true">
+            }
+        }
+    </form>
+</div>
+
+@{
+    if (String.IsNullOrEmpty(Context.Request.Query["member"].ToString()))
+    {
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Create a New Project</a>
+        </p>
+    }
+}
+
+<table class="table table-striped">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ProjectName)
+            @*writing the names manually - ocd reasosns*@
+            <th class="text-center">
+                Project Name
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProjectDescription)
+            <th class="text-center">
+                Description
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreateDate)
+            <th class="text-center">
+                Start Date
+            </th class="text-center">
+            <th class="text-center">
+                End Date
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StartDate)
+            <th class="text-center">
+                Manager
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EndDate)
+            <th class="text-center">
+                Status
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FinishDate)
+            <th class="text-center">
+                Actions
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Manager)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProjectName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProjectDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreateDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FinishDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Manager.UserId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status.StatusDescription)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ProjectId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProjectId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProjectId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Projects)
+        {
+            string formatClass = "";
+
+            if (item.Status != null)
+            {
+                if (item.Status.StatusId == 3)
+                {
+                    formatClass = "table-warning";
+                }
+                else if (item.Status.StatusId == 4)
+                {
+                    formatClass = "table-secondary";
+                }
+                else if (item.Status.StatusId == 5)
+                {
+                    formatClass = "table-success";
+                }
+            }
+
+            <tr class="@formatClass">
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProjectName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProjectDescription)
+                </td>
+                <td class="text-center">
+                    @Convert.ToDateTime(item.StartDate).ToString("dd/MM/yyyy")
+                </td>
+                <td class="text-center">
+                    @Convert.ToDateTime(item.StartDate).ToString("dd/MM/yyyy")
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Manager.FullName)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Status.StatusName)
+                </td>
+                <td class="text-center">
+                    <a type="button" class="btn btn-primary btn-sm" asp-action="Details" asp-route-id="@item.ProjectId"><i class="fa-solid fa-circle-info fa-xs"></i></a> 
+                    @{
+                        if (String.IsNullOrEmpty(Context.Request.Query["member"].ToString()))
+                        {     
+                            <a type="button" class="btn btn-success btn-sm" asp-action="Edit" asp-route-id="@item.ProjectId"><i class="fa-solid fa-pen-to-square fa-xs"></i></a> 
+                            <a type="button" class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.ProjectId"><i class="fa-solid fa-trash fa-xs"></i></a> 
+                            <a type="button" class="btn btn-warning btn-sm" asp-controller="advProjTasks" asp-action="Index" asp-route-id="@item.ProjectId"><i class="fa-solid fa-list-check"></i></a>
+                        }
+                    }
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

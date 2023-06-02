@@ -14,47 +14,55 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ProjectId" />
-            <div class="form-group">
-                <label asp-for="ProjectName" class="control-label"></label>
+            <div class="form-floating mb-1">
                 <input asp-for="ProjectName" class="form-control" />
+                <label asp-for="ProjectName"></label>
                 <span asp-validation-for="ProjectName" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ProjectDescription" class="control-label"></label>
+            <div class="form-floating mb-1">
                 <input asp-for="ProjectDescription" class="form-control" />
+                <label asp-for="ProjectDescription"></label>
                 <span asp-validation-for="ProjectDescription" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CreateDate" class="control-label"></label>
-                <input asp-for="CreateDate" class="form-control" />
-                <span asp-validation-for="CreateDate" class="text-danger"></span>
+            @*workaround to hide the feilds from the user so that they couldnt be chnaged*@
+            <div class="row" hidden>
+                <div class="col">
+                    <div class="form-floating mb-1">
+                        <input asp-for="CreateDate" class="form-control" type="date" />
+                        <label asp-for="CreateDate"></label>
+                        <span asp-validation-for="CreateDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-1">
+                        <input asp-for="FinishDate" class="form-control" type="date" />
+                        <label asp-for="FinishDate"></label>
+                        <span asp-validation-for="FinishDate" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="StartDate" class="control-label"></label>
-                <input asp-for="StartDate" class="form-control" />
-                <span asp-validation-for="StartDate" class="text-danger"></span>
+            <div class="row">
+                <div class="col">
+                    <div class="form-floating mb-1">
+                        <input asp-for="StartDate" class="form-control" type="date" />
+                        <label asp-for="StartDate"></label>
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-1">
+                        <input asp-for="EndDate" class="form-control" type="date" />
+                        <label asp-for="EndDate"></label>
+                        <span asp-validation-for="EndDate" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="EndDate" class="control-label"></label>
-                <input asp-for="EndDate" class="form-control" />
-                <span asp-validation-for="EndDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FinishDate" class="control-label"></label>
-                <input asp-for="FinishDate" class="form-control" />
-                <span asp-validation-for="FinishDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StatusId" class="control-label"></label>
+            <div class="form-floating mb-1">
                 <select asp-for="StatusId" class="form-control" asp-items="ViewBag.StatusId"></select>
+                <label for="StatusId">Status</label>
                 <span asp-validation-for="StatusId" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ManagerId" class="control-label"></label>
-                <select asp-for="ManagerId" class="form-control" asp-items="ViewBag.ManagerId"></select>
-                <span asp-validation-for="ManagerId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            <div class="form-floating mb-1">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
@@ -66,5 +74,9 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+
+

@@ -9,6 +9,7 @@ namespace advProj_BusinessObjects
     [Table("advProj_User")]
     public partial class AdvProjUser
     {
+        AdvProg_IdentityContext _identityContext;
         public AdvProjUser()
         {
             AdvProjAudits = new HashSet<AdvProjAudit>();
@@ -18,6 +19,7 @@ namespace advProj_BusinessObjects
             AdvProjNotifications = new HashSet<AdvProjNotification>();
             AdvProjProjects = new HashSet<AdvProjProject>();
             AdvProjUserTasks = new HashSet<AdvProjUserTask>();
+            _identityContext = new AdvProg_IdentityContext();
         }
 
         [Key]
@@ -44,5 +46,22 @@ namespace advProj_BusinessObjects
         public virtual ICollection<AdvProjProject> AdvProjProjects { get; set; }
         [InverseProperty("User")]
         public virtual ICollection<AdvProjUserTask> AdvProjUserTasks { get; set; }
+
+        // custome method to retrive username from idintity for the specified user from identity context
+        public string FullName 
+        { 
+            get 
+            {
+                var user = _identityContext.Users.Where(x => x.Id == this.AspUserId).FirstOrDefault();
+                if (user != null)
+                {
+                    return (user.fName + " " + user.lName);
+                }
+                else 
+                {
+                    return string.Empty;
+                }
+            }
+        }
     }
 }
