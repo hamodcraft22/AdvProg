@@ -1,0 +1,46 @@
+﻿@model advProj_BusinessObjects.AdvProjComment
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    TempData["tid"] = Context.Request.Query["tid"].FirstOrDefault();
+}
+
+<h1>Create</h1>
+
+<h4>AdvProjComment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-floating mt-1">
+                <input asp-for="CommentTitle" class="form-control" />
+                <label asp-for="CommentTitle" class="control-label"></label>
+                <span asp-validation-for="CommentTitle" class="text-danger"></span>
+            </div>
+            <div class="form-floating mt-1">
+                <input asp-for="CommentBody" class="form-control" />
+                <label asp-for="CommentBody" class="control-label"></label>
+                <span asp-validation-for="CommentBody" class="text-danger"></span>
+            </div>
+            <div class="form-floating mt-1">
+                <select asp-for="ResponseId" class ="form-control" asp-items="ViewBag.ResponseId"></select>
+                <label asp-for="ResponseId" class="control-label"></label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-route-tid="@Context.Request.Query["tid"]">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

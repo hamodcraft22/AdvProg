@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using advProj_BusinessObjects;
+using advProj_WebProjectManager.Models;
 
 namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
 {
@@ -30,12 +31,14 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
             _logger.LogInformation("User logged out.");
             if (returnUrl != null)
             {
+                Global.userID = null;
                 return LocalRedirect(returnUrl);
             }
             else
             {
                 // This needs to be a redirect so that the browser performs a new
                 // request and the identity for the user gets updated.
+                Global.userID = null;
                 return RedirectToPage();
             }
         }

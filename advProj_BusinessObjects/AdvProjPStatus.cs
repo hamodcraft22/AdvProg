@@ -13,7 +13,6 @@ namespace advProj_BusinessObjects
         {
             AdvProjProjects = new HashSet<AdvProjProject>();
             AdvProjTasks = new HashSet<AdvProjTask>();
-            AdvProjUserTasks = new HashSet<AdvProjUserTask>();
         }
 
         [Key]
@@ -30,7 +29,5 @@ namespace advProj_BusinessObjects
         public virtual ICollection<AdvProjProject> AdvProjProjects { get; set; }
         [InverseProperty("Status")]
         public virtual ICollection<AdvProjTask> AdvProjTasks { get; set; }
-        [InverseProperty("Status")]
-        public virtual ICollection<AdvProjUserTask> AdvProjUserTasks { get; set; }
     }
 }

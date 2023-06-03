@@ -54,6 +54,7 @@ namespace advProj_BusinessObjects
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.AdvProjAudits)
                     .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_advProj_Audit_advProj_User");
             });
 
@@ -78,7 +79,8 @@ namespace advProj_BusinessObjects
                 entity.HasOne(d => d.Task)
                     .WithMany(p => p.AdvProjComments)
                     .HasForeignKey(d => d.TaskId)
-                    .HasConstraintName("FK_advProj_Comment_advProj_Task1");
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("FK_advProj_Comment_advProj_Task");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.AdvProjComments)
@@ -106,6 +108,7 @@ namespace advProj_BusinessObjects
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.AdvProjDocuments)
                     .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_advProj_Document_advProj_User");
             });
 
@@ -118,6 +121,7 @@ namespace advProj_BusinessObjects
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.AdvProjLogs)
                     .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_advProj_Log_advProj_User");
             });
 
@@ -150,6 +154,7 @@ namespace advProj_BusinessObjects
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.AdvProjNotifications)
                     .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_advProj_Notification_advProj_User");
             });
 
@@ -172,6 +177,7 @@ namespace advProj_BusinessObjects
                 entity.HasOne(d => d.Manager)
                     .WithMany(p => p.AdvProjProjects)
                     .HasForeignKey(d => d.ManagerId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_advProj_Project_advProj_User");
 
                 entity.HasOne(d => d.Status)
@@ -189,6 +195,7 @@ namespace advProj_BusinessObjects
                 entity.HasOne(d => d.Project)
                     .WithMany(p => p.AdvProjTasks)
                     .HasForeignKey(d => d.ProjectId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_advProj_Task_advProj_Project");
 
                 entity.HasOne(d => d.Status)
@@ -199,16 +206,10 @@ namespace advProj_BusinessObjects
 
             modelBuilder.Entity<AdvProjUserTask>(entity =>
             {
-                entity.Property(e => e.Objective).IsFixedLength();
-
-                entity.HasOne(d => d.Status)
-                    .WithMany(p => p.AdvProjUserTasks)
-                    .HasForeignKey(d => d.StatusId)
-                    .HasConstraintName("FK_advProj_UserTask_advProj_Status");
-
                 entity.HasOne(d => d.Task)
                     .WithMany(p => p.AdvProjUserTasks)
                     .HasForeignKey(d => d.TaskId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_advProj_UserTask_advProj_Task");
 
                 entity.HasOne(d => d.User)

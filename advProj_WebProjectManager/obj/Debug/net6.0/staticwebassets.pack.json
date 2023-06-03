@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\advProj_WebProjectManager.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_WebProjectManager\\wwwroot\\css\\Morph.css",
+      "PackagePath": "staticwebassets\\css\\Morph.css"
+    },
+    {
       "Id": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_WebProjectManager\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

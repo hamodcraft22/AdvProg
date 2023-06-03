@@ -1,0 +1,178 @@
+﻿@using advProj_WebProjectManager.ViewModels;
+@model ProjectTasksViewModel
+@*using the viemodel craeted*@
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Project: @Model.Project.ProjectName Tasks</h1>
+
+@*error msg *@
+@{
+    if (TempData["ErrorMsg"] != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            @TempData["ErrorMsg"].ToString()
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+}
+
+
+@*search form*@
+<div class="d-flex align-items-center justify-content-center flex-column gap-4">
+    <form asp-controller="advProjTasks" asp-action="Index" method="get" class="d-flex">
+        @*search box for Task name*@
+        <div class="input-group m-1">
+
+            @*show clear button when there is a search input only*@
+            @{
+                if (!String.IsNullOrEmpty(Context.Request.Query["TaskName"].ToString()))
+                {
+
+                    if (String.IsNullOrEmpty(Context.Request.Query["member"].ToString()))
+                    {
+                        <a asp-action="Index" asp-route-id="@Model.Project.ProjectId" class="input-group-text text-decoration-none">
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </a>
+                    }
+                    else
+                    {
+                        <a asp-action="Index" asp-route-id="@Model.Project.ProjectId" asp-route-member="true" class="input-group-text text-decoration-none">
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </a>
+                    }
+                }
+            }
+            @*text box input*@
+            <div class="form-floating">
+                <input type="text" name="TaskName" class="form-control" id="TaskName" placeholder="Task Name" value="@Context.Request.Query["TaskName"]">
+                <label for="ProjectName">Task Name</label>
+            </div>
+            @*submit button*@
+            <button type="submit" value="Search" class="input-group-text">
+                <i class="fas fa-search"></i>
+            </button>
+
+        </div>
+        @*combo box for projects*@
+        <div class="input-group m-1">
+            @*show clear button when there is a search input only*@
+            @{
+                if (!String.IsNullOrEmpty(Context.Request.Query["StatusInput"].ToString()))
+                {
+                    if (String.IsNullOrEmpty(Context.Request.Query["member"].ToString()))
+                    {
+                        <a asp-action="Index" asp-route-id="@Model.Project.ProjectId" class="input-group-text text-decoration-none">
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </a>
+                    }
+                    else
+                    {
+                        <a asp-action="Index" asp-route-id="@Model.Project.ProjectId" asp-route-member="true" class="input-group-text text-decoration-none">
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </a>
+                    }
+                }
+
+            }
+            @*combo box*@
+            <div class="form-floating">
+                <select asp-for="StatusInput" asp-items="Model.Status.Select(i => new SelectListItem{Text = i.StatusName, Value = i.StatusId.ToString()})" class="form-control">
+                    <option value="">All</option>
+                </select>
+                <label for="ProjectName">Status</label>
+            </div>
+            @*filter btn*@
+            <button type="submit" value="Search" class="input-group-text">
+                <i class="fa-solid fa-filter"></i>
+            </button>
+
+
+
+        </div>
+        @*hidden value as a member so the page dosent change - if the user is acsing a mebmer page*@
+        @{
+            if (!String.IsNullOrEmpty(Context.Request.Query["member"].ToString()))
+            {
+                <input type="hidden" name="member" value="true">
+            }
+        }
+    </form>
+</div>
+
+
+@*hdont enable the create button if not a project manager*@
+@{
+    if (String.IsNullOrEmpty(Context.Request.Query["member"].ToString()))
+    {
+        <p>
+            <a asp-action="Create" asp-route-id="@Model.Project.ProjectId" class="btn btn-primary">Create a New Task</a>
+        </p>
+    }
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            @*writing the names manually - ocd reasosns*@
+            <th class="text-center">
+                Task Name
+            </th>
+            <th class="text-center">
+                Description
+            </th>
+            <th class="text-center">
+                Start Date
+            </th>
+            <th class="text-center">
+                End Date
+            </th>
+            <th class="text-center">
+                Status
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.projTasks)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaskName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaskDescription)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Status.StatusDescription)
+                </td>
+                <td>
+
+                    @{
+                        if (!String.IsNullOrEmpty(Context.Request.Query["member"].ToString()))
+                        {
+                            <a type="button" class="btn btn-primary btn-sm" asp-action="Details" asp-route-id="@Model.Project.ProjectId" asp-route-tid="@item.TaskId" asp-route-member="true" asp-route-pid="@Model.Project.ProjectId"><i class="fa-solid fa-circle-info fa-xs"></i></a>
+                            <a type="button" class="btn btn-success btn-sm" asp-action="Edit" asp-route-id="@Model.Project.ProjectId" asp-route-tid="@item.TaskId" asp-route-member="true" asp-route-pid="@Model.Project.ProjectId"><i class="fa-solid fa-pen-to-square fa-xs"></i></a>
+                        }
+                        else
+                        {
+                            <a type="button" class="btn btn-primary btn-sm" asp-action="Details" asp-route-id="@Model.Project.ProjectId" asp-route-tid="@item.TaskId" asp-route-pid="@Model.Project.ProjectId"><i class="fa-solid fa-circle-info fa-xs"></i></a>
+                            <a type="button" class="btn btn-success btn-sm" asp-action="Edit" asp-route-id="@Model.Project.ProjectId" asp-route-tid="@item.TaskId" asp-route-pid="@Model.Project.ProjectId"><i class="fa-solid fa-pen-to-square fa-xs"></i></a>
+                            <a type="button" class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@Model.Project.ProjectId" asp-route-tid="@item.TaskId" asp-route-pid="@Model.Project.ProjectId"><i class="fa-solid fa-trash fa-xs"></i></a>
+                        }
+                        <a type="button" class="btn btn-info btn-sm" asp-controller="AdvProjComments" asp-action="Index" asp-route-tid="@item.TaskId"><i class="fa-solid fa-comment fa-xs"></i></a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

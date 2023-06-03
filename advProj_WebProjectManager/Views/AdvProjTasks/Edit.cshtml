@@ -1,0 +1,78 @@
+﻿@model advProj_BusinessObjects.AdvProjTask
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>AdvProjTask</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @*hidden minputs to make sure these data elements are not chnaged plus not removed upon update*@
+            <input type="hidden" asp-for="TaskId" />
+            <input asp-for="CreateDate" type="hidden" />
+            <input asp-for="FinishDate" type="hidden" />
+            <input asp-for="ProjectId" type="hidden" />
+
+            <div class="form-floating mb-1">
+                <input asp-for="TaskName" class="form-control" />
+                <label asp-for="TaskName" class="control-label"></label>
+                <span asp-validation-for="TaskName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-1">
+                <input asp-for="TaskDescription" class="form-control" />
+                <label asp-for="TaskDescription" class="control-label"></label>
+                <span asp-validation-for="TaskDescription" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-floating mb-1">
+                        <input asp-for="StartDate" class="form-control" required type="date" />
+                        <label asp-for="StartDate" class="control-label"></label>
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-1">
+                        <input asp-for="EndDate" class="form-control" required type="date" />
+                        <label asp-for="EndDate" class="control-label"></label>
+                        <span asp-validation-for="EndDate" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-floating mb-1">
+                <select asp-for="StatusId" class="form-control" asp-items="ViewBag.StatusId"></select>
+                <label asp-for="StatusId" class="control-label"></label>
+                <span asp-validation-for="StatusId" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-1">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    @{
+        if (!String.IsNullOrEmpty(Context.Request.Query["member"].ToString()))
+        {
+            <a asp-action="Index" asp-route-id="@Context.Request.Query["pId"]" asp-route-member="true">Back to List</a>
+        }
+        else
+        {
+            <a asp-action="Index" asp-route-id="@Context.Request.Query["pId"]">Back to List</a>
+        }
+    }
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
