@@ -10813,24 +10813,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DELL\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\moham\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_WebProjectManager\\advProj_WebProjectManager.csproj",
+      "projectUniqueName": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_WebProjectManager\\advProj_WebProjectManager.csproj",
       "projectName": "advProj_WebProjectManager",
-      "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_WebProjectManager\\advProj_WebProjectManager.csproj",
-      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_WebProjectManager\\obj\\",
+      "projectPath": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_WebProjectManager\\advProj_WebProjectManager.csproj",
+      "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_WebProjectManager\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\moham\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10845,8 +10840,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj": {
-              "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj"
+            "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj": {
+              "projectPath": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj"
             }
           }
         }

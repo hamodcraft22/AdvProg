@@ -12,20 +12,6 @@ C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\advProj_BusinessObjects\obj\De
 C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.pdb
 C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.genruntimeconfig.cache
 C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\ref\advProj_BusinessObjects.dll
-C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\bin\Debug\net6.0\advProj_BusinessObjects.deps.json
-C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\bin\Debug\net6.0\advProj_BusinessObjects.runtimeconfig.json
-C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\bin\Debug\net6.0\advProj_BusinessObjects.dll
-C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\bin\Debug\net6.0\advProj_BusinessObjects.pdb
-C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.csproj.AssemblyReference.cache
-C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.AssemblyInfoInputs.cache
-C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.AssemblyInfo.cs
-C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.csproj.CoreCompileInputs.cache
-C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.dll
-C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\refint\advProj_BusinessObjects.dll
-C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.pdb
-C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.genruntimeconfig.cache
-C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\ref\advProj_BusinessObjects.dll
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_BusinessObjects\bin\Debug\net6.0\advProj_BusinessObjects.deps.json
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_BusinessObjects\bin\Debug\net6.0\advProj_BusinessObjects.runtimeconfig.json
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_BusinessObjects\bin\Debug\net6.0\advProj_BusinessObjects.dll
@@ -54,3 +40,17 @@ C:\Users\DELL\Documents\GitHub\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\
 C:\Users\DELL\Documents\GitHub\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.pdb
 C:\Users\DELL\Documents\GitHub\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.genruntimeconfig.cache
 C:\Users\DELL\Documents\GitHub\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\ref\advProj_BusinessObjects.dll
+C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\bin\Debug\net6.0\advProj_BusinessObjects.deps.json
+C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\bin\Debug\net6.0\advProj_BusinessObjects.runtimeconfig.json
+C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\bin\Debug\net6.0\advProj_BusinessObjects.dll
+C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\bin\Debug\net6.0\advProj_BusinessObjects.pdb
+C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.csproj.AssemblyReference.cache
+C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.AssemblyInfoInputs.cache
+C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.AssemblyInfo.cs
+C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.csproj.CoreCompileInputs.cache
+C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.dll
+C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\refint\advProj_BusinessObjects.dll
+C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.pdb
+C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\advProj_BusinessObjects.genruntimeconfig.cache
+C:\Users\moham\Desktop\AdvanceProgramming\AdvProg\AdvProg\advProj_BusinessObjects\obj\Debug\net6.0\ref\advProj_BusinessObjects.dll
