@@ -29,7 +29,7 @@ namespace advProj_ProjectManager
 
         private void ProjectsView_Load(object sender, EventArgs e)
         {
-
+            ddl_Users.DataSource = new List<string>();
         }
 
         private void label2_Click(object sender, EventArgs e)

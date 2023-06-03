@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
 
 namespace advProj_BusinessObjects
@@ -58,6 +59,12 @@ namespace advProj_BusinessObjects
                     return string.Empty;
                 }
             }
+        }
+
+        // custome tostring method to serilize object to show in audits
+        public override string? ToString()
+        {
+            return JsonSerializer.Serialize(this);
         }
     }
 }

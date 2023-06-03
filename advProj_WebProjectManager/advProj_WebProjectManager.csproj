@@ -23,4 +23,9 @@
     <ProjectReference Include="..\advProj_BusinessObjects\advProj_BusinessObjects.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="UploadedFiles\" />
+    <Folder Include="wwwroot\UploadedFiles\" />
+  </ItemGroup>
+
 </Project>

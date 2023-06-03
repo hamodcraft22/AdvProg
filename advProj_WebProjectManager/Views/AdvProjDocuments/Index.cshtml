@@ -8,31 +8,20 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" asp-route-tid="@Context.Request.Query["tid"]" class="btn btn-primary">Add a new Document</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.DocumentName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DocumentType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DocumentExt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DocumentPath)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DocumentDescription)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.UploadDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Task)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.User)
@@ -47,30 +36,22 @@
                 @Html.DisplayFor(modelItem => item.DocumentName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DocumentType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DocumentExt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DocumentPath)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.DocumentDescription)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UploadDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Task.TaskDescription)
+                @Html.DisplayFor(modelItem => item.User.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.UserId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.DocumentId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.DocumentId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.DocumentId">Delete</a>
+                    <a type="button" class="btn btn-primary btn-sm" href="@item.DocumentPath"><i class="fa-solid fa-eye fa-xs"></i></a>
+                    @{
+                        if (Global.userID == item.User.UserId)
+                        {
+                            <a type="button" class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.DocumentId" asp-route-tid="@Context.Request.Query["tid"]"><i class="fa-solid fa-trash fa-xs"></i></a>
+                        }
+                    }
             </td>
         </tr>
 }

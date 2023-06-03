@@ -38,7 +38,8 @@ namespace advProj_ProjectManager
             if (signInResults)
             {
                 // ALI SATRT FROM HERE
-                MessageBox.Show("ok lets go");
+               ProjectsView projectsView = new ProjectsView();
+                projectsView.Show();
             }
             else
             {

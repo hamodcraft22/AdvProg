@@ -216,40 +216,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvakNvbW1lbnRzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjComResponses/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvakNvbVJlc3BvbnNlc1xDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjComResponses/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvakNvbVJlc3BvbnNlc1xEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjComResponses/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvakNvbVJlc3BvbnNlc1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjComResponses/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvakNvbVJlc3BvbnNlc1xFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjComResponses/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvakNvbVJlc3BvbnNlc1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjDocuments/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvakRvY3VtZW50c1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjDocuments/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvakRvY3VtZW50c1xEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjDocuments/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvakRvY3VtZW50c1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjDocuments/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvakRvY3VtZW50c1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjDocuments/Index.cshtml]
@@ -276,44 +248,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvakxvZ3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjNotifications/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvak5vdGlmaWNhdGlvbnNcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjNotifications/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvak5vdGlmaWNhdGlvbnNcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjNotifications/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvak5vdGlmaWNhdGlvbnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjNotifications/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvak5vdGlmaWNhdGlvbnNcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjNotifications/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvak5vdGlmaWNhdGlvbnNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjNStatus/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvak5TdGF0dXNcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjNStatus/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvak5TdGF0dXNcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjNStatus/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvak5TdGF0dXNcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjNStatus/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvak5TdGF0dXNcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjNStatus/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvak5TdGF0dXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjProjects/Create.cshtml]
@@ -334,26 +274,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjProjects/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvalByb2plY3RzXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjPStatus/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvalBTdGF0dXNcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjPStatus/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvalBTdGF0dXNcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjPStatus/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvalBTdGF0dXNcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjPStatus/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvalBTdGF0dXNcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjPStatus/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWR2UHJvalBTdGF0dXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/moham/Desktop/AdvanceProgramming/AdvProg/AdvProg/advProj_WebProjectManager/Views/AdvProjTasks/Create.cshtml]

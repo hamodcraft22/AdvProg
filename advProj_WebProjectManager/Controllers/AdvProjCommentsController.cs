@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using advProj_BusinessObjects;
 using advProj_WebProjectManager.Models;
+using System.Security.Cryptography;
 
 namespace advProj_WebProjectManager.Controllers
 {
@@ -51,7 +52,7 @@ namespace advProj_WebProjectManager.Controllers
         // GET: AdvProjComments/Create
         public IActionResult Create(string? tid)
         {
-            ViewData["ResponseId"] = new SelectList(_context.AdvProjComResponses, "ResponseId", "ResponseDescription");
+            ViewData["ResponseId"] = new SelectList(_context.AdvProjComResponses, "ResponseId", "ResponseName");
             return View();
         }
 
@@ -73,9 +74,9 @@ namespace advProj_WebProjectManager.Controllers
 
                 _context.Add(advProjComment);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", new { id = tid });
+                return RedirectToAction("Index", new { tid = tid });
             }
-            ViewData["ResponseId"] = new SelectList(_context.AdvProjComResponses, "ResponseId", "ResponseDescription", advProjComment.ResponseId);
+            ViewData["ResponseId"] = new SelectList(_context.AdvProjComResponses, "ResponseId", "ResponseName", advProjComment.ResponseId);
             return View(advProjComment);
         }
 
@@ -92,7 +93,9 @@ namespace advProj_WebProjectManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["ResponseId"] = new SelectList(_context.AdvProjComResponses, "ResponseId", "ResponseDescription", advProjComment.ResponseId);
+
+            ViewData["ResponseId"] = new SelectList(_context.AdvProjComResponses, "ResponseId", "ResponseName", advProjComment.ResponseId);
+
             return View(advProjComment);
         }
 
@@ -110,6 +113,7 @@ namespace advProj_WebProjectManager.Controllers
 
             if (ModelState.IsValid)
             {
+                var tid = advProjComment.TaskId;
                 try
                 {
                     _context.Update(advProjComment);
@@ -126,9 +130,9 @@ namespace advProj_WebProjectManager.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", new { tid = tid });
             }
-            ViewData["ResponseId"] = new SelectList(_context.AdvProjComResponses, "ResponseId", "ResponseDescription", advProjComment.ResponseId);
+            ViewData["ResponseId"] = new SelectList(_context.AdvProjComResponses, "ResponseId", "ResponseName", advProjComment.ResponseId);
             return View(advProjComment);
         }
 
@@ -163,13 +167,15 @@ namespace advProj_WebProjectManager.Controllers
                 return Problem("Entity set 'AdvProg_DatabaseContext.AdvProjComments'  is null.");
             }
             var advProjComment = await _context.AdvProjComments.FindAsync(id);
+            var tid = advProjComment.TaskId;
+
             if (advProjComment != null)
             {
                 _context.AdvProjComments.Remove(advProjComment);
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", new { tid = tid });
         }
 
         private bool AdvProjCommentExists(int id)

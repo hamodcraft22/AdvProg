@@ -34,25 +34,25 @@
             @Html.DisplayNameFor(model => model.Response)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Response.ResponseDescription)
+            @Html.DisplayFor(model => model.Response.ResponseName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Task)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Task.TaskDescription)
+            @Html.DisplayFor(model => model.Task.TaskName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.User)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.User.UserId)
+            @Html.DisplayFor(model => model.User.FullName)
         </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="CommentId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="Index" asp-route-tid="@Context.Request.Query["tid"]">Back to List</a>
     </form>
 </div>

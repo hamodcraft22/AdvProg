@@ -14,37 +14,26 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="CommentId" />
-            <div class="form-group">
-                <label asp-for="CommentTitle" class="control-label"></label>
+            <input type="hidden" asp-for="CommentDate" />
+            <input type="hidden" asp-for="TaskId">
+            <input type="hidden" asp-for="UserId">
+
+            <div class="form-floating mt-1">
                 <input asp-for="CommentTitle" class="form-control" />
+                <label asp-for="CommentTitle" class="control-label"></label>
                 <span asp-validation-for="CommentTitle" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CommentBody" class="control-label"></label>
+            <div class="form-floating mt-1">
                 <input asp-for="CommentBody" class="form-control" />
+                <label asp-for="CommentBody" class="control-label"></label>
                 <span asp-validation-for="CommentBody" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CommentDate" class="control-label"></label>
-                <input asp-for="CommentDate" class="form-control" />
-                <span asp-validation-for="CommentDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TaskId" class="control-label"></label>
-                <select asp-for="TaskId" class="form-control" asp-items="ViewBag.TaskId"></select>
-                <span asp-validation-for="TaskId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
-                <span asp-validation-for="UserId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            <div class="form-floating mt-1">
+                <select asp-for="ResponseId" class="form-control" asp-items="@ViewBag.ResponseId"></select>
                 <label asp-for="ResponseId" class="control-label"></label>
-                <select asp-for="ResponseId" class="form-control" asp-items="ViewBag.ResponseId"></select>
                 <span asp-validation-for="ResponseId" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-floating mt-1">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
@@ -52,7 +41,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" asp-route-tid="@Context.Request.Query["tid"]">Back to List</a>
 </div>
 
 @section Scripts {
