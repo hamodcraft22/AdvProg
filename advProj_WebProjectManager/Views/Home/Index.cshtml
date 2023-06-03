@@ -2,6 +2,16 @@
     ViewData["Title"] = "Home Page";
 }
 
+@{
+    if (TempData["ErrorMsg"] != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            @TempData["ErrorMsg"].ToString()
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+}
+
 <div class="text-center">
     <div class="main-content">
         <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">

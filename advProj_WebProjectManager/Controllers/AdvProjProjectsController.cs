@@ -90,10 +90,13 @@ namespace advProj_WebProjectManager.Controllers
             var listOfMemberProjects = _context.AdvProjProjects.Where(a => projectTasksIds.Contains(a.ProjectId)).Select(f => f.ProjectId).ToArray();
             
 
-            if (!(Array.Exists(listOfManagerProjects, element => element == id)) || !(Array.Exists(listOfMemberProjects, element => element == id)))
+            if (!(Array.Exists(listOfMemberProjects, element => element == id)))
             {
-                TempData["ErrorMsg"] = "You dont have accses to the selected Project";
-                return RedirectToAction("Index");
+                if (!(Array.Exists(listOfManagerProjects, element => element == id)))
+                {
+                    TempData["ErrorMsg"] = "You dont have accses to the selected Project";
+                    return RedirectToAction("Index");
+                }            
             }
 
 

@@ -28,9 +28,6 @@ namespace advProj_BusinessObjects
         [Column("aspUserID")]
         [StringLength(450)]
         public string? AspUserId { get; set; }
-        [Column("roleID")]
-        [StringLength(450)]
-        public string? RoleId { get; set; }
 
         [InverseProperty("User")]
         public virtual ICollection<AdvProjAudit> AdvProjAudits { get; set; }
@@ -47,17 +44,16 @@ namespace advProj_BusinessObjects
         [InverseProperty("User")]
         public virtual ICollection<AdvProjUserTask> AdvProjUserTasks { get; set; }
 
-        // custome method to retrive username from idintity for the specified user from identity context
-        public string FullName 
-        { 
-            get 
+        public string FullName
+        {
+            get
             {
                 var user = _identityContext.Users.Where(x => x.Id == this.AspUserId).FirstOrDefault();
                 if (user != null)
                 {
                     return (user.fName + " " + user.lName);
                 }
-                else 
+                else
                 {
                     return string.Empty;
                 }

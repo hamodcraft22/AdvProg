@@ -12,8 +12,9 @@
 @{
     if (TempData["ErrorMsg"] != null)
     {
-        <div class="alert alert-danger" role="alert">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
             @TempData["ErrorMsg"].ToString()
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     }
 }
@@ -28,15 +29,27 @@
             @{
                 if (!String.IsNullOrEmpty(Context.Request.Query["projectName"].ToString()))
                 {
-                    <a href="advProjProjects" class="input-group-text text-decoration-none">
-                        <i class="fa-solid fa-circle-xmark"></i>
-                    </a>
+
+                    if (String.IsNullOrEmpty(Context.Request.Query["member"].ToString()))
+                    {
+                        <a href="advProjProjects" class="input-group-text text-decoration-none">
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="advProjProjects?member=true" class="input-group-text text-decoration-none">
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </a>
+                    }
                 }
             }
+            @*text box input*@
             <div class="form-floating">
                 <input type="text" name="ProjectName" class="form-control" id="ProjectName" placeholder="Project Name" value="@Context.Request.Query["projectName"]">
                 <label for="ProjectName">Project Name</label>
             </div>
+            @*submit button*@
             <button type="submit" value="Search" class="input-group-text">
                 <i class="fas fa-search"></i>
             </button>
@@ -48,22 +61,37 @@
             @{
                 if (!String.IsNullOrEmpty(Context.Request.Query["StatusInput"].ToString()))
                 {
-                    <a href="advProjProjects" class="input-group-text text-decoration-none">
+                    if (String.IsNullOrEmpty(Context.Request.Query["member"].ToString()))
+                    {
+                        <a href="advProjProjects" class="input-group-text text-decoration-none">
                         <i class="fa-solid fa-circle-xmark"></i>
                     </a>
+                    }
+                    else
+                    {
+                        <a href="advProjProjects?member=true" class="input-group-text text-decoration-none">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </a>
+                    }
                 }
+                
             }
+            @*combo box*@
             <div class="form-floating">
                 <select asp-for="StatusInput" asp-items="Model.Status.Select(i => new SelectListItem{Text = i.StatusName, Value = i.StatusId.ToString()})" class="form-control">
                     <option value="">All</option>
                 </select>
                 <label for="ProjectName">Status</label>
             </div>
+            @*filter btn*@
             <button type="submit" value="Search" class="input-group-text">
                 <i class="fa-solid fa-filter"></i>
             </button>
 
+
+
         </div>
+        @*hidden value as a member so the page dosent change - if the user is acsing a mebmer page*@
         @{
             if (!String.IsNullOrEmpty(Context.Request.Query["member"].ToString()))
             {
@@ -150,13 +178,31 @@
                     @Html.DisplayFor(modelItem => item.Status.StatusName)
                 </td>
                 <td class="text-center">
-                    <a type="button" class="btn btn-primary btn-sm" asp-action="Details" asp-route-id="@item.ProjectId"><i class="fa-solid fa-circle-info fa-xs"></i></a> 
+                    @{
+                        if (String.IsNullOrEmpty(Context.Request.Query["member"].ToString()))
+                        {
+                            <a type="button" class="btn btn-primary btn-sm" asp-action="Details" asp-route-id="@item.ProjectId"><i class="fa-solid fa-circle-info fa-xs"></i></a>
+                        }
+                        else
+                        {
+                            <a type="button" class="btn btn-primary btn-sm" asp-action="Details" asp-route-id="@item.ProjectId" asp-route-Member="true"><i class="fa-solid fa-circle-info fa-xs"></i></a>     
+                        }
+                    }
                     @{
                         if (String.IsNullOrEmpty(Context.Request.Query["member"].ToString()))
                         {     
                             <a type="button" class="btn btn-success btn-sm" asp-action="Edit" asp-route-id="@item.ProjectId"><i class="fa-solid fa-pen-to-square fa-xs"></i></a> 
                             <a type="button" class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.ProjectId"><i class="fa-solid fa-trash fa-xs"></i></a> 
+                        }
+                    }
+                    @{
+                        if (String.IsNullOrEmpty(Context.Request.Query["member"].ToString()))
+                        {
                             <a type="button" class="btn btn-warning btn-sm" asp-controller="advProjTasks" asp-action="Index" asp-route-id="@item.ProjectId"><i class="fa-solid fa-list-check"></i></a>
+                        }
+                        else
+                        {
+                            <a type="button" class="btn btn-warning btn-sm" asp-controller="advProjTasks" asp-action="Index" asp-route-id="@item.ProjectId" asp-route-Member="true"><i class="fa-solid fa-list-check"></i></a>  
                         }
                     }
                 </td>

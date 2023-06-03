@@ -72,6 +72,21 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.ProjectId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    
+    @{
+        if (String.IsNullOrEmpty(Context.Request.Query["member"].ToString()))
+        {
+            <a asp-action="Edit" asp-route-id="@Model?.ProjectId">Edit</a>
+        }
+    }
+    @{
+        if (String.IsNullOrEmpty(Context.Request.Query["member"].ToString()))
+        {
+            <a asp-action="Index">Back to List</a>
+        }
+        else
+        {
+            <a asp-action="Index" asp-route-member="true">Back to List</a>
+        }
+    }
 </div>

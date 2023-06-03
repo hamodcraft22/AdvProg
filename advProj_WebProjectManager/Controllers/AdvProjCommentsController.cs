@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using advProj_BusinessObjects;
+using advProj_WebProjectManager.Models;
 
 namespace advProj_WebProjectManager.Controllers
 {
@@ -19,9 +20,10 @@ namespace advProj_WebProjectManager.Controllers
         }
 
         // GET: AdvProjComments
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? tid)
         {
-            var advProg_DatabaseContext = _context.AdvProjComments.Include(a => a.Response).Include(a => a.Task).Include(a => a.User);
+            int taskID = Convert.ToInt32(tid);
+            var advProg_DatabaseContext = _context.AdvProjComments.Include(a => a.Response).Include(a => a.Task).Include(a => a.User).Where(f => f.TaskId == taskID);
             return View(await advProg_DatabaseContext.ToListAsync());
         }
 
@@ -47,11 +49,9 @@ namespace advProj_WebProjectManager.Controllers
         }
 
         // GET: AdvProjComments/Create
-        public IActionResult Create()
+        public IActionResult Create(string? tid)
         {
             ViewData["ResponseId"] = new SelectList(_context.AdvProjComResponses, "ResponseId", "ResponseDescription");
-            ViewData["TaskId"] = new SelectList(_context.AdvProjTasks, "TaskId", "TaskDescription");
-            ViewData["UserId"] = new SelectList(_context.AdvProjUsers, "UserId", "UserId");
             return View();
         }
 
@@ -62,15 +62,20 @@ namespace advProj_WebProjectManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CommentId,CommentTitle,CommentBody,CommentDate,TaskId,UserId,ResponseId")] AdvProjComment advProjComment)
         {
+            AdvProjComment actComm = advProjComment;
             if (ModelState.IsValid)
             {
+                int tid = Convert.ToInt32(TempData["tid"]);
+
+                actComm.UserId = Global.userID;
+                actComm.CommentDate = DateTime.Now;
+                actComm.TaskId = tid;
+
                 _context.Add(advProjComment);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", new { id = tid });
             }
             ViewData["ResponseId"] = new SelectList(_context.AdvProjComResponses, "ResponseId", "ResponseDescription", advProjComment.ResponseId);
-            ViewData["TaskId"] = new SelectList(_context.AdvProjTasks, "TaskId", "TaskDescription", advProjComment.TaskId);
-            ViewData["UserId"] = new SelectList(_context.AdvProjUsers, "UserId", "UserId", advProjComment.UserId);
             return View(advProjComment);
         }
 
@@ -88,8 +93,6 @@ namespace advProj_WebProjectManager.Controllers
                 return NotFound();
             }
             ViewData["ResponseId"] = new SelectList(_context.AdvProjComResponses, "ResponseId", "ResponseDescription", advProjComment.ResponseId);
-            ViewData["TaskId"] = new SelectList(_context.AdvProjTasks, "TaskId", "TaskDescription", advProjComment.TaskId);
-            ViewData["UserId"] = new SelectList(_context.AdvProjUsers, "UserId", "UserId", advProjComment.UserId);
             return View(advProjComment);
         }
 
@@ -126,8 +129,6 @@ namespace advProj_WebProjectManager.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ResponseId"] = new SelectList(_context.AdvProjComResponses, "ResponseId", "ResponseDescription", advProjComment.ResponseId);
-            ViewData["TaskId"] = new SelectList(_context.AdvProjTasks, "TaskId", "TaskDescription", advProjComment.TaskId);
-            ViewData["UserId"] = new SelectList(_context.AdvProjUsers, "UserId", "UserId", advProjComment.UserId);
             return View(advProjComment);
         }
 
