@@ -48,63 +48,58 @@
             // btn_Return
             // 
             btn_Return.BackColor = SystemColors.GradientActiveCaption;
-            btn_Return.Location = new Point(23, 428);
-            btn_Return.Margin = new Padding(3, 4, 3, 4);
+            btn_Return.Location = new Point(20, 321);
             btn_Return.Name = "btn_Return";
-            btn_Return.Size = new Size(118, 48);
+            btn_Return.Size = new Size(103, 36);
             btn_Return.TabIndex = 24;
             btn_Return.Text = "Return";
             btn_Return.UseVisualStyleBackColor = false;
+            btn_Return.Click += btn_Return_Click;
             // 
             // txt_TaskDescription
             // 
-            txt_TaskDescription.Location = new Point(190, 230);
-            txt_TaskDescription.Margin = new Padding(3, 4, 3, 4);
+            txt_TaskDescription.Location = new Point(166, 172);
             txt_TaskDescription.Name = "txt_TaskDescription";
-            txt_TaskDescription.Size = new Size(243, 127);
+            txt_TaskDescription.Size = new Size(213, 96);
             txt_TaskDescription.TabIndex = 22;
             txt_TaskDescription.Text = "";
             // 
             // taskEndDate
             // 
-            taskEndDate.Location = new Point(190, 134);
-            taskEndDate.Margin = new Padding(3, 4, 3, 4);
+            taskEndDate.Location = new Point(166, 100);
             taskEndDate.Name = "taskEndDate";
-            taskEndDate.Size = new Size(243, 27);
+            taskEndDate.Size = new Size(213, 23);
             taskEndDate.TabIndex = 21;
             // 
             // taskStartDate
             // 
-            taskStartDate.Location = new Point(190, 84);
-            taskStartDate.Margin = new Padding(3, 4, 3, 4);
+            taskStartDate.Location = new Point(166, 63);
             taskStartDate.Name = "taskStartDate";
-            taskStartDate.Size = new Size(243, 27);
+            taskStartDate.Size = new Size(213, 23);
             taskStartDate.TabIndex = 20;
             // 
             // ddl_TaskStatus
             // 
             ddl_TaskStatus.FormattingEnabled = true;
-            ddl_TaskStatus.Location = new Point(190, 178);
-            ddl_TaskStatus.Margin = new Padding(3, 4, 3, 4);
+            ddl_TaskStatus.Location = new Point(166, 134);
             ddl_TaskStatus.Name = "ddl_TaskStatus";
-            ddl_TaskStatus.Size = new Size(243, 28);
+            ddl_TaskStatus.Size = new Size(213, 23);
             ddl_TaskStatus.TabIndex = 19;
             // 
             // txt_TaskName
             // 
-            txt_TaskName.Location = new Point(190, 36);
-            txt_TaskName.Margin = new Padding(3, 4, 3, 4);
+            txt_TaskName.Location = new Point(166, 27);
             txt_TaskName.Name = "txt_TaskName";
-            txt_TaskName.Size = new Size(243, 27);
+            txt_TaskName.Size = new Size(213, 23);
             txt_TaskName.TabIndex = 18;
             // 
             // lbl_TaskDescription
             // 
             lbl_TaskDescription.AutoSize = true;
             lbl_TaskDescription.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_TaskDescription.Location = new Point(35, 230);
+            lbl_TaskDescription.Location = new Point(31, 172);
             lbl_TaskDescription.Name = "lbl_TaskDescription";
-            lbl_TaskDescription.Size = new Size(124, 20);
+            lbl_TaskDescription.Size = new Size(97, 15);
             lbl_TaskDescription.TabIndex = 17;
             lbl_TaskDescription.Text = "Task Description:";
             // 
@@ -112,9 +107,9 @@
             // 
             lbl_TaskStatus.AutoSize = true;
             lbl_TaskStatus.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_TaskStatus.Location = new Point(35, 178);
+            lbl_TaskStatus.Location = new Point(31, 134);
             lbl_TaskStatus.Name = "lbl_TaskStatus";
-            lbl_TaskStatus.Size = new Size(54, 20);
+            lbl_TaskStatus.Size = new Size(43, 15);
             lbl_TaskStatus.TabIndex = 16;
             lbl_TaskStatus.Text = "Status:";
             // 
@@ -122,9 +117,9 @@
             // 
             lbl_TaskEndDate.AutoSize = true;
             lbl_TaskEndDate.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_TaskEndDate.Location = new Point(35, 134);
+            lbl_TaskEndDate.Location = new Point(31, 100);
             lbl_TaskEndDate.Name = "lbl_TaskEndDate";
-            lbl_TaskEndDate.Size = new Size(75, 20);
+            lbl_TaskEndDate.Size = new Size(58, 15);
             lbl_TaskEndDate.TabIndex = 15;
             lbl_TaskEndDate.Text = "End Date:";
             // 
@@ -132,9 +127,9 @@
             // 
             lbl_TaskStartDate.AutoSize = true;
             lbl_TaskStartDate.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_TaskStartDate.Location = new Point(33, 84);
+            lbl_TaskStartDate.Location = new Point(29, 63);
             lbl_TaskStartDate.Name = "lbl_TaskStartDate";
-            lbl_TaskStartDate.Size = new Size(81, 20);
+            lbl_TaskStartDate.Size = new Size(63, 15);
             lbl_TaskStartDate.TabIndex = 14;
             lbl_TaskStartDate.Text = "Start Date:";
             // 
@@ -142,30 +137,30 @@
             // 
             lbl_TaskName.AutoSize = true;
             lbl_TaskName.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_TaskName.Location = new Point(34, 39);
+            lbl_TaskName.Location = new Point(30, 29);
             lbl_TaskName.Name = "lbl_TaskName";
-            lbl_TaskName.Size = new Size(87, 20);
+            lbl_TaskName.Size = new Size(68, 15);
             lbl_TaskName.TabIndex = 13;
             lbl_TaskName.Text = "Task Name:";
             // 
             // lbl_CreateTask
             // 
             lbl_CreateTask.AutoSize = true;
-            lbl_CreateTask.Location = new Point(417, 37);
+            lbl_CreateTask.Location = new Point(365, 28);
             lbl_CreateTask.Name = "lbl_CreateTask";
-            lbl_CreateTask.Size = new Size(0, 20);
+            lbl_CreateTask.Size = new Size(0, 15);
             lbl_CreateTask.TabIndex = 25;
             // 
             // btn_CreateTask
             // 
             btn_CreateTask.BackColor = SystemColors.GradientActiveCaption;
-            btn_CreateTask.Location = new Point(352, 428);
-            btn_CreateTask.Margin = new Padding(3, 4, 3, 4);
+            btn_CreateTask.Location = new Point(308, 321);
             btn_CreateTask.Name = "btn_CreateTask";
-            btn_CreateTask.Size = new Size(125, 48);
+            btn_CreateTask.Size = new Size(109, 36);
             btn_CreateTask.TabIndex = 26;
             btn_CreateTask.Text = "Create Task";
             btn_CreateTask.UseVisualStyleBackColor = false;
+            btn_CreateTask.Click += btn_CreateTask_Click;
             // 
             // groupBox1
             // 
@@ -179,24 +174,25 @@
             groupBox1.Controls.Add(ddl_TaskStatus);
             groupBox1.Controls.Add(taskEndDate);
             groupBox1.Controls.Add(lbl_TaskStatus);
-            groupBox1.Location = new Point(23, 20);
+            groupBox1.Location = new Point(20, 15);
+            groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(454, 391);
+            groupBox1.Padding = new Padding(3, 2, 3, 2);
+            groupBox1.Size = new Size(397, 293);
             groupBox1.TabIndex = 28;
             groupBox1.TabStop = false;
             groupBox1.Text = "Task Info";
             // 
             // CreateTask
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(500, 498);
+            ClientSize = new Size(438, 374);
             Controls.Add(groupBox1);
             Controls.Add(btn_CreateTask);
             Controls.Add(lbl_CreateTask);
             Controls.Add(btn_Return);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "CreateTask";
             Text = "Create Task";
             Load += CreateTask_Load;

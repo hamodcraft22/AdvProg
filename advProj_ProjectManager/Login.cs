@@ -38,7 +38,9 @@ namespace advProj_ProjectManager
             if (signInResults)
             {
                 // ALI SATRT FROM HERE
-                MessageBox.Show("ok lets go");
+                HomePage homePage = new HomePage();
+                homePage.Show();
+                this.Hide();
             }
             else
             {
