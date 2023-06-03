@@ -16,7 +16,7 @@ namespace advProj_BusinessObjects
         [StringLength(10)]
         public string LogSource { get; set; } = null!;
         [Column("exceptionMsg")]
-        [StringLength(200)]
+        [StringLength(2000)]
         public string ExceptionMsg { get; set; } = null!;
         [Column("date", TypeName = "datetime")]
         public DateTime Date { get; set; }

@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using advProj_BusinessObjects;
 using advProj_WebProjectManager.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace advProj_WebProjectManager.Controllers
 {
+    [Authorize]
     public class AdvProjNotificationsController : Controller
     {
         private readonly AdvProg_DatabaseContext _context;

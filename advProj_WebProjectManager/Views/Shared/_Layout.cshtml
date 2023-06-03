@@ -17,7 +17,7 @@
 
                 @*icon clickable*@
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="assests/logo.png" alt="Main Logo" height="50">
+                    <img src="Logo.png" alt="Main Logo" height="50">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,13 +40,16 @@
 
 
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" role="button" data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item text-dark" asp-controller="AdvProjAudits" asp-action="Index">Audits</a></li>
-                                <li><a class="dropdown-item text-dark" asp-controller="AdvProjLogs" asp-action="Index">Logs</a></li>
-                            </ul>
-                        </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" role="button" data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item text-dark" asp-controller="AdvProjAudits" asp-action="Index">Audits</a></li>
+                                    <li><a class="dropdown-item text-dark" asp-controller="AdvProjLogs" asp-action="Index">Logs</a></li>
+                                </ul>
+                            </li>
+                        }
 
                     </ul>
 

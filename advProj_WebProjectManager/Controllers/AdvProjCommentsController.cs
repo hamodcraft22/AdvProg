@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using advProj_BusinessObjects;
 using advProj_WebProjectManager.Models;
 using System.Security.Cryptography;
+using Microsoft.AspNetCore.Authorization;
 
 namespace advProj_WebProjectManager.Controllers
 {
+    [Authorize]
     public class AdvProjCommentsController : Controller
     {
         private readonly AdvProg_DatabaseContext _context;
@@ -23,9 +25,33 @@ namespace advProj_WebProjectManager.Controllers
         // GET: AdvProjComments
         public async Task<IActionResult> Index(string? tid)
         {
-            int taskID = Convert.ToInt32(tid);
-            var advProg_DatabaseContext = _context.AdvProjComments.Include(a => a.Response).Include(a => a.Task).Include(a => a.User).Where(f => f.TaskId == taskID);
-            return View(await advProg_DatabaseContext.ToListAsync());
+            try
+            {
+                int taskID = Convert.ToInt32(tid);
+                var advProg_DatabaseContext = _context.AdvProjComments.Include(a => a.Response).Include(a => a.Task).Include(a => a.User).Where(f => f.TaskId == taskID);
+                return View(await advProg_DatabaseContext.ToListAsync());
+            }
+            catch (Exception ex)
+            {
+                // creating and saving excpetion log
+                AdvProjLog newLog = new AdvProjLog();
+                newLog.LogSource = "Web"; 
+                newLog.ExceptionMsg = ex.Message;
+                newLog.Date = DateTime.Now;
+                if (Global.userID != null)
+                {
+                    newLog.UserId = Global.userID;
+                }
+
+                // save exception
+                _context.Add(newLog);
+                _context.SaveChanges();
+
+                // return to home page with error 
+                TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
+                return RedirectToAction("Index", "Home", new { area = "" });
+
+            }
         }
 
         // GET: AdvProjComments/Details/5

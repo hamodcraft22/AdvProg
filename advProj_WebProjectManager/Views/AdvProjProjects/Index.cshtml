@@ -110,7 +110,14 @@
     }
 }
 
-<table class="table table-striped">
+
+
+
+    
+    @{
+        if (Model.Projects.Count() != 0)
+        {
+            <table class="table table-striped">
     <thead>
         <tr>
             @*writing the names manually - ocd reasosns*@
@@ -137,7 +144,7 @@
             </th>
         </tr>
     </thead>
-    <tbody>
+            <tbody>
         @foreach (var item in Model.Projects)
         {
             string formatClass = "";
@@ -209,4 +216,11 @@
             </tr>
         }
     </tbody>
-</table>
+    </table>
+        }
+        else
+        {
+            <h1>No Data Is Present</h1>
+        }
+    }
+

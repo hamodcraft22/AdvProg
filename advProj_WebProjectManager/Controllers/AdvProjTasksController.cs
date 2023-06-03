@@ -10,9 +10,11 @@ using advProj_WebProjectManager.Models;
 using advProj_WebProjectManager.ViewModels;
 using Microsoft.CodeAnalysis;
 using System.Diagnostics.Metrics;
+using Microsoft.AspNetCore.Authorization;
 
 namespace advProj_WebProjectManager.Controllers
 {
+    [Authorize]
     public class AdvProjTasksController : Controller
     {
         private readonly AdvProg_DatabaseContext _context;
@@ -25,7 +27,7 @@ namespace advProj_WebProjectManager.Controllers
         // to enfore validation the id was chnaged to being the ProjectID, other ids were givin
 
         // GET: AdvProjTasks
-        public async Task<IActionResult> Index(int? id, string? Member, string? TaskName, string? StatusInput)
+        public async Task<IActionResult> Index(int? id, string? Member, string? all, string? TaskName, string? StatusInput)
         {
             // error and redirect if no task id was passed
             if (id == null)
@@ -51,6 +53,11 @@ namespace advProj_WebProjectManager.Controllers
                         advProg_ProjectContext = advProg_ProjectContext.Where(a => a.ProjectId == id);
                         advProg_TasksContext = advProg_TasksContext.Where(a => a.ProjectId == id && userTaksIds.Contains(a.TaskId));
                     }
+                    else if (all != null)
+                    {
+                        // to show all articles for member - no edit
+                        advProg_TasksContext = advProg_TasksContext.Where(a => a.ProjectId == id);
+                    }
                     else
                     {
                         // check if the user is a manager, if so not allowed (without the memebr get request)
@@ -65,6 +72,26 @@ namespace advProj_WebProjectManager.Controllers
                         advProg_TasksContext = advProg_TasksContext.Where(a => a.ProjectId == id);
                     }
 
+                    // statistics passing to home - suing view data
+                    int NoOfTasks = advProg_TasksContext.Count();
+                    if (NoOfTasks != 0)
+                    {
+                        int OvrdTasks = advProg_TasksContext.Where(x => x.FinishDate > DateTime.Now.Date || (x.FinishDate == DateTime.MinValue && x.EndDate > DateTime.Now.Date)).Count();
+                        int CmpltTasks = advProg_TasksContext.Where(x => x.StatusId == 5).Count();
+                        double CmpltPrsnt = (((double)CmpltTasks / (double)NoOfTasks) * (double)100);
+
+                        ViewData["NoOfTasks"] = NoOfTasks;
+                        ViewData["OvrdTasks"] = OvrdTasks;
+                        ViewData["CmpltTasks"] = CmpltTasks;
+                        ViewData["CmpltPrsnt"] = CmpltPrsnt;
+                    }
+                    else
+                    {
+                        ViewData["NoOfTasks"] = 0;
+                        ViewData["OvrdTasks"] = 0;
+                        ViewData["CmpltTasks"] = 0;
+                        ViewData["CmpltPrsnt"] = 0;
+                    }
 
                     // filttering based on seach input (Task name)
                     if (!String.IsNullOrEmpty(TaskName))

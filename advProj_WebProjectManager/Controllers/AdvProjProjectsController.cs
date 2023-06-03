@@ -13,6 +13,7 @@ using advProj_WebProjectManager.ViewModels;
 
 namespace advProj_WebProjectManager.Controllers
 {
+    [Authorize]
     public class AdvProjProjectsController : Controller
     {
         private readonly AdvProg_DatabaseContext _context;
