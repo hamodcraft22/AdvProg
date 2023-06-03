@@ -25,15 +25,67 @@ namespace advProj_WebProjectManager.Controllers
         // GET: AdvProjDocuments
         public async Task<IActionResult> Index(int? tid)
         {
-            var advProg_DatabaseContext = _context.AdvProjDocuments.Include(a => a.Task).Include(a => a.User).Where(f => f.TaskId == tid);
-            return View(await advProg_DatabaseContext.ToListAsync());
+
+
+            try
+            {
+                var advProg_DatabaseContext = _context.AdvProjDocuments.Include(a => a.Task).Include(a => a.User).Where(f => f.TaskId == tid);
+                return View(await advProg_DatabaseContext.ToListAsync());
+            }
+            catch (Exception ex)
+            {
+                // creating and saving excpetion log
+                AdvProjLog newLog = new AdvProjLog();
+                newLog.LogSource = "Web";
+                newLog.ExceptionMsg = ex.Message;
+                newLog.Date = DateTime.Now;
+                if (Global.userID != null)
+                {
+                    newLog.UserId = Global.userID;
+                }
+
+                // save exception
+                _context.Add(newLog);
+                _context.SaveChanges();
+
+                // return to home page with error 
+                TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
+                return RedirectToAction("Index", "Home", new { area = "" });
+
+            }
         }
 
         // GET: AdvProjDocuments/Create
         public IActionResult Create()
         {
-            // just returns view
-            return View();
+
+
+            try
+            {
+                // just returns view
+                return View();
+            }
+            catch (Exception ex)
+            {
+                // creating and saving excpetion log
+                AdvProjLog newLog = new AdvProjLog();
+                newLog.LogSource = "Web";
+                newLog.ExceptionMsg = ex.Message;
+                newLog.Date = DateTime.Now;
+                if (Global.userID != null)
+                {
+                    newLog.UserId = Global.userID;
+                }
+
+                // save exception
+                _context.Add(newLog);
+                _context.SaveChanges();
+
+                // return to home page with error 
+                TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
+                return RedirectToAction("Index", "Home", new { area = "" });
+
+            }
         }
 
         // POST: AdvProjDocuments/Create
@@ -43,69 +95,122 @@ namespace advProj_WebProjectManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("DocumentId,DocumentName,DocumentType,DocumentExt,DocumentPath,DocumentDescription,UploadDate,TaskId,UserId")] AdvProjDocument advProjDocument, List<IFormFile> files)
         {
-            AdvProjDocument ActadvProjDocument = advProjDocument;
-
-            int actTid = Convert.ToInt32(TempData["tid"]);
-
-            ActadvProjDocument.UploadDate = DateTime.Now;
-            ActadvProjDocument.UserId = Global.userID;
-            ActadvProjDocument.TaskId = actTid;
-            ActadvProjDocument.DocumentPath = "PlaceHolder";
 
 
-            // skiping normal validation as it dosent work with files 
-            // using required validation in form in html side
-            if (true)
+            try
             {
-                long size = files.Sum(f => f.Length);
+                AdvProjDocument ActadvProjDocument = advProjDocument;
 
-                var filePaths = new List<string>();
-                foreach (var formFile in files)
+                int actTid = Convert.ToInt32(TempData["tid"]);
+
+                ActadvProjDocument.UploadDate = DateTime.Now;
+                ActadvProjDocument.UserId = Global.userID;
+                ActadvProjDocument.TaskId = actTid;
+                ActadvProjDocument.DocumentPath = "PlaceHolder";
+
+
+                // skiping normal validation as it dosent work with files 
+                // using required validation in form in html side
+                if (true)
                 {
-                    if (formFile.Length > 0)
+                    long size = files.Sum(f => f.Length);
+
+                    var filePaths = new List<string>();
+                    foreach (var formFile in files)
                     {
-                        // full path to file in temp location
-                        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "UploadedFiles", formFile.FileName);
-                        var dbfilePath = Path.Combine("UploadedFiles", formFile.FileName);
-                        filePaths.Add(filePath);
-                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        if (formFile.Length > 0)
                         {
-                            await formFile.CopyToAsync(stream);
+                            // full path to file in temp location
+                            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "UploadedFiles", formFile.FileName);
+                            var dbfilePath = Path.Combine("UploadedFiles", formFile.FileName);
+                            filePaths.Add(filePath);
+                            using (var stream = new FileStream(filePath, FileMode.Create))
+                            {
+                                await formFile.CopyToAsync(stream);
+                            }
+                            ActadvProjDocument.DocumentPath = dbfilePath.ToString();
                         }
-                        ActadvProjDocument.DocumentPath = dbfilePath.ToString();
                     }
+                    // process uploaded files
+
+
+                    _context.Add(advProjDocument);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index", new { tid = actTid });
                 }
-                // process uploaded files
-                
 
-                _context.Add(advProjDocument);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index", new { tid = actTid });
+                ViewData["TaskId"] = new SelectList(_context.AdvProjTasks, "TaskId", "TaskDescription", advProjDocument.TaskId);
+                ViewData["UserId"] = new SelectList(_context.AdvProjUsers, "UserId", "UserId", advProjDocument.UserId);
+                return View(advProjDocument);
             }
+            catch (Exception ex)
+            {
+                // creating and saving excpetion log
+                AdvProjLog newLog = new AdvProjLog();
+                newLog.LogSource = "Web";
+                newLog.ExceptionMsg = ex.Message;
+                newLog.Date = DateTime.Now;
+                if (Global.userID != null)
+                {
+                    newLog.UserId = Global.userID;
+                }
 
-            ViewData["TaskId"] = new SelectList(_context.AdvProjTasks, "TaskId", "TaskDescription", advProjDocument.TaskId);
-            ViewData["UserId"] = new SelectList(_context.AdvProjUsers, "UserId", "UserId", advProjDocument.UserId);
-            return View(advProjDocument);
+                // save exception
+                _context.Add(newLog);
+                _context.SaveChanges();
+
+                // return to home page with error 
+                TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
+                return RedirectToAction("Index", "Home", new { area = "" });
+
+            }
         }
 
         // GET: AdvProjDocuments/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.AdvProjDocuments == null)
-            {
-                return NotFound();
-            }
 
-            var advProjDocument = await _context.AdvProjDocuments
-                .Include(a => a.Task)
-                .Include(a => a.User)
-                .FirstOrDefaultAsync(m => m.DocumentId == id);
-            if (advProjDocument == null)
-            {
-                return NotFound();
-            }
 
-            return View(advProjDocument);
+
+            try
+            {
+                if (id == null || _context.AdvProjDocuments == null)
+                {
+                    return NotFound();
+                }
+
+                var advProjDocument = await _context.AdvProjDocuments
+                    .Include(a => a.Task)
+                    .Include(a => a.User)
+                    .FirstOrDefaultAsync(m => m.DocumentId == id);
+                if (advProjDocument == null)
+                {
+                    return NotFound();
+                }
+
+                return View(advProjDocument);
+            }
+            catch (Exception ex)
+            {
+                // creating and saving excpetion log
+                AdvProjLog newLog = new AdvProjLog();
+                newLog.LogSource = "Web";
+                newLog.ExceptionMsg = ex.Message;
+                newLog.Date = DateTime.Now;
+                if (Global.userID != null)
+                {
+                    newLog.UserId = Global.userID;
+                }
+
+                // save exception
+                _context.Add(newLog);
+                _context.SaveChanges();
+
+                // return to home page with error 
+                TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
+                return RedirectToAction("Index", "Home", new { area = "" });
+
+            }
         }
 
         // POST: AdvProjDocuments/Delete/5
@@ -113,23 +218,49 @@ namespace advProj_WebProjectManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id, int? tid)
         {
-            if (_context.AdvProjDocuments == null)
+
+
+            try
             {
-                return Problem("Entity set 'AdvProg_DatabaseContext.AdvProjDocuments'  is null.");
+                if (_context.AdvProjDocuments == null)
+                {
+                    return Problem("Entity set 'AdvProg_DatabaseContext.AdvProjDocuments'  is null.");
+                }
+                var advProjDocument = await _context.AdvProjDocuments.FindAsync(id);
+                if (advProjDocument != null)
+                {
+                    _context.AdvProjDocuments.Remove(advProjDocument);
+                }
+
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index", new { tid = tid });
             }
-            var advProjDocument = await _context.AdvProjDocuments.FindAsync(id);
-            if (advProjDocument != null)
+            catch (Exception ex)
             {
-                _context.AdvProjDocuments.Remove(advProjDocument);
+                // creating and saving excpetion log
+                AdvProjLog newLog = new AdvProjLog();
+                newLog.LogSource = "Web";
+                newLog.ExceptionMsg = ex.Message;
+                newLog.Date = DateTime.Now;
+                if (Global.userID != null)
+                {
+                    newLog.UserId = Global.userID;
+                }
+
+                // save exception
+                _context.Add(newLog);
+                _context.SaveChanges();
+
+                // return to home page with error 
+                TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
+                return RedirectToAction("Index", "Home", new { area = "" });
+
             }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index", new { tid = tid });
         }
 
         private bool AdvProjDocumentExists(int id)
         {
-          return (_context.AdvProjDocuments?.Any(e => e.DocumentId == id)).GetValueOrDefault();
+            return (_context.AdvProjDocuments?.Any(e => e.DocumentId == id)).GetValueOrDefault();
         }
     }
 }

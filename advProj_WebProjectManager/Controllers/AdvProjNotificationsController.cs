@@ -24,46 +24,99 @@ namespace advProj_WebProjectManager.Controllers
         // GET: AdvProjNotifications
         public async Task<IActionResult> Index(string? unread)
         {
-            var advProg_DatabaseContext = _context.AdvProjNotifications.Include(a => a.Status).Include(a => a.Task).Include(a => a.User).Include(z => z.Task.Project).Where(b => b.UserId == Global.userID);
 
-            if (unread != null)
+
+
+            try
             {
-                advProg_DatabaseContext = advProg_DatabaseContext.Where(a => a.StatusId == 1);
-            }
+                var advProg_DatabaseContext = _context.AdvProjNotifications.Include(a => a.Status).Include(a => a.Task).Include(a => a.User).Include(z => z.Task.Project).Where(b => b.UserId == Global.userID);
 
-            return View(await advProg_DatabaseContext.OrderByDescending(x => x.NotificationDate).ToListAsync());
+                if (unread != null)
+                {
+                    advProg_DatabaseContext = advProg_DatabaseContext.Where(a => a.StatusId == 1);
+                }
+
+                return View(await advProg_DatabaseContext.OrderByDescending(x => x.NotificationDate).ToListAsync());
+            }
+            catch (Exception ex)
+            {
+                // creating and saving excpetion log
+                AdvProjLog newLog = new AdvProjLog();
+                newLog.LogSource = "Web";
+                newLog.ExceptionMsg = ex.Message;
+                newLog.Date = DateTime.Now;
+                if (Global.userID != null)
+                {
+                    newLog.UserId = Global.userID;
+                }
+
+                // save exception
+                _context.Add(newLog);
+                _context.SaveChanges();
+
+                // return to home page with error 
+                TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
+                return RedirectToAction("Index", "Home", new { area = "" });
+
+            }
         }
 
         // GET: AdvProjNotifications/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.AdvProjNotifications == null)
+
+
+            try
             {
-                return NotFound();
-            }
+                if (id == null || _context.AdvProjNotifications == null)
+                {
+                    return NotFound();
+                }
 
-            var advProjNotification = await _context.AdvProjNotifications
-                .Include(a => a.Status)
-                .Include(a => a.Task)
-                .Include(a => a.User)
-                .FirstOrDefaultAsync(m => m.NotificationId == id);
-            if (advProjNotification == null)
+                var advProjNotification = await _context.AdvProjNotifications
+                    .Include(a => a.Status)
+                    .Include(a => a.Task)
+                    .Include(a => a.User)
+                    .FirstOrDefaultAsync(m => m.NotificationId == id);
+                if (advProjNotification == null)
+                {
+                    return NotFound();
+                }
+
+                // set the notification as read
+                advProjNotification.StatusId = 2;
+                _context.Update(advProjNotification);
+                _context.SaveChanges();
+
+                return View(advProjNotification);
+            }
+            catch (Exception ex)
             {
-                return NotFound();
+                // creating and saving excpetion log
+                AdvProjLog newLog = new AdvProjLog();
+                newLog.LogSource = "Web";
+                newLog.ExceptionMsg = ex.Message;
+                newLog.Date = DateTime.Now;
+                if (Global.userID != null)
+                {
+                    newLog.UserId = Global.userID;
+                }
+
+                // save exception
+                _context.Add(newLog);
+                _context.SaveChanges();
+
+                // return to home page with error 
+                TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
+                return RedirectToAction("Index", "Home", new { area = "" });
+
             }
-
-            // set the notification as read
-            advProjNotification.StatusId = 2;
-            _context.Update(advProjNotification);
-            _context.SaveChanges();
-
-            return View(advProjNotification);
         }
 
 
         private bool AdvProjNotificationExists(int id)
         {
-          return (_context.AdvProjNotifications?.Any(e => e.NotificationId == id)).GetValueOrDefault();
+            return (_context.AdvProjNotifications?.Any(e => e.NotificationId == id)).GetValueOrDefault();
         }
     }
 }
