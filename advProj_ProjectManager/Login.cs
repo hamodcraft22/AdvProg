@@ -1,4 +1,5 @@
 ﻿using advProj_BusinessObjects;
+using advProj_BusinessObjects.GlobalClass;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,7 @@ namespace advProj_ProjectManager
 {
     public partial class Login : Form
     {
+
         // creating service provider for user manager
         private IServiceProvider serviceProvider;
 
@@ -32,26 +34,41 @@ namespace advProj_ProjectManager
             identityContext = new AdvProg_IdentityContext();
         }
 
+        /// Attempts to verify the user's username and password and logs them in if successful.
+
         private async void btn_Login_Click(object sender, EventArgs e)
         {
-            var signInResults = await VerifyUserNamePassword(txt_Username.Text, txt_Password.Text);
-            if (signInResults)
+            try
             {
-                // ALI SATRT FROM HERE
-                HomePage homePage = new HomePage();
-                homePage.Show();
-                this.Hide();
-            }
-            else
+                var signInResults = await VerifyUserNamePassword(txt_Username.Text, txt_Password.Text);
+                if (signInResults)
+                {
+                    // ALI SATRT FROM HERE
+                    HomePage homePage = new HomePage();
+                    homePage.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Login Credentales Invalid");
+                }
+            }catch(Exception ex)
             {
-                MessageBox.Show("Login Credentales Invalid");
+                MessageBox.Show("There has been an error, please contact your admin");
+                LogsAudits.addLog("Forms",ex.Message.ToString(), 1);
             }
+            
         }
 
 
         // verify username function
+       
+        /// This method uses the provided username and password to authenticate a user. If the user is found and the password is correct,
+        /// the method sets the logged in user and admin status in the Global class.
+        
         public async Task<bool> VerifyUserNamePassword(string userName, string password)
         {
+
             // configuring services
             var services = new ServiceCollection();
             ConfigureServices(services);
@@ -89,6 +106,10 @@ namespace advProj_ProjectManager
             return false;
         }
 
+      
+        /// This method configures the services required by the application, including the Entity Framework SQL Server provider
+        /// and the Identity framework with its default token providers. It also adds logging and an HTTP context accessor.
+    
         private void ConfigureServices(IServiceCollection services)
         {
 

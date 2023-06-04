@@ -59,7 +59,6 @@ D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Identity.UI.dll
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.Data.SqlClient.dll
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.dll
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -68,7 +67,6 @@ D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.SqlServer.dll
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.Extensions.Caching.Memory.dll
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.dll
-D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.Extensions.FileProviders.Embedded.dll
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.Extensions.Identity.Core.dll
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.Extensions.Identity.Stores.dll
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.Identity.Client.dll
@@ -90,7 +88,6 @@ D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\advProj_BusinessObjects.dll
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\advProj_BusinessObjects.pdb
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.csproj.AssemblyReference.cache
-D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.Form1.resources
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.csproj.GenerateResource.cache
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.GeneratedMSBuildEditorConfig.editorconfig
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.AssemblyInfoInputs.cache
@@ -103,17 +100,10 @@ D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.genruntimeconfig.cache
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\ref\advProj_ProjectManager.dll
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.ShowInfo.resources
-D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.Assigned_Users.resources
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.Create_Project.resources
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.CreateTask.resources
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.HomePage.resources
 D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.Login.resources
-D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.Profile.resources
-D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.Project_Dashboard.resources
-D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.Projects.resources
-D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.Tasks.resources
-D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.Update_Projects.resources
-D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.Update_Task.resources
 C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.csproj.AssemblyReference.cache
 C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.AddComment.resources
 C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.ShowInfo.resources
@@ -133,3 +123,33 @@ C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-w
 C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.dll
 C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\refint\advProj_ProjectManager.dll
 C:\Users\DELL\Documents\GitHub\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.pdb
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Authentication.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Authentication.Abstractions.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Authentication.Cookies.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Authentication.Core.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.AspNetCore.DataProtection.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.AspNetCore.DataProtection.Abstractions.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Hosting.Abstractions.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Http.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Http.Abstractions.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Http.Extensions.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Http.Features.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Identity.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.AspNetCore.WebUtilities.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.Extensions.Hosting.Abstractions.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.Extensions.ObjectPool.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.Extensions.Options.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.Extensions.WebEncoders.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\bin\Debug\net6.0-windows\Microsoft.Net.Http.Headers.dll
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.ProjectsView.resources
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.Properties.Resources.resources
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.ProjectView.resources
+D:\Uni Projects\Advance\AdvProg\AdvProg\advProj_ProjectManager\obj\Debug\net6.0-windows\advProj_ProjectManager.ViewTask.resources

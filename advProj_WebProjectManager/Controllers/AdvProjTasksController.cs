@@ -11,6 +11,7 @@ using advProj_WebProjectManager.ViewModels;
 using Microsoft.CodeAnalysis;
 using System.Diagnostics.Metrics;
 using Microsoft.AspNetCore.Authorization;
+using advProj_BusinessObjects.GlobalClass;
 
 namespace advProj_WebProjectManager.Controllers
 {
@@ -129,18 +130,7 @@ namespace advProj_WebProjectManager.Controllers
             catch (Exception ex)
             {
                 // creating and saving excpetion log
-                AdvProjLog newLog = new AdvProjLog();
-                newLog.LogSource = "Web";
-                newLog.ExceptionMsg = ex.Message;
-                newLog.Date = DateTime.Now;
-                if (Global.userID != null)
-                {
-                    newLog.UserId = Global.userID;
-                }
-
-                // save exception
-                _context.Add(newLog);
-                _context.SaveChanges();
+                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
@@ -195,17 +185,7 @@ namespace advProj_WebProjectManager.Controllers
             {
                 // creating and saving excpetion log
                 AdvProjLog newLog = new AdvProjLog();
-                newLog.LogSource = "Web";
-                newLog.ExceptionMsg = ex.Message;
-                newLog.Date = DateTime.Now;
-                if (Global.userID != null)
-                {
-                    newLog.UserId = Global.userID;
-                }
-
-                // save exception
-                _context.Add(newLog);
-                _context.SaveChanges();
+                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
@@ -254,18 +234,7 @@ namespace advProj_WebProjectManager.Controllers
             catch (Exception ex)
             {
                 // creating and saving excpetion log
-                AdvProjLog newLog = new AdvProjLog();
-                newLog.LogSource = "Web";
-                newLog.ExceptionMsg = ex.Message;
-                newLog.Date = DateTime.Now;
-                if (Global.userID != null)
-                {
-                    newLog.UserId = Global.userID;
-                }
-
-                // save exception
-                _context.Add(newLog);
-                _context.SaveChanges();
+                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
@@ -318,15 +287,8 @@ namespace advProj_WebProjectManager.Controllers
                     await _context.SaveChangesAsync();
 
                     // audit - adding a new audit to the list 
-                    AdvProjAudit newAudit = new AdvProjAudit();
-                    newAudit.AuditSource = "Web";
-                    newAudit.ChnageType = "Create";
-                    newAudit.EntityName = "Task";
-                    newAudit.NewValue = ActnewTask.ToString();
-                    newAudit.RecordId = ActnewTask.TaskId;
-                    newAudit.UserId = Global.userID;
+                    LogsAudits.addAudit("Web", "Create", "Task",null, ActnewTask.ToString(), ActnewTask.TaskId,(int)Global.userID);
 
-                    _context.Add(newAudit);
                     await _context.SaveChangesAsync();
 
                     //creating user tasks objects
@@ -362,18 +324,7 @@ namespace advProj_WebProjectManager.Controllers
                     catch (Exception ex)
                     {
                         // creating and saving excpetion log
-                        AdvProjLog newLog = new AdvProjLog();
-                        newLog.LogSource = "Web";
-                        newLog.ExceptionMsg = ex.Message;
-                        newLog.Date = DateTime.Now;
-                        if (Global.userID != null)
-                        {
-                            newLog.UserId = Global.userID;
-                        }
-
-                        // save exception
-                        _context.Add(newLog);
-                        _context.SaveChanges();
+                        LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
 
                         // return to home page with error 
                         TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
@@ -394,18 +345,7 @@ namespace advProj_WebProjectManager.Controllers
             catch (Exception ex)
             {
                 // creating and saving excpetion log
-                AdvProjLog newLog = new AdvProjLog();
-                newLog.LogSource = "Web";
-                newLog.ExceptionMsg = ex.Message;
-                newLog.Date = DateTime.Now;
-                if (Global.userID != null)
-                {
-                    newLog.UserId = Global.userID;
-                }
-
-                // save exception
-                _context.Add(newLog);
-                _context.SaveChanges();
+                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
@@ -460,18 +400,7 @@ namespace advProj_WebProjectManager.Controllers
             catch (Exception ex)
             {
                 // creating and saving excpetion log
-                AdvProjLog newLog = new AdvProjLog();
-                newLog.LogSource = "Web";
-                newLog.ExceptionMsg = ex.Message;
-                newLog.Date = DateTime.Now;
-                if (Global.userID != null)
-                {
-                    newLog.UserId = Global.userID;
-                }
-
-                // save exception
-                _context.Add(newLog);
-                _context.SaveChanges();
+                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
@@ -541,14 +470,7 @@ namespace advProj_WebProjectManager.Controllers
 
 
                         // audit - adding a new audit to the list 
-                        AdvProjAudit newAudit = new AdvProjAudit();
-                        newAudit.AuditSource = "Web";
-                        newAudit.ChnageType = "Update";
-                        newAudit.EntityName = "Task";
-                        newAudit.OldValue = oldValue;
-                        newAudit.NewValue = advProjTask.ToString();
-                        newAudit.RecordId = advProjTask.TaskId;
-                        newAudit.UserId = Global.userID;
+                        LogsAudits.addAudit("Web", "Update", "Task", oldValue, advProjTask.ToString(), advProjTask.TaskId,(int)Global.userID);
 
 
                         // adding the notifiactions
@@ -566,7 +488,7 @@ namespace advProj_WebProjectManager.Controllers
                         _context.Add(newNotification);
 
                         // seprate to ensure that if an exception happens in the update this will not be excuted
-                        _context.Add(newAudit);
+                        
                         await _context.SaveChangesAsync();
                     }
                     catch (DbUpdateConcurrencyException)
@@ -597,18 +519,7 @@ namespace advProj_WebProjectManager.Controllers
             catch (Exception ex)
             {
                 // creating and saving excpetion log
-                AdvProjLog newLog = new AdvProjLog();
-                newLog.LogSource = "Web";
-                newLog.ExceptionMsg = ex.Message;
-                newLog.Date = DateTime.Now;
-                if (Global.userID != null)
-                {
-                    newLog.UserId = Global.userID;
-                }
-
-                // save exception
-                _context.Add(newLog);
-                _context.SaveChanges();
+                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
@@ -664,18 +575,7 @@ namespace advProj_WebProjectManager.Controllers
             catch (Exception ex)
             {
                 // creating and saving excpetion log
-                AdvProjLog newLog = new AdvProjLog();
-                newLog.LogSource = "Web";
-                newLog.ExceptionMsg = ex.Message;
-                newLog.Date = DateTime.Now;
-                if (Global.userID != null)
-                {
-                    newLog.UserId = Global.userID;
-                }
-
-                // save exception
-                _context.Add(newLog);
-                _context.SaveChanges();
+                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
@@ -731,15 +631,9 @@ namespace advProj_WebProjectManager.Controllers
                 }
 
                 // audit - adding a new audit to the list 
-                AdvProjAudit newAudit = new AdvProjAudit();
-                newAudit.AuditSource = "Web";
-                newAudit.ChnageType = "Delete";
-                newAudit.EntityName = "Task";
-                newAudit.OldValue = advProjTask.ToString();
-                newAudit.RecordId = advProjTask.TaskId;
-                newAudit.UserId = Global.userID;
+                LogsAudits.addAudit("Web", "Delete", "Task", advProjTask.ToString(),null, advProjTask.TaskId,(int)Global.userID);
 
-                _context.Add(newAudit);
+                
                 await _context.SaveChangesAsync();
 
                 await _context.SaveChangesAsync();
@@ -748,18 +642,7 @@ namespace advProj_WebProjectManager.Controllers
             catch (Exception ex)
             {
                 // creating and saving excpetion log
-                AdvProjLog newLog = new AdvProjLog();
-                newLog.LogSource = "Web";
-                newLog.ExceptionMsg = ex.Message;
-                newLog.Date = DateTime.Now;
-                if (Global.userID != null)
-                {
-                    newLog.UserId = Global.userID;
-                }
-
-                // save exception
-                _context.Add(newLog);
-                _context.SaveChanges();
+                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
