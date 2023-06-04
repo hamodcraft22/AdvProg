@@ -355,9 +355,9 @@ namespace advProj_WebProjectManager.Controllers
                     updateProject.FinishDate = DateTime.Now.Date;
                 }
 
+
                 // new dbcontext object to avoide tracking issues 
                 AdvProg_DatabaseContext secondContext = new AdvProg_DatabaseContext();
-
 
                 var oldProject = secondContext.AdvProjProjects.Find(advProjProject.ProjectId);
                 var oldValue = oldProject.ToString();

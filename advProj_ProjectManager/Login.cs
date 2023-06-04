@@ -38,8 +38,9 @@ namespace advProj_ProjectManager
             if (signInResults)
             {
                 // ALI SATRT FROM HERE
-               ProjectsView projectsView = new ProjectsView();
-                projectsView.Show();
+                HomePage homePage = new HomePage();
+                homePage.Show();
+                this.Hide();
             }
             else
             {
@@ -72,7 +73,7 @@ namespace advProj_ProjectManager
                 {
                     var userRole = await userManager.GetRolesAsync(founduser);
 
-                    // adding user ID 
+                    // adding user ID
                     AdvProjUser logUser = new AdvProjUser();
                     logUser = dbContext.AdvProjUsers.Where(a => a.AspUserId == founduser.Id).FirstOrDefault();
                     Global.loggedUser = logUser;
@@ -80,7 +81,7 @@ namespace advProj_ProjectManager
                     // adding role to global class - if admin
                     if (userRole.FirstOrDefault() == "Admin")
                     {
-                        MessageBox.Show(userRole.FirstOrDefault());
+                        Global.isAdmin = true;
                     }
                 }
                 return passCheck;

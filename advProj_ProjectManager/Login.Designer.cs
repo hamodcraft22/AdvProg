@@ -90,6 +90,7 @@
             txt_Password.Name = "txt_Password";
             txt_Password.Size = new Size(300, 39);
             txt_Password.TabIndex = 4;
+            txt_Password.UseSystemPasswordChar = true;
             // 
             // btn_Login
             // 

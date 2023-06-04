@@ -532,6 +532,7 @@ namespace advProj_WebProjectManager.Controllers
 
                 if (ModelState.IsValid)
                 {
+
                     try
                     {
                         _context.Update(advProjTask);
