@@ -9,6 +9,7 @@ using advProj_BusinessObjects;
 using advProj_WebProjectManager.Models;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Authorization;
+using advProj_BusinessObjects.GlobalClass;
 
 namespace advProj_WebProjectManager.Controllers
 {
@@ -34,18 +35,7 @@ namespace advProj_WebProjectManager.Controllers
             catch (Exception ex)
             {
                 // creating and saving excpetion log
-                AdvProjLog newLog = new AdvProjLog();
-                newLog.LogSource = "Web";
-                newLog.ExceptionMsg = ex.Message;
-                newLog.Date = DateTime.Now;
-                if (Global.userID != null)
-                {
-                    newLog.UserId = Global.userID;
-                }
-
-                // save exception
-                _context.Add(newLog);
-                _context.SaveChanges();
+                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
@@ -81,18 +71,7 @@ namespace advProj_WebProjectManager.Controllers
             catch (Exception ex)
             {
                 // creating and saving excpetion log
-                AdvProjLog newLog = new AdvProjLog();
-                newLog.LogSource = "Web";
-                newLog.ExceptionMsg = ex.Message;
-                newLog.Date = DateTime.Now;
-                if (Global.userID != null)
-                {
-                    newLog.UserId = Global.userID;
-                }
-
-                // save exception
-                _context.Add(newLog);
-                _context.SaveChanges();
+                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
@@ -114,18 +93,7 @@ namespace advProj_WebProjectManager.Controllers
             catch (Exception ex)
             {
                 // creating and saving excpetion log
-                AdvProjLog newLog = new AdvProjLog();
-                newLog.LogSource = "Web";
-                newLog.ExceptionMsg = ex.Message;
-                newLog.Date = DateTime.Now;
-                if (Global.userID != null)
-                {
-                    newLog.UserId = Global.userID;
-                }
-
-                // save exception
-                _context.Add(newLog);
-                _context.SaveChanges();
+                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
@@ -183,18 +151,7 @@ namespace advProj_WebProjectManager.Controllers
             catch (Exception ex)
             {
                 // creating and saving excpetion log
-                AdvProjLog newLog = new AdvProjLog();
-                newLog.LogSource = "Web";
-                newLog.ExceptionMsg = ex.Message;
-                newLog.Date = DateTime.Now;
-                if (Global.userID != null)
-                {
-                    newLog.UserId = Global.userID;
-                }
-
-                // save exception
-                _context.Add(newLog);
-                _context.SaveChanges();
+                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
@@ -246,18 +203,7 @@ namespace advProj_WebProjectManager.Controllers
             catch (Exception ex)
             {
                 // creating and saving excpetion log
-                AdvProjLog newLog = new AdvProjLog();
-                newLog.LogSource = "Web";
-                newLog.ExceptionMsg = ex.Message;
-                newLog.Date = DateTime.Now;
-                if (Global.userID != null)
-                {
-                    newLog.UserId = Global.userID;
-                }
-
-                // save exception
-                _context.Add(newLog);
-                _context.SaveChanges();
+                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
@@ -294,17 +240,7 @@ namespace advProj_WebProjectManager.Controllers
             {
                 // creating and saving excpetion log
                 AdvProjLog newLog = new AdvProjLog();
-                newLog.LogSource = "Web";
-                newLog.ExceptionMsg = ex.Message;
-                newLog.Date = DateTime.Now;
-                if (Global.userID != null)
-                {
-                    newLog.UserId = Global.userID;
-                }
-
-                // save exception
-                _context.Add(newLog);
-                _context.SaveChanges();
+                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
@@ -340,18 +276,7 @@ namespace advProj_WebProjectManager.Controllers
             catch (Exception ex)
             {
                 // creating and saving excpetion log
-                AdvProjLog newLog = new AdvProjLog();
-                newLog.LogSource = "Web";
-                newLog.ExceptionMsg = ex.Message;
-                newLog.Date = DateTime.Now;
-                if (Global.userID != null)
-                {
-                    newLog.UserId = Global.userID;
-                }
-
-                // save exception
-                _context.Add(newLog);
-                _context.SaveChanges();
+                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";

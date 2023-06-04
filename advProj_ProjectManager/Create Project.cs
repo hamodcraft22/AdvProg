@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using advProj_BusinessObjects;
-
+using advProj_BusinessObjects.GlobalClass;
 
 namespace advProj_ProjectManager
 {
@@ -27,6 +27,7 @@ namespace advProj_ProjectManager
             this.projectObject = new AdvProjProject();
         }
 
+        /// Initializes a new instance of the Create_Project form for updating an existing project.
         public Create_Project(AdvProjProject retirvedProject)
         {
             InitializeComponent();
@@ -40,117 +41,143 @@ namespace advProj_ProjectManager
             this.projectObject = retirvedProject;
         }
 
+        /// Loads the form for creating a new project or editing an existing one.
         private void Create_Project_Load(object sender, EventArgs e)
         {
-            projectStartDate.Value = DateTime.Today.Date;
-            projectEndDate.Value = DateTime.Today.Date;
-
-            ddl_ProjectStatus.DataSource = context.AdvProjPStatuses.ToList();
-            ddl_ProjectStatus.DisplayMember = "StatusName";
-            ddl_ProjectStatus.ValueMember = "StatusId";
-            ddl_ProjectStatus.SelectedItem = null;
-
-            // if it is a passed project - populate data
-            if (projectObject.ProjectId != 0)
+            try
             {
-                txt_ProjectName.Text = projectObject.ProjectName;
-                if (projectObject.StartDate != null)
+                projectStartDate.Value = DateTime.Today.Date;
+                projectEndDate.Value = DateTime.Today.Date;
+
+                ddl_ProjectStatus.DataSource = context.AdvProjPStatuses.ToList();
+                ddl_ProjectStatus.DisplayMember = "StatusName";
+                ddl_ProjectStatus.ValueMember = "StatusId";
+                ddl_ProjectStatus.SelectedItem = null;
+
+                // if it is a passed project - populate data
+                if (projectObject.ProjectId != 0)
                 {
-                    projectStartDate.Value = projectObject.StartDate.Value;
+                    txt_ProjectName.Text = projectObject.ProjectName;
+                    if (projectObject.StartDate != null)
+                    {
+                        projectStartDate.Value = projectObject.StartDate.Value;
+                    }
+                    if (projectObject.EndDate != null)
+                    {
+                        projectEndDate.Value = projectObject.EndDate.Value;
+                    }
+                    ddl_ProjectStatus.SelectedValue = projectObject.StatusId;
+                    txt_ProjectDescription.Text = projectObject.ProjectDescription;
                 }
-                if (projectObject.EndDate != null)
+                else
                 {
-                    projectEndDate.Value = projectObject.EndDate.Value;
+                    // else if it is a create, disable the selction of a status other than create
+                    ddl_ProjectStatus.SelectedValue = 1;
+                    ddl_ProjectStatus.Enabled = false;
                 }
-                ddl_ProjectStatus.SelectedValue = projectObject.StatusId;
-                txt_ProjectDescription.Text = projectObject.ProjectDescription;
             }
-            else
+            catch (Exception ex)
             {
-                // else if it is a create, disable the selction of a status other than create
-                ddl_ProjectStatus.SelectedValue = 1;
-                ddl_ProjectStatus.Enabled = false;
+                MessageBox.Show("There has been an error, please contact your admin");
+                LogsAudits.addLog("Forms", ex.Message.ToString() ,Global.loggedUser.UserId);
             }
+
         }
 
+        /// Closes the current form.
         private void btn_Return_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        
+        /// This method validates the input fields for creating a new project. If all fields are valid, it creates a new project object and saves it to the database.
+        /// If the project is being updated, it updates the existing project object in the database. If the project status is set to "Completed", it sets the FinishDate to the current date.
+        /// If any errors occur during the validation process or database operations, an error message is displayed and logged.
+        
         private void btn_CreateProject_Click(object sender, EventArgs e)
         {
-            string errors = "";
-
-            if (txt_ProjectName.Text == "")
+            try
             {
-                errors += "Please Input a name.\n";
-            }
+                string errors = "";
 
-            if (ddl_ProjectStatus.SelectedValue == null)
-            {
-                errors += "Please Select a status.\n";
-            }
-
-            if (txt_ProjectDescription.Text == "")
-            {
-                errors += "Please Add a Project Description.\n";
-            }
-
-            // dates checks are canceled if it is an update
-            if (projectObject.ProjectId == 0)
-            {
-                if (projectStartDate.Value < DateTime.Today.Date)
+                if (txt_ProjectName.Text == "")
                 {
-                    errors += "Project Satrt Date Cannot be in the past.\n";
-                } 
-            }
+                    errors += "Please Input a name.\n";
+                }
 
-            if (projectEndDate.Value < projectStartDate.Value)
-            {
-                errors += "Project End Date Cannot be before the start.\n";
-            }
-
-            if (errors == "")
-            {
-                projectObject.ProjectName = txt_ProjectName.Text;
-                projectObject.StartDate = projectStartDate.Value.Date;
-                projectObject.EndDate = projectEndDate.Value.Date;
-                projectObject.StatusId = Convert.ToInt32(ddl_ProjectStatus.SelectedValue);
-                projectObject.ProjectDescription = txt_ProjectDescription.Text;
-                projectObject.ManagerId = Global.loggedUser.UserId;
-
-
-                if (projectObject.ProjectId != 0)
+                if (ddl_ProjectStatus.SelectedValue == null)
                 {
-                    if (Convert.ToInt32(ddl_ProjectStatus.SelectedValue) == 5)
+                    errors += "Please Select a status.\n";
+                }
+
+                if (txt_ProjectDescription.Text == "")
+                {
+                    errors += "Please Add a Project Description.\n";
+                }
+
+                // dates checks are canceled if it is an update
+                if (projectObject.ProjectId == 0)
+                {
+                    if (projectStartDate.Value < DateTime.Today.Date)
                     {
-                        projectObject.FinishDate = DateTime.Now.Date;
+                        errors += "Project Satrt Date Cannot be in the past.\n";
                     }
+                }
 
-                    // workaround to disable tracking check
-                    AdvProg_DatabaseContext newContext = new AdvProg_DatabaseContext();
-                    newContext.Update(projectObject);
-                    newContext.SaveChanges();     
+                if (projectEndDate.Value < projectStartDate.Value)
+                {
+                    errors += "Project End Date Cannot be before the start.\n";
+                }
 
-                    this.Close();
-                    this.DialogResult = DialogResult.OK;
+                if (errors == "")
+                {
+                    projectObject.ProjectName = txt_ProjectName.Text;
+                    projectObject.StartDate = projectStartDate.Value.Date;
+                    projectObject.EndDate = projectEndDate.Value.Date;
+                    projectObject.StatusId = Convert.ToInt32(ddl_ProjectStatus.SelectedValue);
+                    projectObject.ProjectDescription = txt_ProjectDescription.Text;
+                    projectObject.ManagerId = Global.loggedUser.UserId;
+
+
+                    if (projectObject.ProjectId != 0)
+                    {
+                        if (Convert.ToInt32(ddl_ProjectStatus.SelectedValue) == 5)
+                        {
+                            projectObject.FinishDate = DateTime.Now.Date;
+                        }
+
+                        // workaround to disable tracking check
+                        AdvProg_DatabaseContext newContext = new AdvProg_DatabaseContext();
+                        newContext.Update(projectObject);
+                        newContext.SaveChanges();
+
+                        this.Close();
+                        this.DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        projectObject.CreateDate = DateTime.Now.Date;
+
+                        AdvProg_DatabaseContext newContext = new AdvProg_DatabaseContext();
+                        newContext.Add(projectObject);
+                        newContext.SaveChanges();
+
+                        LogsAudits.addAudit("Forms", "Create", "Project", null, projectObject.ToString(), projectObject.ProjectId, Global.loggedUser.UserId);
+
+                        this.Close();
+                        this.DialogResult = DialogResult.OK;
+                    }
                 }
                 else
                 {
-                    projectObject.CreateDate = DateTime.Now.Date;
-
-                    AdvProg_DatabaseContext newContext = new AdvProg_DatabaseContext();
-                    newContext.Add(projectObject);
-                    newContext.SaveChanges();
-
-                    this.Close();
-                    this.DialogResult = DialogResult.OK;
+                    MessageBox.Show(errors);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(errors);
+                MessageBox.Show("There has been an error, please contact your admin");
+                LogsAudits.addLog("Forms", ex.Message.ToString(), Global.loggedUser.UserId);
             }
 
         }
