@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_WebProjectManager\\advProj_WebProjectManager.csproj": {}
+    "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_WebProjectManager\\advProj_WebProjectManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj": {
+    "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj",
         "projectName": "advProj_BusinessObjects",
-        "projectPath": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj",
-        "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_BusinessObjects\\obj\\",
+        "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_BusinessObjects\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\moham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -79,17 +83,21 @@
         }
       }
     },
-    "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_WebProjectManager\\advProj_WebProjectManager.csproj": {
+    "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_WebProjectManager\\advProj_WebProjectManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_WebProjectManager\\advProj_WebProjectManager.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_WebProjectManager\\advProj_WebProjectManager.csproj",
         "projectName": "advProj_WebProjectManager",
-        "projectPath": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_WebProjectManager\\advProj_WebProjectManager.csproj",
-        "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_WebProjectManager\\obj\\",
+        "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_WebProjectManager\\advProj_WebProjectManager.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_WebProjectManager\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\moham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -104,8 +112,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj": {
-                "projectPath": "C:\\Users\\moham\\Desktop\\AdvanceProgramming\\AdvProg\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj"
+              "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj": {
+                "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\AdvProg\\advProj_BusinessObjects\\advProj_BusinessObjects.csproj"
               }
             }
           }

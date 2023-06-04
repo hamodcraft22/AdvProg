@@ -35,7 +35,7 @@ namespace advProj_WebProjectManager.Controllers
             {
                 // creating and saving excpetion log
                 AdvProjLog newLog = new AdvProjLog();
-                newLog.LogSource = "Web"; 
+                newLog.LogSource = "Web";
                 newLog.ExceptionMsg = ex.Message;
                 newLog.Date = DateTime.Now;
                 if (Global.userID != null)
@@ -57,29 +57,81 @@ namespace advProj_WebProjectManager.Controllers
         // GET: AdvProjComments/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.AdvProjComments == null)
-            {
-                return NotFound();
-            }
 
-            var advProjComment = await _context.AdvProjComments
-                .Include(a => a.Response)
-                .Include(a => a.Task)
-                .Include(a => a.User)
-                .FirstOrDefaultAsync(m => m.CommentId == id);
-            if (advProjComment == null)
-            {
-                return NotFound();
-            }
 
-            return View(advProjComment);
+            try
+            {
+                if (id == null || _context.AdvProjComments == null)
+                {
+                    return NotFound();
+                }
+
+                var advProjComment = await _context.AdvProjComments
+                    .Include(a => a.Response)
+                    .Include(a => a.Task)
+                    .Include(a => a.User)
+                    .FirstOrDefaultAsync(m => m.CommentId == id);
+                if (advProjComment == null)
+                {
+                    return NotFound();
+                }
+
+                return View(advProjComment);
+            }
+            catch (Exception ex)
+            {
+                // creating and saving excpetion log
+                AdvProjLog newLog = new AdvProjLog();
+                newLog.LogSource = "Web";
+                newLog.ExceptionMsg = ex.Message;
+                newLog.Date = DateTime.Now;
+                if (Global.userID != null)
+                {
+                    newLog.UserId = Global.userID;
+                }
+
+                // save exception
+                _context.Add(newLog);
+                _context.SaveChanges();
+
+                // return to home page with error 
+                TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
+                return RedirectToAction("Index", "Home", new { area = "" });
+
+            }
         }
 
         // GET: AdvProjComments/Create
         public IActionResult Create(string? tid)
         {
-            ViewData["ResponseId"] = new SelectList(_context.AdvProjComResponses, "ResponseId", "ResponseName");
-            return View();
+
+
+            try
+            {
+                ViewData["ResponseId"] = new SelectList(_context.AdvProjComResponses, "ResponseId", "ResponseName");
+                return View();
+            }
+            catch (Exception ex)
+            {
+                // creating and saving excpetion log
+                AdvProjLog newLog = new AdvProjLog();
+                newLog.LogSource = "Web";
+                newLog.ExceptionMsg = ex.Message;
+                newLog.Date = DateTime.Now;
+                if (Global.userID != null)
+                {
+                    newLog.UserId = Global.userID;
+                }
+
+                // save exception
+                _context.Add(newLog);
+                _context.SaveChanges();
+
+                // return to home page with error 
+                TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
+                return RedirectToAction("Index", "Home", new { area = "" });
+
+            }
         }
 
         // POST: AdvProjComments/Create
@@ -109,20 +161,46 @@ namespace advProj_WebProjectManager.Controllers
         // GET: AdvProjComments/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.AdvProjComments == null)
+
+
+            try
             {
-                return NotFound();
-            }
+                if (id == null || _context.AdvProjComments == null)
+                {
+                    return NotFound();
+                }
 
-            var advProjComment = await _context.AdvProjComments.FindAsync(id);
-            if (advProjComment == null)
+                var advProjComment = await _context.AdvProjComments.FindAsync(id);
+                if (advProjComment == null)
+                {
+                    return NotFound();
+                }
+
+                ViewData["ResponseId"] = new SelectList(_context.AdvProjComResponses, "ResponseId", "ResponseName", advProjComment.ResponseId);
+
+                return View(advProjComment);
+            }
+            catch (Exception ex)
             {
-                return NotFound();
+                // creating and saving excpetion log
+                AdvProjLog newLog = new AdvProjLog();
+                newLog.LogSource = "Web";
+                newLog.ExceptionMsg = ex.Message;
+                newLog.Date = DateTime.Now;
+                if (Global.userID != null)
+                {
+                    newLog.UserId = Global.userID;
+                }
+
+                // save exception
+                _context.Add(newLog);
+                _context.SaveChanges();
+
+                // return to home page with error 
+                TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
+                return RedirectToAction("Index", "Home", new { area = "" });
+
             }
-
-            ViewData["ResponseId"] = new SelectList(_context.AdvProjComResponses, "ResponseId", "ResponseName", advProjComment.ResponseId);
-
-            return View(advProjComment);
         }
 
         // POST: AdvProjComments/Edit/5
@@ -132,55 +210,107 @@ namespace advProj_WebProjectManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("CommentId,CommentTitle,CommentBody,CommentDate,TaskId,UserId,ResponseId")] AdvProjComment advProjComment)
         {
-            if (id != advProjComment.CommentId)
-            {
-                return NotFound();
-            }
 
-            if (ModelState.IsValid)
+
+            try
             {
-                var tid = advProjComment.TaskId;
-                try
+                if (id != advProjComment.CommentId)
                 {
-                    _context.Update(advProjComment);
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+
+                if (ModelState.IsValid)
                 {
-                    if (!AdvProjCommentExists(advProjComment.CommentId))
+                    var tid = advProjComment.TaskId;
+                    try
                     {
-                        return NotFound();
+                        _context.Update(advProjComment);
+                        await _context.SaveChangesAsync();
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!AdvProjCommentExists(advProjComment.CommentId))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
+                    return RedirectToAction("Index", new { tid = tid });
                 }
-                return RedirectToAction("Index", new { tid = tid });
+                ViewData["ResponseId"] = new SelectList(_context.AdvProjComResponses, "ResponseId", "ResponseName", advProjComment.ResponseId);
+                return View(advProjComment);
             }
-            ViewData["ResponseId"] = new SelectList(_context.AdvProjComResponses, "ResponseId", "ResponseName", advProjComment.ResponseId);
-            return View(advProjComment);
+            catch (Exception ex)
+            {
+                // creating and saving excpetion log
+                AdvProjLog newLog = new AdvProjLog();
+                newLog.LogSource = "Web";
+                newLog.ExceptionMsg = ex.Message;
+                newLog.Date = DateTime.Now;
+                if (Global.userID != null)
+                {
+                    newLog.UserId = Global.userID;
+                }
+
+                // save exception
+                _context.Add(newLog);
+                _context.SaveChanges();
+
+                // return to home page with error 
+                TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
+                return RedirectToAction("Index", "Home", new { area = "" });
+
+            }
         }
 
         // GET: AdvProjComments/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.AdvProjComments == null)
-            {
-                return NotFound();
-            }
 
-            var advProjComment = await _context.AdvProjComments
-                .Include(a => a.Response)
-                .Include(a => a.Task)
-                .Include(a => a.User)
-                .FirstOrDefaultAsync(m => m.CommentId == id);
-            if (advProjComment == null)
-            {
-                return NotFound();
-            }
 
-            return View(advProjComment);
+            try
+            {
+                if (id == null || _context.AdvProjComments == null)
+                {
+                    return NotFound();
+                }
+
+                var advProjComment = await _context.AdvProjComments
+                    .Include(a => a.Response)
+                    .Include(a => a.Task)
+                    .Include(a => a.User)
+                    .FirstOrDefaultAsync(m => m.CommentId == id);
+                if (advProjComment == null)
+                {
+                    return NotFound();
+                }
+
+                return View(advProjComment);
+            }
+            catch (Exception ex)
+            {
+                // creating and saving excpetion log
+                AdvProjLog newLog = new AdvProjLog();
+                newLog.LogSource = "Web";
+                newLog.ExceptionMsg = ex.Message;
+                newLog.Date = DateTime.Now;
+                if (Global.userID != null)
+                {
+                    newLog.UserId = Global.userID;
+                }
+
+                // save exception
+                _context.Add(newLog);
+                _context.SaveChanges();
+
+                // return to home page with error 
+                TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
+                return RedirectToAction("Index", "Home", new { area = "" });
+
+            }
         }
 
         // POST: AdvProjComments/Delete/5
@@ -188,25 +318,51 @@ namespace advProj_WebProjectManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.AdvProjComments == null)
-            {
-                return Problem("Entity set 'AdvProg_DatabaseContext.AdvProjComments'  is null.");
-            }
-            var advProjComment = await _context.AdvProjComments.FindAsync(id);
-            var tid = advProjComment.TaskId;
 
-            if (advProjComment != null)
+
+            try
             {
-                _context.AdvProjComments.Remove(advProjComment);
+                if (_context.AdvProjComments == null)
+                {
+                    return Problem("Entity set 'AdvProg_DatabaseContext.AdvProjComments'  is null.");
+                }
+                var advProjComment = await _context.AdvProjComments.FindAsync(id);
+                var tid = advProjComment.TaskId;
+
+                if (advProjComment != null)
+                {
+                    _context.AdvProjComments.Remove(advProjComment);
+                }
+
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index", new { tid = tid });
             }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index", new { tid = tid });
+            catch (Exception ex)
+            {
+                // creating and saving excpetion log
+                AdvProjLog newLog = new AdvProjLog();
+                newLog.LogSource = "Web";
+                newLog.ExceptionMsg = ex.Message;
+                newLog.Date = DateTime.Now;
+                if (Global.userID != null)
+                {
+                    newLog.UserId = Global.userID;
+                }
+
+                // save exception
+                _context.Add(newLog);
+                _context.SaveChanges();
+
+                // return to home page with error 
+                TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
+                return RedirectToAction("Index", "Home", new { area = "" });
+
+            }
         }
 
         private bool AdvProjCommentExists(int id)
         {
-          return (_context.AdvProjComments?.Any(e => e.CommentId == id)).GetValueOrDefault();
+            return (_context.AdvProjComments?.Any(e => e.CommentId == id)).GetValueOrDefault();
         }
     }
 }
