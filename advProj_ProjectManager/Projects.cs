@@ -83,7 +83,7 @@ namespace advProj_ProjectManager
                     // part to check if member and only show those results
                     var userTaskIds = context.AdvProjUserTasks.Where(x => x.UserId == Global.loggedUser.UserId).Select(a => a.TaskId);
                     var userProjectIds = context.AdvProjTasks.Where(x => userTaskIds.Contains(x.TaskId)).Select(a => a.ProjectId);
-                    projectsToShow = projectsToShow.Where(a => userTaskIds.Contains(a.ProjectId));
+                    projectsToShow = projectsToShow.Where(a => userProjectIds.Contains(a.ProjectId));
                 }
                 else
                 {
