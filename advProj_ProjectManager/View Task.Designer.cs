@@ -50,6 +50,7 @@
             txtComments = new TextBox();
             lblSearchComments = new Label();
             btn_Return = new Button();
+            btn_Clear = new Button();
             usersBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Users).BeginInit();
             searchBox.SuspendLayout();
@@ -66,9 +67,11 @@
             usersBox.Controls.Add(btnSearchUser);
             usersBox.Controls.Add(txtUsers);
             usersBox.Controls.Add(lblSearchUseer);
-            usersBox.Location = new Point(22, 12);
+            usersBox.Location = new Point(41, 26);
+            usersBox.Margin = new Padding(6);
             usersBox.Name = "usersBox";
-            usersBox.Size = new Size(375, 491);
+            usersBox.Padding = new Padding(6);
+            usersBox.Size = new Size(696, 1047);
             usersBox.TabIndex = 0;
             usersBox.TabStop = false;
             usersBox.Text = "Users";
@@ -76,26 +79,29 @@
             // ddl_Users
             // 
             ddl_Users.FormattingEnabled = true;
-            ddl_Users.Location = new Point(56, 377);
+            ddl_Users.Location = new Point(104, 804);
+            ddl_Users.Margin = new Padding(6);
             ddl_Users.Name = "ddl_Users";
-            ddl_Users.Size = new Size(302, 23);
+            ddl_Users.Size = new Size(557, 40);
             ddl_Users.TabIndex = 81;
             // 
             // lblUsers
             // 
             lblUsers.AutoSize = true;
-            lblUsers.Location = new Point(15, 380);
+            lblUsers.Location = new Point(28, 811);
+            lblUsers.Margin = new Padding(6, 0, 6, 0);
             lblUsers.Name = "lblUsers";
-            lblUsers.Size = new Size(35, 15);
+            lblUsers.Size = new Size(71, 32);
             lblUsers.TabIndex = 80;
             lblUsers.Text = "Users";
             // 
             // btnDeleteUser
             // 
             btnDeleteUser.BackColor = Color.IndianRed;
-            btnDeleteUser.Location = new Point(256, 421);
+            btnDeleteUser.Location = new Point(475, 898);
+            btnDeleteUser.Margin = new Padding(6);
             btnDeleteUser.Name = "btnDeleteUser";
-            btnDeleteUser.Size = new Size(102, 39);
+            btnDeleteUser.Size = new Size(189, 83);
             btnDeleteUser.TabIndex = 79;
             btnDeleteUser.Text = "Delete";
             btnDeleteUser.UseVisualStyleBackColor = false;
@@ -104,9 +110,10 @@
             // btn_AddUser
             // 
             btn_AddUser.BackColor = SystemColors.GradientActiveCaption;
-            btn_AddUser.Location = new Point(15, 424);
+            btn_AddUser.Location = new Point(28, 905);
+            btn_AddUser.Margin = new Padding(6);
             btn_AddUser.Name = "btn_AddUser";
-            btn_AddUser.Size = new Size(103, 36);
+            btn_AddUser.Size = new Size(191, 77);
             btn_AddUser.TabIndex = 25;
             btn_AddUser.Text = "Add";
             btn_AddUser.UseVisualStyleBackColor = false;
@@ -115,17 +122,20 @@
             // dgv_Users
             // 
             dgv_Users.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Users.Location = new Point(26, 57);
+            dgv_Users.Location = new Point(32, 122);
+            dgv_Users.Margin = new Padding(6);
             dgv_Users.Name = "dgv_Users";
+            dgv_Users.RowHeadersWidth = 82;
             dgv_Users.RowTemplate.Height = 25;
-            dgv_Users.Size = new Size(343, 300);
+            dgv_Users.Size = new Size(637, 640);
             dgv_Users.TabIndex = 3;
             // 
             // btnSearchUser
             // 
-            btnSearchUser.Location = new Point(283, 28);
+            btnSearchUser.Location = new Point(526, 54);
+            btnSearchUser.Margin = new Padding(6);
             btnSearchUser.Name = "btnSearchUser";
-            btnSearchUser.Size = new Size(75, 23);
+            btnSearchUser.Size = new Size(139, 49);
             btnSearchUser.TabIndex = 2;
             btnSearchUser.Text = "Search";
             btnSearchUser.UseVisualStyleBackColor = true;
@@ -133,22 +143,25 @@
             // 
             // txtUsers
             // 
-            txtUsers.Location = new Point(54, 28);
+            txtUsers.Location = new Point(100, 60);
+            txtUsers.Margin = new Padding(6);
             txtUsers.Name = "txtUsers";
-            txtUsers.Size = new Size(223, 23);
+            txtUsers.Size = new Size(411, 39);
             txtUsers.TabIndex = 1;
             // 
             // lblSearchUseer
             // 
             lblSearchUseer.AutoSize = true;
-            lblSearchUseer.Location = new Point(6, 28);
+            lblSearchUseer.Location = new Point(11, 60);
+            lblSearchUseer.Margin = new Padding(6, 0, 6, 0);
             lblSearchUseer.Name = "lblSearchUseer";
-            lblSearchUseer.Size = new Size(42, 15);
+            lblSearchUseer.Size = new Size(85, 32);
             lblSearchUseer.TabIndex = 0;
             lblSearchUseer.Text = "Search";
             // 
             // searchBox
             // 
+            searchBox.Controls.Add(btn_Clear);
             searchBox.Controls.Add(btnDeletedComment);
             searchBox.Controls.Add(btnEditComment);
             searchBox.Controls.Add(btnAddComment);
@@ -160,9 +173,11 @@
             searchBox.Controls.Add(btnSearchComments);
             searchBox.Controls.Add(txtComments);
             searchBox.Controls.Add(lblSearchComments);
-            searchBox.Location = new Point(415, 12);
+            searchBox.Location = new Point(771, 26);
+            searchBox.Margin = new Padding(6);
             searchBox.Name = "searchBox";
-            searchBox.Size = new Size(373, 491);
+            searchBox.Padding = new Padding(6);
+            searchBox.Size = new Size(693, 1047);
             searchBox.TabIndex = 1;
             searchBox.TabStop = false;
             searchBox.Text = "Comments";
@@ -170,9 +185,10 @@
             // btnDeletedComment
             // 
             btnDeletedComment.BackColor = Color.IndianRed;
-            btnDeletedComment.Location = new Point(256, 424);
+            btnDeletedComment.Location = new Point(475, 905);
+            btnDeletedComment.Margin = new Padding(6);
             btnDeletedComment.Name = "btnDeletedComment";
-            btnDeletedComment.Size = new Size(102, 39);
+            btnDeletedComment.Size = new Size(189, 83);
             btnDeletedComment.TabIndex = 79;
             btnDeletedComment.Text = "Delete";
             btnDeletedComment.UseVisualStyleBackColor = false;
@@ -181,9 +197,10 @@
             // btnEditComment
             // 
             btnEditComment.BackColor = SystemColors.GradientActiveCaption;
-            btnEditComment.Location = new Point(137, 425);
+            btnEditComment.Location = new Point(254, 907);
+            btnEditComment.Margin = new Padding(6);
             btnEditComment.Name = "btnEditComment";
-            btnEditComment.Size = new Size(103, 36);
+            btnEditComment.Size = new Size(191, 77);
             btnEditComment.TabIndex = 26;
             btnEditComment.Text = "Edit";
             btnEditComment.UseVisualStyleBackColor = false;
@@ -192,9 +209,10 @@
             // btnAddComment
             // 
             btnAddComment.BackColor = SystemColors.GradientActiveCaption;
-            btnAddComment.Location = new Point(19, 424);
+            btnAddComment.Location = new Point(35, 905);
+            btnAddComment.Margin = new Padding(6);
             btnAddComment.Name = "btnAddComment";
-            btnAddComment.Size = new Size(103, 36);
+            btnAddComment.Size = new Size(191, 77);
             btnAddComment.TabIndex = 25;
             btnAddComment.Text = "Add";
             btnAddComment.UseVisualStyleBackColor = false;
@@ -202,51 +220,59 @@
             // 
             // txtBody
             // 
-            txtBody.Location = new Point(63, 320);
+            txtBody.Location = new Point(117, 683);
+            txtBody.Margin = new Padding(6);
             txtBody.Name = "txtBody";
-            txtBody.Size = new Size(295, 88);
+            txtBody.Size = new Size(544, 183);
             txtBody.TabIndex = 8;
             txtBody.Text = "";
             // 
             // lblBody
             // 
             lblBody.AutoSize = true;
-            lblBody.Location = new Point(19, 320);
+            lblBody.Location = new Point(35, 683);
+            lblBody.Margin = new Padding(6, 0, 6, 0);
             lblBody.Name = "lblBody";
-            lblBody.Size = new Size(34, 15);
+            lblBody.Size = new Size(68, 32);
             lblBody.TabIndex = 7;
             lblBody.Text = "Body";
             // 
             // txtTitle
             // 
-            txtTitle.Location = new Point(63, 291);
+            txtTitle.Location = new Point(117, 621);
+            txtTitle.Margin = new Padding(6);
             txtTitle.Name = "txtTitle";
-            txtTitle.Size = new Size(295, 23);
+            txtTitle.Size = new Size(544, 39);
             txtTitle.TabIndex = 6;
             // 
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Location = new Point(19, 292);
+            lblTitle.Location = new Point(35, 623);
+            lblTitle.Margin = new Padding(6, 0, 6, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(29, 15);
+            lblTitle.Size = new Size(60, 32);
             lblTitle.TabIndex = 5;
             lblTitle.Text = "Title";
             // 
             // dgv_Comments
             // 
             dgv_Comments.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Comments.Location = new Point(15, 57);
+            dgv_Comments.Location = new Point(28, 122);
+            dgv_Comments.Margin = new Padding(6);
             dgv_Comments.Name = "dgv_Comments";
+            dgv_Comments.RowHeadersWidth = 82;
             dgv_Comments.RowTemplate.Height = 25;
-            dgv_Comments.Size = new Size(343, 221);
+            dgv_Comments.Size = new Size(637, 471);
             dgv_Comments.TabIndex = 4;
+            dgv_Comments.DoubleClick += dgv_Comments_DoubleClick;
             // 
             // btnSearchComments
             // 
-            btnSearchComments.Location = new Point(283, 27);
+            btnSearchComments.Location = new Point(526, 48);
+            btnSearchComments.Margin = new Padding(6);
             btnSearchComments.Name = "btnSearchComments";
-            btnSearchComments.Size = new Size(75, 23);
+            btnSearchComments.Size = new Size(139, 49);
             btnSearchComments.TabIndex = 3;
             btnSearchComments.Text = "Search";
             btnSearchComments.UseVisualStyleBackColor = true;
@@ -254,39 +280,55 @@
             // 
             // txtComments
             // 
-            txtComments.Location = new Point(54, 25);
+            txtComments.Location = new Point(100, 53);
+            txtComments.Margin = new Padding(6);
             txtComments.Name = "txtComments";
-            txtComments.Size = new Size(223, 23);
+            txtComments.Size = new Size(411, 39);
             txtComments.TabIndex = 2;
             // 
             // lblSearchComments
             // 
             lblSearchComments.AutoSize = true;
-            lblSearchComments.Location = new Point(6, 28);
+            lblSearchComments.Location = new Point(11, 60);
+            lblSearchComments.Margin = new Padding(6, 0, 6, 0);
             lblSearchComments.Name = "lblSearchComments";
-            lblSearchComments.Size = new Size(42, 15);
+            lblSearchComments.Size = new Size(85, 32);
             lblSearchComments.TabIndex = 1;
             lblSearchComments.Text = "Search";
             // 
             // btn_Return
             // 
             btn_Return.BackColor = SystemColors.GradientActiveCaption;
-            btn_Return.Location = new Point(22, 525);
+            btn_Return.Location = new Point(41, 1120);
+            btn_Return.Margin = new Padding(6);
             btn_Return.Name = "btn_Return";
-            btn_Return.Size = new Size(94, 39);
+            btn_Return.Size = new Size(175, 83);
             btn_Return.TabIndex = 76;
             btn_Return.Text = "Return";
             btn_Return.UseVisualStyleBackColor = false;
             btn_Return.Click += btn_Return_Click;
             // 
+            // btn_Clear
+            // 
+            btn_Clear.BackColor = SystemColors.GradientActiveCaption;
+            btn_Clear.Location = new Point(37, 787);
+            btn_Clear.Margin = new Padding(6);
+            btn_Clear.Name = "btn_Clear";
+            btn_Clear.Size = new Size(68, 77);
+            btn_Clear.TabIndex = 80;
+            btn_Clear.Text = "X";
+            btn_Clear.UseVisualStyleBackColor = false;
+            btn_Clear.Click += btn_Clear_Click;
+            // 
             // ViewTask
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 576);
+            ClientSize = new Size(1486, 1229);
             Controls.Add(btn_Return);
             Controls.Add(searchBox);
             Controls.Add(usersBox);
+            Margin = new Padding(6);
             Name = "ViewTask";
             Text = "ViewTask";
             Load += ViewTask_Load;
@@ -323,5 +365,6 @@
         private Button btn_Return;
         private ComboBox ddl_Users;
         private Label lblUsers;
+        private Button btn_Clear;
     }
 }

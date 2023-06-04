@@ -201,6 +201,11 @@ namespace advProj_WebProjectManager.Controllers
             {
                 try
                 {
+                    if (updateProject.StatusId == 5)
+                    {
+                        updateProject.FinishDate = DateTime.Now.Date;
+                    }
+
                     _context.Update(updateProject);
                     await _context.SaveChangesAsync();
                 }

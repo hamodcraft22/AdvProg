@@ -14,34 +14,28 @@ namespace advProj_ProjectManager
     public partial class CreateTask : Form
     {
         AdvProg_DatabaseContext context;
-        ProjectView projectView;
-        AdvProjTask task;
-        public CreateTask()
+        AdvProjTask taskObject;
+        int projectID;
+
+        public CreateTask(int projectID)
         {
-            context = new AdvProg_DatabaseContext();
             InitializeComponent();
+            context = new AdvProg_DatabaseContext();
+            taskObject = new AdvProjTask();
+            this.projectID = projectID;
         }
 
-        public CreateTask(ProjectView projectView)
+        public CreateTask(AdvProjTask Passedtask)
         {
-            context = new AdvProg_DatabaseContext();
             InitializeComponent();
-            this.projectView = projectView;
-        }
+            context = new AdvProg_DatabaseContext();
 
-        public CreateTask(ProjectView projectView, AdvProjTask task)
-        {
-            context = new AdvProg_DatabaseContext();
-            InitializeComponent();
-            this.projectView = projectView;
-            this.task = task;
+            this.taskObject = Passedtask;
+            this.projectID = (int)Passedtask.ProjectId;
+
+            // chnaging to update page
             btn_CreateTask.Text = "Update Button";
             this.Text = "Update task";
-        }
-
-        private void lbl_Login_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void CreateTask_Load(object sender, EventArgs e)
@@ -53,108 +47,113 @@ namespace advProj_ProjectManager
             ddl_TaskStatus.DisplayMember = "StatusName";
             ddl_TaskStatus.ValueMember = "StatusId";
             ddl_TaskStatus.SelectedItem = null;
-            if (task != null)
-            {
-                try
-                {
-                    txt_TaskName.Text = this.task.TaskName;
-                    taskStartDate.Value = this.task.StartDate.Value;
-                    taskEndDate.Value = this.task.EndDate.Value;
-                    ddl_TaskStatus.SelectedValue = this.task.StatusId;
-                    txt_TaskDescription.Text = this.task.TaskDescription;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error " + ex);
-                }
 
+            // if an object is passed, populate data
+            if (taskObject.TaskId != 0)
+            {
+                txt_TaskName.Text = taskObject.TaskName;
+                if (taskObject.StartDate != null)
+                {
+                    taskStartDate.Value = taskObject.StartDate.Value;
+                }
+                if (taskObject.EndDate != null)
+                {
+                    taskEndDate.Value = taskObject.EndDate.Value;
+                }
+                ddl_TaskStatus.SelectedValue = taskObject.StatusId;
+                txt_TaskDescription.Text = taskObject.TaskDescription;
+            }
+            else
+            {
+                // else if it is a create, disable the selction of a status other than create
+                ddl_TaskStatus.SelectedValue = 1;
+                ddl_TaskStatus.Enabled = false;
             }
         }
 
         private void btn_Return_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            this.projectView.Refresh();
-            this.projectView.Show();
+            this.Close();
         }
 
         private void btn_CreateTask_Click(object sender, EventArgs e)
         {
-            try
+            string errors = "";
+
+            if (txt_TaskName.Text == "")
             {
-                if (txt_TaskDescription.Text != "")
+                errors += "Please Input a name.\n";
+            }
+
+            if (ddl_TaskStatus.SelectedValue == null)
+            {
+                errors += "Please Select a status.\n";
+            }
+
+            if (txt_TaskDescription.Text == "")
+            {
+                errors += "Please Add a Tsk Description.\n";
+            }
+
+            // dates checks are canceled if it is an update
+            if (taskObject.TaskId == 0)
+            {
+                if (taskStartDate.Value < DateTime.Today.Date)
                 {
-                    task.TaskName = txt_TaskDescription.Text;
-                    if (taskStartDate.Value.Date >= DateTime.Today.Date)
-                    {
-                        task.StartDate = taskStartDate.Value.Date;
-                        if (taskEndDate.Value.Date >= DateTime.Today.Date)
-                        {
-                            task.EndDate = taskEndDate.Value.Date;
-                            if (ddl_TaskStatus.SelectedValue != null)
-                            {
-                                task.StatusId = Convert.ToInt32(ddl_TaskStatus.SelectedValue);
-                                if (txt_TaskDescription.Text != "")
-                                {
-                                    task.TaskDescription = txt_TaskDescription.Text;
-                                    task.ProjectId = this.task.ProjectId;
+                    errors += "Tsak Satrt Date Cannot be in the past.\n";
+                }
+            }
 
-                                    if (this.task.ProjectId != null)
-                                    {
-                                        context.Update(this.task);
-                                        context.SaveChanges();
-                                        MessageBox.Show("Task updated Successfully");
-                                        this.Hide();
-                                        this.projectView.Refresh();
-                                        this.projectView.Show();
+            if (taskEndDate.Value < taskStartDate.Value)
+            {
+                errors += "Task End Date Cannot be before the start.\n";
+            }
 
-                                    }
-                                    else
-                                    {
-                                        context.Add(this.task);
-                                        context.SaveChanges();
-                                        MessageBox.Show("Task created Successfully");
-                                        Refresh();
-                                    }
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Enter a project Description");
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Select a status");
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Invalid start date");
-                        }
-                    }
-                    else
+
+            if (errors == "")
+            {
+                taskObject.TaskName = txt_TaskDescription.Text;
+                taskObject.StartDate = taskStartDate.Value.Date;
+                taskObject.EndDate = taskEndDate.Value.Date;
+                taskObject.StatusId = Convert.ToInt32(ddl_TaskStatus.SelectedValue);
+                taskObject.TaskDescription = txt_TaskDescription.Text;
+                taskObject.ProjectId = projectID;
+
+                if (taskObject.TaskId != 0)
+                {
+                    if (Convert.ToInt32(ddl_TaskStatus.SelectedValue) == 5)
                     {
-                        MessageBox.Show("Invalid start date");
+                        taskObject.FinishDate = DateTime.Now.Date;
                     }
+
+                    // workaround to disable tracking check
+                    AdvProg_DatabaseContext newContext = new AdvProg_DatabaseContext();
+
+                    newContext.Update(taskObject);
+                    newContext.SaveChanges();
+
+                    this.Close();
+                    this.DialogResult = DialogResult.OK;
+
                 }
                 else
                 {
-                    MessageBox.Show("Enter a Task Name");
-                }
+                    taskObject.CreateDate = DateTime.Now.Date;
 
+                    AdvProg_DatabaseContext newContext = new AdvProg_DatabaseContext();
+                    newContext.Add(taskObject);
+                    newContext.SaveChanges();
+
+                    this.Close();
+                    this.DialogResult = DialogResult.OK;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Error " + ex);
+                MessageBox.Show(errors);
             }
+
         }
-        public void Refresh()
-        {
-            ddl_TaskStatus.SelectedItem = null;
-            taskStartDate.Value = DateTime.Today.Date;
-            taskEndDate.Value = DateTime.Today.Date;
-            txt_TaskDescription.Text = "";
-            txt_TaskName.Text = "";
-        }
+
     }
 }

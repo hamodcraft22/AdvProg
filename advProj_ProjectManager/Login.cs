@@ -81,7 +81,7 @@ namespace advProj_ProjectManager
                     // adding role to global class - if admin
                     if (userRole.FirstOrDefault() == "Admin")
                     {
-                        MessageBox.Show(userRole.FirstOrDefault());
+                        Global.isAdmin = true;
                     }
                 }
                 return passCheck;
