@@ -147,14 +147,14 @@ namespace advProj_ProjectManager
                             projectObject.FinishDate = DateTime.Now.Date;
                         }
 
-                        var oldProject = context.AdvProjProjects.Find(projectObject.ProjectId);
+                        //var oldProject = context.AdvProjProjects.Find(projectObject.ProjectId);
 
                         // workaround to disable tracking check
                         AdvProg_DatabaseContext newContext = new AdvProg_DatabaseContext();
                         newContext.Update(projectObject);
                         newContext.SaveChanges();
 
-                        LogsAudits.addAudit("Forms", "Update", "Project", oldProject.ToString(), projectObject.ToString(), projectObject.ProjectId, Global.loggedUser.UserId);
+                        //LogsAudits.addAudit("Forms", "Update", "Project", oldProject.ToString(), projectObject.ToString(), projectObject.ProjectId, Global.loggedUser.UserId);
 
                         this.Close();
                         this.DialogResult = DialogResult.OK;

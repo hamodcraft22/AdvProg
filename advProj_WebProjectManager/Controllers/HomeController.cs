@@ -22,7 +22,7 @@ namespace advProj_WebProjectManager.Controllers
             int NoOfProjects = _dbContext.AdvProjProjects.Count();
             int NoOfTasks = _dbContext.AdvProjTasks.Count();
             int NoOfUsers = _dbContext.AdvProjUsers.Count();
-            int NoOfComs = _dbContext.AdvProjProjects.Count();
+            int NoOfComs = _dbContext.AdvProjComments.Count();
 
             ViewData["NoOfProjects"] = NoOfProjects;
             ViewData["NoOfTasks"] = NoOfTasks;

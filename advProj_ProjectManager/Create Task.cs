@@ -134,7 +134,7 @@ namespace advProj_ProjectManager
 
                 if (errors == "")
                 {
-                    taskObject.TaskName = txt_TaskDescription.Text;
+                    taskObject.TaskName = txt_TaskName.Text;
                     taskObject.StartDate = taskStartDate.Value.Date;
                     taskObject.EndDate = taskEndDate.Value.Date;
                     taskObject.StatusId = Convert.ToInt32(ddl_TaskStatus.SelectedValue);
@@ -148,7 +148,7 @@ namespace advProj_ProjectManager
                             taskObject.FinishDate = DateTime.Now.Date;
                         }
 
-                        var oldTask = context.AdvProjTasks.Find(taskObject.TaskId);
+                        //var oldTask = context.AdvProjTasks.Find(taskObject.TaskId);
 
                         // workaround to disable tracking check
                         AdvProg_DatabaseContext newContext = new AdvProg_DatabaseContext();
@@ -156,7 +156,7 @@ namespace advProj_ProjectManager
                         newContext.Update(taskObject);
                         newContext.SaveChanges();
 
-                        LogsAudits.addAudit("Forms", "Update", "Task", oldTask.ToString(), taskObject.ToString(), taskObject.TaskId, Global.loggedUser.UserId);
+                        //LogsAudits.addAudit("Forms", "Update", "Task", oldTask.ToString(), taskObject.ToString(), taskObject.TaskId, Global.loggedUser.UserId);
 
                         this.Close();
                         this.DialogResult = DialogResult.OK;
