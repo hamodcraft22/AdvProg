@@ -139,12 +139,9 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
-            // custome roles creation 
-            if (!_RoleManager.RoleExistsAsync("Admin").GetAwaiter().GetResult())
-            {
-                _RoleManager.CreateAsync(new IdentityRole("Admin")).GetAwaiter().GetResult();
-                _RoleManager.CreateAsync(new IdentityRole("User")).GetAwaiter().GetResult();
-            }
+            // calling the seeding functions 
+            await AdvProg_ContextSeed.SeedRolesAsync(_userManager, _RoleManager);
+            await AdvProg_ContextSeed.SeedAdminAsync(_userManager, _RoleManager);
 
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();

@@ -6,9 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using advProj_BusinessObjects;
+using System.Drawing;
+using advProj_WebProjectManager.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace advProj_WebProjectManager.Controllers
 {
+    [Authorize]
     public class AdvProjDocumentsController : Controller
     {
         private readonly AdvProg_DatabaseContext _context;
@@ -19,37 +23,16 @@ namespace advProj_WebProjectManager.Controllers
         }
 
         // GET: AdvProjDocuments
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? tid)
         {
-            var advProg_DatabaseContext = _context.AdvProjDocuments.Include(a => a.Task).Include(a => a.User);
+            var advProg_DatabaseContext = _context.AdvProjDocuments.Include(a => a.Task).Include(a => a.User).Where(f => f.TaskId == tid);
             return View(await advProg_DatabaseContext.ToListAsync());
-        }
-
-        // GET: AdvProjDocuments/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.AdvProjDocuments == null)
-            {
-                return NotFound();
-            }
-
-            var advProjDocument = await _context.AdvProjDocuments
-                .Include(a => a.Task)
-                .Include(a => a.User)
-                .FirstOrDefaultAsync(m => m.DocumentId == id);
-            if (advProjDocument == null)
-            {
-                return NotFound();
-            }
-
-            return View(advProjDocument);
         }
 
         // GET: AdvProjDocuments/Create
         public IActionResult Create()
         {
-            ViewData["TaskId"] = new SelectList(_context.AdvProjTasks, "TaskId", "TaskDescription");
-            ViewData["UserId"] = new SelectList(_context.AdvProjUsers, "UserId", "UserId");
+            // just returns view
             return View();
         }
 
@@ -58,69 +41,48 @@ namespace advProj_WebProjectManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DocumentId,DocumentName,DocumentType,DocumentExt,DocumentPath,DocumentDescription,UploadDate,TaskId,UserId")] AdvProjDocument advProjDocument)
+        public async Task<IActionResult> Create([Bind("DocumentId,DocumentName,DocumentType,DocumentExt,DocumentPath,DocumentDescription,UploadDate,TaskId,UserId")] AdvProjDocument advProjDocument, List<IFormFile> files)
         {
-            if (ModelState.IsValid)
+            AdvProjDocument ActadvProjDocument = advProjDocument;
+
+            int actTid = Convert.ToInt32(TempData["tid"]);
+
+            ActadvProjDocument.UploadDate = DateTime.Now;
+            ActadvProjDocument.UserId = Global.userID;
+            ActadvProjDocument.TaskId = actTid;
+            ActadvProjDocument.DocumentPath = "PlaceHolder";
+
+
+            // skiping normal validation as it dosent work with files 
+            // using required validation in form in html side
+            if (true)
             {
+                long size = files.Sum(f => f.Length);
+
+                var filePaths = new List<string>();
+                foreach (var formFile in files)
+                {
+                    if (formFile.Length > 0)
+                    {
+                        // full path to file in temp location
+                        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "UploadedFiles", formFile.FileName);
+                        var dbfilePath = Path.Combine("UploadedFiles", formFile.FileName);
+                        filePaths.Add(filePath);
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await formFile.CopyToAsync(stream);
+                        }
+                        ActadvProjDocument.DocumentPath = dbfilePath.ToString();
+                    }
+                }
+                // process uploaded files
+                
+
                 _context.Add(advProjDocument);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["TaskId"] = new SelectList(_context.AdvProjTasks, "TaskId", "TaskDescription", advProjDocument.TaskId);
-            ViewData["UserId"] = new SelectList(_context.AdvProjUsers, "UserId", "UserId", advProjDocument.UserId);
-            return View(advProjDocument);
-        }
-
-        // GET: AdvProjDocuments/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.AdvProjDocuments == null)
-            {
-                return NotFound();
+                return RedirectToAction("Index", new { tid = actTid });
             }
 
-            var advProjDocument = await _context.AdvProjDocuments.FindAsync(id);
-            if (advProjDocument == null)
-            {
-                return NotFound();
-            }
-            ViewData["TaskId"] = new SelectList(_context.AdvProjTasks, "TaskId", "TaskDescription", advProjDocument.TaskId);
-            ViewData["UserId"] = new SelectList(_context.AdvProjUsers, "UserId", "UserId", advProjDocument.UserId);
-            return View(advProjDocument);
-        }
-
-        // POST: AdvProjDocuments/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DocumentId,DocumentName,DocumentType,DocumentExt,DocumentPath,DocumentDescription,UploadDate,TaskId,UserId")] AdvProjDocument advProjDocument)
-        {
-            if (id != advProjDocument.DocumentId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(advProjDocument);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AdvProjDocumentExists(advProjDocument.DocumentId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
             ViewData["TaskId"] = new SelectList(_context.AdvProjTasks, "TaskId", "TaskDescription", advProjDocument.TaskId);
             ViewData["UserId"] = new SelectList(_context.AdvProjUsers, "UserId", "UserId", advProjDocument.UserId);
             return View(advProjDocument);
@@ -149,7 +111,7 @@ namespace advProj_WebProjectManager.Controllers
         // POST: AdvProjDocuments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id, int? tid)
         {
             if (_context.AdvProjDocuments == null)
             {
@@ -162,7 +124,7 @@ namespace advProj_WebProjectManager.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", new { tid = tid });
         }
 
         private bool AdvProjDocumentExists(int id)

@@ -19,18 +19,6 @@
             @Html.DisplayFor(model => model.DocumentName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DocumentType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DocumentType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DocumentExt)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DocumentExt)
-        </dd>
-        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.DocumentPath)
         </dt>
         <dd class = "col-sm-10">
@@ -52,19 +40,19 @@
             @Html.DisplayNameFor(model => model.Task)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Task.TaskDescription)
+            @Html.DisplayFor(model => model.Task.TaskName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.User)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.User.UserId)
+            @Html.DisplayFor(model => model.User.FullName)
         </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="DocumentId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="Index" asp-route-tid="@Context.Request.Query["tid"]">Back to List</a>
     </form>
 </div>

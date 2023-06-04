@@ -22,10 +22,10 @@ namespace advProj_BusinessObjects
         [StringLength(20)]
         public string EntityName { get; set; } = null!;
         [Column("oldValue")]
-        [StringLength(250)]
+        [StringLength(1100)]
         public string? OldValue { get; set; }
         [Column("newValue")]
-        [StringLength(250)]
+        [StringLength(1100)]
         public string? NewValue { get; set; }
         [Column("recordID")]
         public int? RecordId { get; set; }

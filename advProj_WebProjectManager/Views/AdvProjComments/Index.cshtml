@@ -7,62 +7,69 @@
 
 <h1>Index</h1>
 
-<p>
+
 <p>
     <a asp-action="Create" asp-route-tid="@Context.Request.Query["tid"]" class="btn btn-primary">Add a Comment</a>
 </p>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CommentTitle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CommentBody)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CommentDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Response)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Task)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CommentTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CommentBody)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CommentDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Response.ResponseDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Task.TaskDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.UserId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CommentId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CommentId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CommentId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+
+
+    @{
+        if (Model.Count() != 0)
+        {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.CommentTitle)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.CommentDate)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.Response)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.User)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.CommentTitle)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.CommentDate)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Response.ResponseName)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.User.FullName)
+                        </td>
+                        <td class="text-center">
+
+                            <a type="button" class="btn btn-primary btn-sm" asp-action="Details" asp-route-id="@item.CommentId" asp-route-tid="@Context.Request.Query["tid"]"><i class="fa-solid fa-circle-info fa-xs"></i></a>
+                            @{
+                                if (Global.userID == item.User.UserId)
+                                {
+                                    <a type="button" class="btn btn-success btn-sm" asp-action="Edit" asp-route-id="@item.CommentId" asp-route-tid="@Context.Request.Query["tid"]"><i class="fa-solid fa-pen-to-square fa-xs"></i></a>
+                                    <a type="button" class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.CommentId" asp-route-tid="@Context.Request.Query["tid"]"><i class="fa-solid fa-trash fa-xs"></i></a>
+                                }
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            </table>
+        }
+        else
+        {
+            <h1>No Data Is Present</h1>
+        }
+    }
+

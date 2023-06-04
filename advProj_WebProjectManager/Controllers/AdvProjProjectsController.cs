@@ -13,6 +13,7 @@ using advProj_WebProjectManager.ViewModels;
 
 namespace advProj_WebProjectManager.Controllers
 {
+    [Authorize]
     public class AdvProjProjectsController : Controller
     {
         private readonly AdvProg_DatabaseContext _context;
@@ -139,6 +140,19 @@ namespace advProj_WebProjectManager.Controllers
             {
                 _context.Add(newProject);
                 await _context.SaveChangesAsync();
+
+                // audit - adding a new audit to the list 
+                AdvProjAudit newAudit = new AdvProjAudit();
+                newAudit.AuditSource = "Web";
+                newAudit.ChnageType = "Create";
+                newAudit.EntityName = "Projects";
+                newAudit.NewValue = newProject.ToString();
+                newAudit.RecordId = newProject.ProjectId;
+                newAudit.UserId = Global.userID;
+
+                _context.Add(newAudit);
+                await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ManagerId"] = new SelectList(_context.AdvProjUsers, "UserId", "UserId", newProject.ManagerId);
@@ -194,8 +208,22 @@ namespace advProj_WebProjectManager.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
+            
+
             AdvProjProject updateProject = advProjProject;
             updateProject.ManagerId = Global.userID;
+
+            if (updateProject.StatusId == 5)
+            {
+                updateProject.FinishDate = DateTime.Now.Date;
+            }
+
+            // new dbcontext object to avoide tracking issues 
+            AdvProg_DatabaseContext secondContext = new AdvProg_DatabaseContext();
+
+
+            var oldProject = secondContext.AdvProjProjects.Find(advProjProject.ProjectId);
+            var oldValue = oldProject.ToString();
 
             if (ModelState.IsValid)
             {
@@ -208,6 +236,23 @@ namespace advProj_WebProjectManager.Controllers
 
                     _context.Update(updateProject);
                     await _context.SaveChangesAsync();
+
+                    // audit - adding a new audit to the list 
+                    AdvProjAudit newAudit = new AdvProjAudit();
+                    newAudit.AuditSource = "Web";
+                    newAudit.ChnageType = "Update";
+                    newAudit.EntityName = "Projects";
+                    newAudit.OldValue = oldValue;
+                    newAudit.NewValue = updateProject.ToString();
+                    newAudit.RecordId = advProjProject.ProjectId;
+                    newAudit.UserId = Global.userID;
+
+                    
+
+                    // seprate to ensure that if an exception happens in the update this will not be excuted
+                    _context.Add(newAudit);
+                    await _context.SaveChangesAsync();
+
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -275,6 +320,19 @@ namespace advProj_WebProjectManager.Controllers
             }
             
             await _context.SaveChangesAsync();
+
+            // audit - adding a new audit to the list 
+            AdvProjAudit newAudit = new AdvProjAudit();
+            newAudit.AuditSource = "Web";
+            newAudit.ChnageType = "Delete";
+            newAudit.EntityName = "Projects";
+            newAudit.OldValue = advProjProject.ToString();
+            newAudit.RecordId = advProjProject.ProjectId;
+            newAudit.UserId = Global.userID;
+
+            _context.Add(newAudit);
+            await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 

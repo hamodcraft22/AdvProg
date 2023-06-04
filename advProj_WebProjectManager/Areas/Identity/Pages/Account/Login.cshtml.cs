@@ -122,7 +122,7 @@ namespace advProj_WebProjectManager.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User logged in.");
 
-                    // retrive currant logged in user and save his it to the global user id
+                    // retrive currant logged in user and save his id to the global user id
                     var userAspID = _signInManager.UserManager.Users.FirstOrDefault(x => x.UserName == Input.Username).Id;
                     Global.userID = dbContext.AdvProjUsers.SingleOrDefault(x => x.AspUserId == userAspID).UserId;
 

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architect-project version="1.0" appversion="1.0.9">
+ <project-name>dbProj</project-name>
+ <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
+ <project-data-sources>
+  <data-source id="DS0">
+   <property key="Logical" value="PlayPen Database" />
+  </data-source>
+ </project-data-sources>
+ <source-databases>
+ </source-databases>
+ <target-database id="ppdb" dbcs-ref="DS0">
+  <table id="TAB1" populated="true" UUID="d8e551e7-5596-4f35-bc63-8c3381156c1c" name="Project" objectType="TABLE" physicalName="Project" >
+   <remarks></remarks>
+   <folder id="FOLTAB11" populated="true" name="Columns" physicalName="Columns" type="1">
+    <index id="IDX2" populated="true" UUID="7323dec7-8806-4971-a1be-1f9786914ed0" clustered="false" name="Project_pk" physicalName="Project_pk" primaryKeyIndex="true" unique="false" >
+    </index>
+   </folder>
+  </table>
+  <table id="TAB3" populated="true" UUID="56d4b707-3bf7-47c4-8b07-fcbe6186199d" name="Task" objectType="TABLE" physicalName="Task" >
+   <remarks></remarks>
+   <folder id="FOLTAB31" populated="true" name="Columns" physicalName="Columns" type="1">
+    <index id="IDX4" populated="true" UUID="bc2e5e70-eec2-44ec-a275-fc06161c8cd8" clustered="false" name="Task_pk" physicalName="Task_pk" primaryKeyIndex="true" unique="false" >
+    </index>
+   </folder>
+  </table>
+  <table id="TAB5" populated="true" UUID="630b00ad-7773-43e0-8857-adadcab2fa36" name="Audit     " objectType="TABLE" physicalName="Audit     " >
+   <remarks></remarks>
+   <folder id="FOLTAB51" populated="true" name="Columns" physicalName="Columns" type="1">
+    <index id="IDX6" populated="true" UUID="e2ed0021-7d13-4442-b5e2-298314d6155d" clustered="false" name="Audit     _pk" physicalName="Audit     _pk" primaryKeyIndex="true" unique="false" >
+    </index>
+   </folder>
+  </table>
+  <table id="TAB7" populated="true" UUID="4cc7e918-5bf8-4387-b21e-6c055473a971" name="Logs " objectType="TABLE" physicalName="Logs " >
+   <remarks></remarks>
+   <folder id="FOLTAB71" populated="true" name="Columns" physicalName="Columns" type="1">
+    <index id="IDX8" populated="true" UUID="9bf52dd7-a3ec-4742-b02d-cb92af753165" clustered="false" name="Logs _pk" physicalName="Logs _pk" primaryKeyIndex="true" unique="false" >
+    </index>
+   </folder>
+  </table>
+  <table id="TAB9" populated="true" UUID="c403e064-069f-451c-8b27-c0a25fbc216e" name="User " objectType="TABLE" physicalName="User " >
+   <remarks></remarks>
+   <folder id="FOLTAB91" populated="true" name="Columns" physicalName="Columns" type="1">
+    <index id="IDX10" populated="true" UUID="4dae4a07-9995-4b8f-b2a6-aea5205fbbf4" clustered="false" name="User _pk" physicalName="User _pk" primaryKeyIndex="true" unique="false" >
+    </index>
+   </folder>
+  </table>
+  <table id="TAB11" populated="true" UUID="e89ca33a-74f9-44c6-863a-f6ac4266e0a8" name="Role" objectType="TABLE" physicalName="Role" >
+   <remarks></remarks>
+   <folder id="FOLTAB111" populated="true" name="Columns" physicalName="Columns" type="1">
+    <index id="IDX12" populated="true" UUID="986ab214-053c-4433-a8dc-788cad3256db" clustered="false" name="Role_pk" physicalName="Role_pk" primaryKeyIndex="true" unique="false" >
+    </index>
+   </folder>
+  </table>
+  <table id="TAB13" populated="true" UUID="9ab7beff-b89b-43bd-866a-b61b896bc74e" name="Document" objectType="TABLE" physicalName="Document" >
+   <remarks></remarks>
+   <folder id="FOLTAB131" populated="true" name="Columns" physicalName="Columns" type="1">
+    <index id="IDX14" populated="true" UUID="fc355dce-9640-4d68-924a-d5cbe8c4ced5" clustered="false" name="Document_pk" physicalName="Document_pk" primaryKeyIndex="true" unique="false" >
+    </index>
+   </folder>
+  </table>
+  <table id="TAB15" populated="true" UUID="4bf6bc45-1dd8-4080-8dec-6072e88ed1c9" name="Comment" objectType="TABLE" physicalName="Comment" >
+   <remarks></remarks>
+   <folder id="FOLTAB151" populated="true" name="Columns" physicalName="Columns" type="1">
+    <index id="IDX16" populated="true" UUID="c78f85a3-de77-42f5-8c00-fa8bb36c50f0" clustered="false" name="Comment_pk" physicalName="Comment_pk" primaryKeyIndex="true" unique="false" >
+    </index>
+   </folder>
+  </table>
+  <table id="TAB17" populated="true" UUID="a341ead3-4982-4e61-a556-3d62583d3416" name="notification" objectType="TABLE" physicalName="notification" >
+   <remarks></remarks>
+   <folder id="FOLTAB171" populated="true" name="Columns" physicalName="Columns" type="1">
+    <index id="IDX18" populated="true" UUID="3d8450f6-eab7-4cfd-b2bb-d13364b128cb" clustered="false" name="notification_pk" physicalName="Logs _pk" primaryKeyIndex="true" unique="false" >
+    </index>
+   </folder>
+  </table>
+  <table id="TAB19" populated="true" UUID="17bf371a-d674-44b5-a242-97ca966c60cf" name="User_Project" objectType="TABLE" physicalName="User_Project" >
+   <remarks></remarks>
+   <folder id="FOLTAB191" populated="true" name="Columns" physicalName="Columns" type="1">
+    <index id="IDX20" populated="true" UUID="1400b8b1-9a54-442c-a8e8-626065deae87" clustered="false" name="User_Project_pk" physicalName="User_Project_pk" primaryKeyIndex="true" unique="false" >
+    </index>
+   </folder>
+  </table>
+  <table id="TAB21" populated="true" UUID="dece79b8-8799-4aee-b86c-252d428d8ab9" name="User_Task" objectType="TABLE" physicalName="User_Task" >
+   <remarks></remarks>
+   <folder id="FOLTAB211" populated="true" name="Columns" physicalName="Columns" type="1">
+    <index id="IDX22" populated="true" UUID="21a423e9-019b-4d03-8d90-c8a2f676f581" clustered="false" name="User_Task_pk" physicalName="User_Project_pk" primaryKeyIndex="true" unique="false" >
+    </index>
+   </folder>
+  </table>
+  <relationships>
+   <relationship id="REL23" populated="true" UUID="0bf94182-81be-4ebc-99db-27b22347a107" deferrability="7" deleteRule="3" fk-table-ref="TAB3" fkCardinality="7" identifying="true" name="Project_Task_fk" physicalName="Project_Task_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+   </relationship>
+   <relationship id="REL24" populated="true" UUID="82a9c6ec-ef11-428f-8ec9-d63c48f89543" deferrability="7" deleteRule="3" fk-table-ref="TAB19" fkCardinality="7" identifying="true" name="Project_User_Project_fk" physicalName="Project_User_Project_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+   </relationship>
+   <relationship id="REL25" populated="true" UUID="c35ee3a0-6f03-4d00-80a0-f5df84166283" deferrability="7" deleteRule="3" fk-table-ref="TAB13" fkCardinality="7" identifying="true" name="Task_Document_fk" physicalName="Task_Document_fk" pk-table-ref="TAB3" pkCardinality="2" updateRule="3" >
+   </relationship>
+   <relationship id="REL26" populated="true" UUID="f69c4dfa-6e09-4d7e-a857-926c409fe81a" deferrability="7" deleteRule="3" fk-table-ref="TAB15" fkCardinality="7" identifying="true" name="Task_Comment_fk" physicalName="Task_Comment_fk" pk-table-ref="TAB3" pkCardinality="2" updateRule="3" >
+   </relationship>
+   <relationship id="REL27" populated="true" UUID="9e77ec8e-5b79-44c7-b357-e9de7a881838" deferrability="7" deleteRule="3" fk-table-ref="TAB21" fkCardinality="7" identifying="true" name="Task_User_Task_fk" physicalName="Task_User_Task_fk" pk-table-ref="TAB3" pkCardinality="2" updateRule="3" >
+   </relationship>
+   <relationship id="REL28" populated="true" UUID="9b909a87-a41f-494e-8726-f9da0de9d0ae" deferrability="7" deleteRule="3" fk-table-ref="TAB11" fkCardinality="7" identifying="true" name="User _Role_fk" physicalName="User _Role_fk" pk-table-ref="TAB9" pkCardinality="2" updateRule="3" >
+   </relationship>
+   <relationship id="REL29" populated="true" UUID="229bea1e-3318-4d48-8b00-84fcc1df95b4" deferrability="7" deleteRule="3" fk-table-ref="TAB5" fkCardinality="7" identifying="true" name="User _Audit     _fk" physicalName="User _Audit     _fk" pk-table-ref="TAB9" pkCardinality="2" updateRule="3" >
+   </relationship>
+   <relationship id="REL30" populated="true" UUID="3e29ba4f-da3a-4340-aa75-d92ec3cbec56" deferrability="7" deleteRule="3" fk-table-ref="TAB7" fkCardinality="7" identifying="true" name="User _Logs _fk" physicalName="User _Logs _fk" pk-table-ref="TAB9" pkCardinality="2" updateRule="3" >
+   </relationship>
+   <relationship id="REL31" populated="true" UUID="b40908a7-568c-4c1f-a1a4-064d1b73ae60" deferrability="7" deleteRule="3" fk-table-ref="TAB17" fkCardinality="7" identifying="true" name="User _notification_fk" physicalName="User _notification_fk" pk-table-ref="TAB9" pkCardinality="2" updateRule="3" >
+   </relationship>
+   <relationship id="REL32" populated="true" UUID="233da467-9784-4cbe-ad5a-1e1aa1a5300d" deferrability="7" deleteRule="3" fk-table-ref="TAB19" fkCardinality="7" identifying="true" name="User _User_Project_fk" physicalName="User _User_Project_fk" pk-table-ref="TAB9" pkCardinality="2" updateRule="3" >
+   </relationship>
+   <relationship id="REL33" populated="true" UUID="9a99ef53-6f6d-46cc-a8f5-4fc5521a4080" deferrability="7" deleteRule="3" fk-table-ref="TAB21" fkCardinality="7" identifying="true" name="User _User_Task_fk" physicalName="User _User_Task_fk" pk-table-ref="TAB9" pkCardinality="2" updateRule="3" >
+   </relationship>
+  </relationships>
+ </target-database>
+ <ddl-generator type="ca.sqlpower.architect.ddl.GenericDDLGenerator" allow-connection="true"> </ddl-generator>
+ <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
+ <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
+ <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+  <table-pane table-ref="TAB1" x="459" y="151" bgColor="0xe8cfdb" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB3" x="583" y="218" bgColor="0xe8cfdb" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB5" x="235" y="194" bgColor="0xe8cfdb" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB7" x="240" y="314" bgColor="0xe8cfdb" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB9" x="425" y="281" bgColor="0xe8cfdb" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB11" x="239" y="258" bgColor="0xe8cfdb" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB13" x="722" y="226" bgColor="0xe8cfdb" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB15" x="640" y="357" bgColor="0xe8cfdb" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB17" x="370" y="404" bgColor="0xe8cfdb" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB19" x="377" y="206" bgColor="0xc8b7ea" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB21" x="536" y="301" bgColor="0xc8b7ea" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-link relationship-ref="REL28" pkConnection="0.10344827586206896" fkConnection="0.896551724137931" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL25" pkConnection="0.6206896551724138" fkConnection="0.3448275862068966" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL29" pkConnection="0.3448275862068966" fkConnection="0.6551724137931034" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL30" pkConnection="0.6551724137931034" fkConnection="0.4827586206896552" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL31" pkConnection="0.2413793103448276" fkConnection="0.6666666666666666" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL23" pkConnection="0.6551724137931034" fkConnection="0.3448275862068966" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL26" pkConnection="0.5" fkConnection="0.46938775510204084" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL32" pkConnection="0.3103448275862069" fkConnection="0.8636363636363636" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL24" pkConnection="0.3157894736842105" fkConnection="0.5909090909090909" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL33" pkConnection="0.8275862068965517" fkConnection="0.13793103448275862" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL27" pkConnection="0.6551724137931034" fkConnection="0.0" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="130"/>
+ </play-pen>
+ <critic-manager>
+  <critic-grouping platformType="Generic" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PrimaryKeyCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.RelationshipMappingTypeCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.EmptyRelationshipCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericSequenceNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetDefaultOnColumnWithNoDefaultCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetNullOnNonNullableColumnCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DuplicateNameCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="DB2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DB2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="H2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.H2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="HSQLDB" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.HSQLDBUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="MySQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLCommentCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="Oracle" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OraclePhysicalNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="PostgreSQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PostgreSQLReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerUnsupportedFeaturesCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2000" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2000UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2005" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2005UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+ </critic-manager>
+ <profiles topNCount="10">
+  </profiles>
+  <olap>
+  </olap>
+  <olap-gui>
+  </olap-gui>
+</architect-project>

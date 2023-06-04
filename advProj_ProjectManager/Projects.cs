@@ -60,14 +60,14 @@ namespace advProj_ProjectManager
             // check if is member of view or not
             if (isMember)
             {
-                // part to check if member and only show those results 
+                // part to check if member and only show those results
                 var userTaskIds = context.AdvProjUserTasks.Where(x => x.UserId == Global.loggedUser.UserId).Select(a => a.TaskId);
                 var userProjectIds = context.AdvProjTasks.Where(x => userTaskIds.Contains(x.TaskId)).Select(a => a.ProjectId);
                 projectsToShow = projectsToShow.Where(a => userTaskIds.Contains(a.ProjectId));
             }
             else
             {
-                // show only the ones where the logged user is the manager 
+                // show only the ones where the logged user is the manager
                 projectsToShow = projectsToShow.Where(a => a.ManagerId == Global.loggedUser.UserId);
             }
 
@@ -160,7 +160,7 @@ namespace advProj_ProjectManager
         {
             int projectID = Convert.ToInt32(dgv_ProjectsView.SelectedCells[0].OwningRow.Cells[0].Value);
             AdvProjProject RetrivedProj = context.AdvProjProjects.Single(o => o.ProjectId == projectID);
-            
+
 
             Create_Project edit_Project = new Create_Project(RetrivedProj);
             edit_Project.ShowDialog();

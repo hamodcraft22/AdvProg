@@ -10,9 +10,11 @@ using advProj_WebProjectManager.Models;
 using advProj_WebProjectManager.ViewModels;
 using Microsoft.CodeAnalysis;
 using System.Diagnostics.Metrics;
+using Microsoft.AspNetCore.Authorization;
 
 namespace advProj_WebProjectManager.Controllers
 {
+    [Authorize]
     public class AdvProjTasksController : Controller
     {
         private readonly AdvProg_DatabaseContext _context;
@@ -25,7 +27,7 @@ namespace advProj_WebProjectManager.Controllers
         // to enfore validation the id was chnaged to being the ProjectID, other ids were givin
 
         // GET: AdvProjTasks
-        public async Task<IActionResult> Index(int? id, string? Member, string? TaskName, string? StatusInput)
+        public async Task<IActionResult> Index(int? id, string? Member, string? all, string? TaskName, string? StatusInput)
         {
             // error and redirect if no task id was passed
             if (id == null)
@@ -51,6 +53,11 @@ namespace advProj_WebProjectManager.Controllers
                         advProg_ProjectContext = advProg_ProjectContext.Where(a => a.ProjectId == id);
                         advProg_TasksContext = advProg_TasksContext.Where(a => a.ProjectId == id && userTaksIds.Contains(a.TaskId));
                     }
+                    else if (all != null)
+                    {
+                        // to show all articles for member - no edit
+                        advProg_TasksContext = advProg_TasksContext.Where(a => a.ProjectId == id);
+                    }
                     else
                     {
                         // check if the user is a manager, if so not allowed (without the memebr get request)
@@ -65,6 +72,26 @@ namespace advProj_WebProjectManager.Controllers
                         advProg_TasksContext = advProg_TasksContext.Where(a => a.ProjectId == id);
                     }
 
+                    // statistics passing to home - suing view data
+                    int NoOfTasks = advProg_TasksContext.Count();
+                    if (NoOfTasks != 0)
+                    {
+                        int OvrdTasks = advProg_TasksContext.Where(x => x.FinishDate > DateTime.Now.Date || (x.FinishDate == DateTime.MinValue && x.EndDate > DateTime.Now.Date)).Count();
+                        int CmpltTasks = advProg_TasksContext.Where(x => x.StatusId == 5).Count();
+                        double CmpltPrsnt = (((double)CmpltTasks / (double)NoOfTasks) * (double)100);
+
+                        ViewData["NoOfTasks"] = NoOfTasks;
+                        ViewData["OvrdTasks"] = OvrdTasks;
+                        ViewData["CmpltTasks"] = CmpltTasks;
+                        ViewData["CmpltPrsnt"] = CmpltPrsnt;
+                    }
+                    else
+                    {
+                        ViewData["NoOfTasks"] = 0;
+                        ViewData["OvrdTasks"] = 0;
+                        ViewData["CmpltTasks"] = 0;
+                        ViewData["CmpltPrsnt"] = 0;
+                    }
 
                     // filttering based on seach input (Task name)
                     if (!String.IsNullOrEmpty(TaskName))
@@ -206,14 +233,38 @@ namespace advProj_WebProjectManager.Controllers
                 _context.Add(ActnewTask);
                 await _context.SaveChangesAsync();
 
+                // audit - adding a new audit to the list 
+                AdvProjAudit newAudit = new AdvProjAudit();
+                newAudit.AuditSource = "Web";
+                newAudit.ChnageType = "Create";
+                newAudit.EntityName = "Task";
+                newAudit.NewValue = ActnewTask.ToString();
+                newAudit.RecordId = ActnewTask.TaskId;
+                newAudit.UserId = Global.userID;
+
+                _context.Add(newAudit);
+                await _context.SaveChangesAsync();
+
                 //creating user tasks objects
                 foreach (string userItemID in newTask.selectIdArray)
                 {
+                    // adding the user task
                     AdvProjUserTask newUserTask = new AdvProjUserTask();
                     newUserTask.TaskId = ActnewTask.TaskId;
                     newUserTask.UserId = Convert.ToInt32(userItemID);
 
                     _context.Add(newUserTask);
+
+                    // adding the notifiactions
+                    AdvProjNotification newNotification = new AdvProjNotification();
+                    newNotification.TaskId = ActnewTask.TaskId;
+                    newNotification.UserId = Convert.ToInt32(userItemID);
+                    newNotification.StatusId = 1;
+                    newNotification.NotificationTitle = "New Task Assigned";
+                    newNotification.NotificationBody = "You have been assigned a new notification for a project it should be done before " + ActnewTask.EndDate.ToString();
+                    newNotification.NotificationDate = DateTime.Now;
+
+                    _context.Add(newNotification);
                 }
 
                 await _context.SaveChangesAsync();
@@ -303,6 +354,18 @@ namespace advProj_WebProjectManager.Controllers
                 return RedirectToAction("Index", "Home", new { area = "" });
             }
 
+            if (advProjTask.StatusId == 5)
+            {
+                advProjTask.FinishDate = DateTime.Now.Date;
+            }
+
+            // new dbcontext object to avoide tracking issues 
+            AdvProg_DatabaseContext secondContext = new AdvProg_DatabaseContext();
+
+
+            var oldTask = secondContext.AdvProjTasks.Find(advProjTask.TaskId);
+            var oldValue = oldTask.ToString();
+
             if (ModelState.IsValid)
             {
                 try
@@ -314,6 +377,37 @@ namespace advProj_WebProjectManager.Controllers
                     }
 
                     _context.Update(advProjTask);
+                    await _context.SaveChangesAsync();
+
+                    
+
+                    // audit - adding a new audit to the list 
+                    AdvProjAudit newAudit = new AdvProjAudit();
+                    newAudit.AuditSource = "Web";
+                    newAudit.ChnageType = "Update";
+                    newAudit.EntityName = "Task";
+                    newAudit.OldValue = oldValue;
+                    newAudit.NewValue = advProjTask.ToString();
+                    newAudit.RecordId = advProjTask.TaskId;
+                    newAudit.UserId = Global.userID;
+
+
+                    // adding the notifiactions
+                    // retriving the task as main method dosenot include query of data
+                    AdvProjTask retrivedTask = _context.AdvProjTasks.Include(a => a.Project).Include(b => b.Project.Manager).Include(c => c.Status).Where(z => z.TaskId == advProjTask.TaskId).FirstOrDefault();
+
+                    AdvProjNotification newNotification = new AdvProjNotification();
+                    newNotification.TaskId = retrivedTask.TaskId;
+                    newNotification.UserId = retrivedTask.Project.ManagerId;
+                    newNotification.StatusId = 1;
+                    newNotification.NotificationTitle = "Task Updated";
+                    newNotification.NotificationBody = "Task '" + retrivedTask.TaskName + "' status has been updated to '" + retrivedTask.Status.StatusName + "'";
+                    newNotification.NotificationDate = DateTime.Now;
+
+                    _context.Add(newNotification);
+
+                    // seprate to ensure that if an exception happens in the update this will not be excuted
+                    _context.Add(newAudit);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -423,7 +517,19 @@ namespace advProj_WebProjectManager.Controllers
             {
                 _context.AdvProjTasks.Remove(advProjTask);
             }
-            
+
+            // audit - adding a new audit to the list 
+            AdvProjAudit newAudit = new AdvProjAudit();
+            newAudit.AuditSource = "Web";
+            newAudit.ChnageType = "Delete";
+            newAudit.EntityName = "Task";
+            newAudit.OldValue = advProjTask.ToString();
+            newAudit.RecordId = advProjTask.TaskId;
+            newAudit.UserId = Global.userID;
+
+            _context.Add(newAudit);
+            await _context.SaveChangesAsync();
+
             await _context.SaveChangesAsync();
             return RedirectToAction("Index", "AdvProjTasks", new { id = id });
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
 
 namespace advProj_BusinessObjects
@@ -17,12 +18,12 @@ namespace advProj_BusinessObjects
         public string DocumentName { get; set; } = null!;
         [Column("documentType")]
         [StringLength(10)]
-        public string DocumentType { get; set; } = null!;
+        public string? DocumentType { get; set; } = null!;
         [Column("documentExt")]
         [StringLength(10)]
-        public string DocumentExt { get; set; } = null!;
+        public string? DocumentExt { get; set; } = null!;
         [Column("documentPath")]
-        [StringLength(100)]
+        [StringLength(300)]
         public string DocumentPath { get; set; } = null!;
         [Column("documentDescription")]
         [StringLength(100)]
@@ -40,5 +41,11 @@ namespace advProj_BusinessObjects
         [ForeignKey("UserId")]
         [InverseProperty("AdvProjDocuments")]
         public virtual AdvProjUser? User { get; set; }
+
+        // custome tostring method to serilize object to show in audits
+        public override string? ToString()
+        {
+            return JsonSerializer.Serialize(this);
+        }
     }
 }

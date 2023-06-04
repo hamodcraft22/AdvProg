@@ -7,66 +7,64 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.AuditSource)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ChnageType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EntityName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OldValue)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NewValue)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RecordId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AuditSource)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChnageType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EntityName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OldValue)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NewValue)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecordId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.UserId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AuditId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AuditId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AuditId">Delete</a>
-            </td>
-        </tr>
+
+
+@{
+    if (Model.Count() != 0)
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.AuditSource)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.ChnageType)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.EntityName)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.RecordId)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.User)
+                    </th>
+                    <th class="text-center">
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.AuditSource)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.ChnageType)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.EntityName)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.RecordId)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.User.FullName)
+                        </td>
+                        <td class="text-center">
+                            <a type="button" class="btn btn-primary btn-sm" asp-action="Details" asp-route-id="@item.AuditId"><i class="fa-solid fa-circle-info fa-xs"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h1>No Data Is Present</h1>
+    }
 }
-    </tbody>
-</table>
+

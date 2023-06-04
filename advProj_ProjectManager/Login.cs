@@ -73,7 +73,7 @@ namespace advProj_ProjectManager
                 {
                     var userRole = await userManager.GetRolesAsync(founduser);
 
-                    // adding user ID 
+                    // adding user ID
                     AdvProjUser logUser = new AdvProjUser();
                     logUser = dbContext.AdvProjUsers.Where(a => a.AspUserId == founduser.Id).FirstOrDefault();
                     Global.loggedUser = logUser;
