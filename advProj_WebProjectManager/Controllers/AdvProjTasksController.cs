@@ -370,6 +370,12 @@ namespace advProj_WebProjectManager.Controllers
             {
                 try
                 {
+                    // setting the finish date if it is chnaged to finilized 
+                    if (advProjTask.StatusId == 5)
+                    {
+                        advProjTask.FinishDate = DateTime.Now.Date;
+                    }
+
                     _context.Update(advProjTask);
                     await _context.SaveChangesAsync();
 
