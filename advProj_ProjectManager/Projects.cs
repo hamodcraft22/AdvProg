@@ -94,7 +94,7 @@ namespace advProj_ProjectManager
                 // statistics
                 lblNumberofProjects.Text = projectsToShow.Count().ToString();
                 lblNumberOfCompletedProjects.Text = projectsToShow.Where(x => x.StatusId == '5').Count().ToString();
-                lblNumberofOverDueProjects.Text = projectsToShow.Where(x => x.FinishDate > x.EndDate || (x.FinishDate == DateTime.MinValue.Date && x.EndDate > DateTime.Today.Date)).Count().ToString();
+                lblNumberofOverDueProjects.Text = projectsToShow.Where(x => x.FinishDate > x.EndDate || (x.FinishDate == DateTime.MinValue.Date && x.EndDate < DateTime.Today.Date)).Count().ToString();
 
                 if (txt_SearchProject.Text != "")
                 {

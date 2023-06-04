@@ -17,6 +17,7 @@ namespace advProj_BusinessObjects.GlobalClass
             newLog.LogSource = logSrc;
             newLog.ExceptionMsg = msg;
             newLog.UserId = uid;
+            newLog.Date = DateTime.Now;
 
             LogsdbContext.Add(newLog);
             LogsdbContext.SaveChanges();
@@ -33,6 +34,9 @@ namespace advProj_BusinessObjects.GlobalClass
             newAudit.OldValue = oldVal;
             newAudit.RecordId = rcrdID;
             newAudit.UserId = uid;
+
+            LogsdbContext.Add(newAudit);
+            LogsdbContext.SaveChanges();
         }
     }
 }

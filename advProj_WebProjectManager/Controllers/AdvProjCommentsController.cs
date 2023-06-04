@@ -35,7 +35,7 @@ namespace advProj_WebProjectManager.Controllers
             catch (Exception ex)
             {
                 // creating and saving excpetion log
-                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
+                LogsAudits.addLog("Web", ex.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
@@ -71,7 +71,7 @@ namespace advProj_WebProjectManager.Controllers
             catch (Exception ex)
             {
                 // creating and saving excpetion log
-                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
+                LogsAudits.addLog("Web", ex.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
@@ -93,7 +93,7 @@ namespace advProj_WebProjectManager.Controllers
             catch (Exception ex)
             {
                 // creating and saving excpetion log
-                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
+                LogsAudits.addLog("Web", ex.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
@@ -151,7 +151,7 @@ namespace advProj_WebProjectManager.Controllers
             catch (Exception ex)
             {
                 // creating and saving excpetion log
-                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
+                LogsAudits.addLog("Web", ex.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
@@ -203,7 +203,7 @@ namespace advProj_WebProjectManager.Controllers
             catch (Exception ex)
             {
                 // creating and saving excpetion log
-                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
+                LogsAudits.addLog("Web", ex.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
@@ -240,7 +240,7 @@ namespace advProj_WebProjectManager.Controllers
             {
                 // creating and saving excpetion log
                 AdvProjLog newLog = new AdvProjLog();
-                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
+                LogsAudits.addLog("Web", ex.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";
@@ -276,7 +276,7 @@ namespace advProj_WebProjectManager.Controllers
             catch (Exception ex)
             {
                 // creating and saving excpetion log
-                LogsAudits.addLog("Web", ex.Message.ToString(), (int)Global.userID);
+                LogsAudits.addLog("Web", ex.ToString(), (int)Global.userID);
 
                 // return to home page with error 
                 TempData["ErrorMsg"] = "An Error Has Occured, Please Try Again Later";

@@ -98,7 +98,7 @@ namespace advProj_ProjectManager
                 // loading and calculating statstics
                 double countOfTasks = tasksToShow.Count();
                 double countOfCmplt = tasksToShow.Where(x => x.StatusId == '5').Count();
-                double countOfOvrd = tasksToShow.Where(x => x.FinishDate > x.EndDate || (x.FinishDate == DateTime.MinValue.Date && x.EndDate > DateTime.Today.Date)).Count();
+                double countOfOvrd = tasksToShow.Where(x => x.FinishDate > x.EndDate || (x.FinishDate == DateTime.MinValue.Date && x.EndDate < DateTime.Today.Date)).Count();
 
 
                 lblNumberOfTask.Text = ((int)countOfTasks).ToString();
@@ -195,7 +195,7 @@ namespace advProj_ProjectManager
             catch (Exception ex)
             {
                 MessageBox.Show("There has been an error, please contact your admin");
-                LogsAudits.addLog("Forms", eex.Message.ToString(), Global.loggedUser.UserId);
+                LogsAudits.addLog("Forms", ex.Message.ToString(), Global.loggedUser.UserId);
             }
 
         }

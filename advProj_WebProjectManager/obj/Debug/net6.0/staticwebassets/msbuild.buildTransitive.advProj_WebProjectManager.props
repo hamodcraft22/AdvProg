@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\advProj_WebProjectManager.props" />
-</Project>

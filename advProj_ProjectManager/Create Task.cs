@@ -148,11 +148,15 @@ namespace advProj_ProjectManager
                             taskObject.FinishDate = DateTime.Now.Date;
                         }
 
+                        var oldTask = context.AdvProjTasks.Find(taskObject.TaskId);
+
                         // workaround to disable tracking check
                         AdvProg_DatabaseContext newContext = new AdvProg_DatabaseContext();
 
                         newContext.Update(taskObject);
                         newContext.SaveChanges();
+
+                        LogsAudits.addAudit("Forms", "Update", "Task", oldTask.ToString(), taskObject.ToString(), taskObject.TaskId, Global.loggedUser.UserId);
 
                         this.Close();
                         this.DialogResult = DialogResult.OK;
